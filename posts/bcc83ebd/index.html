@@ -25,8 +25,8 @@
 <meta property="article:published_time" content="2019-03-30T06:47:00.000Z">
 <meta property="article:modified_time" content="2021-03-04T09:43:00.853Z">
 <meta property="article:author" content="Gittig11">
-<meta property="article:tag" content="FrontEnd">
 <meta property="article:tag" content="CodeWars">
+<meta property="article:tag" content="FrontEnd">
 <meta name="twitter:card" content="summary">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
@@ -98,7 +98,7 @@
 
 
 
-<meta name="generator" content="Hexo 5.4.0"></head>
+<meta name="generator" content="Hexo 5.3.0"></head>
 <body>
   <div id="container">
     <div class="left-col">
@@ -355,15 +355,13 @@
 <li>The second letter needs to be switched with the last letter</li>
 </ul>
 <h3 id="Examples"><a href="#Examples" class="headerlink" title="Examples:"></a>Examples:</h3><p>encryptThis(“Hello”) === “72olle”<br>encryptThis(“good”) === “103doo”<br>encryptThis(“hello world”) === “104olle 119drlo”</p>
-<span id="more"></span>
+<a id="more"></a>
 
 <p>加密字符串：字符串的第一个字母转为ASCII码，第二个字母与最后一个字母交换。</p>
 <p>解法1：利用<code>Array.prototype.slice</code>截取字符串的字符。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">var encryptThis &#x3D; function(text) &#123;</span><br><span class="line">    let arr &#x3D; text.split(&#39; &#39;).map(function(item)&#123;</span><br><span class="line">        if(item.length&#x3D;&#x3D;1)&#123;</span><br><span class="line">            return item.charCodeAt(0)</span><br><span class="line">        &#125;</span><br><span class="line">        else if(item.length&#x3D;&#x3D;2)&#123;</span><br><span class="line">            return item.charCodeAt(0)+item.slice(1)</span><br><span class="line">        &#125;</span><br><span class="line">        else if(item.length&gt;&#x3D;3)&#123;</span><br><span class="line">            return item.charCodeAt(0)+item.slice(-1)+item.slice(2,-1)+item[1]</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">    return arr.join(&quot; &quot;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <p>解法2：利用正则表达式。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">const encryptThis &#x3D; text &#x3D;&gt; text</span><br><span class="line">  .split(&#39; &#39;)</span><br><span class="line">  .map(word &#x3D;&gt; word</span><br><span class="line">      .replace(&#x2F;(^\w)(\w)(\w*)(\w$)&#x2F;, &#96;$1$4$3$2&#96;)</span><br><span class="line">      .replace(&#x2F;^\w&#x2F;, word.charCodeAt(0))</span><br><span class="line">  )</span><br><span class="line">  .join(&#39; &#39;);</span><br></pre></td></tr></table></figure>
-
 
       
     </div>
@@ -391,8 +389,8 @@
     <nav id="article-nav">
         
             <div id="article-nav-newer" class="article-nav-title">
-                <a href="/posts/5de969be/">
-                    大整数乘法
+                <a href="/posts/5dbffad1/">
+                    leetcode347_前K个高频元素
                 </a>
             </div>
         
@@ -486,7 +484,7 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/posts/5de969be/" title="Pre: 大整数乘法">
+            <a href="/posts/5dbffad1/" title="Pre: leetcode347_前K个高频元素">
                 <i class="fa fa-angle-left"></i>
             </a>
         
@@ -500,7 +498,7 @@
         
     </div>
 
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/posts/778b2935/">leetcode233</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/4650e1fb/">leetcode11</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/e3e57d4d/">Python Spider_BaiduTieba_Pics</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/a1ffbfe0/">leetcode215_数组中的第K个最大元素</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/5dbffad1/">leetcode347_前K个高频元素</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/5de969be/">大整数乘法</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/bcc83ebd/">字符串加密</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/829d94d0/">数组移动所有的0到末尾</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/5e6c4a65/">计算阶乘 N! 末尾0的数量</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/7850ff03/">2016年中山大学无机化学考研经验分享</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/622ca411/">ThreeJS Learning</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/bd922f6f/">Netease Autoplay</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/6af0570c/">Github+Yelee搭建博客过程</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/posts/778b2935/">leetcode233</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/4650e1fb/">leetcode11</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/e3e57d4d/">Python Spider_BaiduTieba_Pics</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/a1ffbfe0/">leetcode215_数组中的第K个最大元素</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/5dbffad1/">leetcode347_前K个高频元素</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/bcc83ebd/">字符串加密</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/829d94d0/">数组移动所有的0到末尾</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/5de969be/">大整数乘法</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/5e6c4a65/">计算阶乘 N! 末尾0的数量</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/7850ff03/">2016年中山大学无机化学考研经验分享</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/622ca411/">ThreeJS Learning</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/bd922f6f/">Netease Autoplay</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/6af0570c/">Github+Yelee搭建博客过程</a></li></ul>
 
 
 

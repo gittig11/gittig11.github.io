@@ -34,10 +34,10 @@
 <meta property="article:published_time" content="2017-02-14T16:25:07.000Z">
 <meta property="article:modified_time" content="2021-03-04T09:43:00.861Z">
 <meta property="article:author" content="Gittig11">
+<meta property="article:tag" content="FrontEnd">
 <meta property="article:tag" content="GitHub">
 <meta property="article:tag" content="Hexo">
 <meta property="article:tag" content="Markdown">
-<meta property="article:tag" content="FrontEnd">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://raw.githubusercontent.com/gittig11/Markdown-Pics/master/Github%20Pages%20Setup/Win%2BR.jpg">
 
@@ -110,7 +110,7 @@
 
 
 
-<meta name="generator" content="Hexo 5.4.0"></head>
+<meta name="generator" content="Hexo 5.3.0"></head>
 <body>
   <div id="container">
     <div class="left-col">
@@ -362,7 +362,7 @@
       
           
         <h2 id="intro">前言</h2>本篇文章记录了自己在学习用 <b>Github+Yelee</b> 搭建博客的过程中的各种尝试和思考。
-<span id="more"></span>
+<a id="more"></a>
 
 <p>周一（20170213）早上开始在Github上搭建博客。前后花了将近一天的时间，充分了解了博客搭建的原理、步骤，最后动手进行实践。</p>
 <p>第二天继续探索新文章的书写和发布相关的内容，以及标签云、文章分类、文章添加标签、文章置顶显示等方法。</p>
@@ -414,8 +414,7 @@
 <p>接着输入命令：</p>
 <pre><code>$ npm install hexo-cli -g
 $ npm install hexo --save
-$ hexo -v
-</code></pre>
+$ hexo -v</code></pre>
 <p>查看到下列信息说明安装成功了。</p>
 <pre><code>hexo-cli: 1.0.2
 os: Windows_NT 6.1.7601 win32 x64
@@ -427,8 +426,7 @@ zlib: 1.2.8
 ares: 1.10.1-DEV
 icu: 56.1
 modules: 47
-openssl: 1.0.2g
-</code></pre>
+openssl: 1.0.2g</code></pre>
 <h3 id="Hexo的相关配置"><a href="#Hexo的相关配置" class="headerlink" title="Hexo的相关配置"></a>Hexo的相关配置</h3><p>初始化Hexo</p>
 <blockquote>
 <p>$ hexo init</p>
@@ -454,11 +452,11 @@ openssl: 1.0.2g
 <h3 id="将-Hexo-与-Github-pages-联系起来"><a href="#将-Hexo-与-Github-pages-联系起来" class="headerlink" title="将 Hexo 与 Github pages 联系起来"></a>将 Hexo 与 Github pages 联系起来</h3><p><strong>1、配置Git个人信息</strong></p>
 <blockquote>
 <p>$ git config –global user.name “gittig11”</p>
-<p>$ git config –global user.email “<a href="mailto:&#x67;&#105;&#116;&#116;&#105;&#103;&#49;&#49;&#x40;&#x31;&#54;&#51;&#46;&#99;&#111;&#x6d;">&#x67;&#105;&#116;&#116;&#105;&#103;&#49;&#49;&#x40;&#x31;&#54;&#51;&#46;&#99;&#111;&#x6d;</a>“</p>
+<p>$ git config –global user.email “<a href="mailto:&#103;&#105;&#116;&#116;&#105;&#x67;&#49;&#x31;&#64;&#49;&#x36;&#x33;&#x2e;&#x63;&#111;&#x6d;">&#103;&#105;&#116;&#116;&#105;&#x67;&#49;&#x31;&#64;&#49;&#x36;&#x33;&#x2e;&#x63;&#111;&#x6d;</a>“</p>
 </blockquote>
 <p><strong>2、生成密钥</strong></p>
 <blockquote>
-<p>$ ssh-keygen -t rsa -C “<a href="mailto:&#x67;&#x69;&#x74;&#116;&#x69;&#103;&#x31;&#49;&#64;&#x31;&#54;&#51;&#46;&#x63;&#111;&#109;">&#x67;&#x69;&#x74;&#116;&#x69;&#103;&#x31;&#49;&#64;&#x31;&#54;&#51;&#46;&#x63;&#111;&#109;</a>“</p>
+<p>$ ssh-keygen -t rsa -C “<a href="mailto:&#x67;&#x69;&#x74;&#116;&#x69;&#103;&#x31;&#49;&#x40;&#x31;&#54;&#51;&#46;&#99;&#111;&#109;">&#x67;&#x69;&#x74;&#116;&#x69;&#103;&#x31;&#49;&#x40;&#x31;&#54;&#51;&#46;&#99;&#111;&#109;</a>“</p>
 </blockquote>
 <p><strong>3、粘贴密钥到 Github 上</strong></p>
 <p>第3步会在目录“C:\Users\Administrator.ssh”中生成两个文件：id_rsa 和 id_rsa.pub，</p>
@@ -466,25 +464,22 @@ openssl: 1.0.2g
 <p><img src="https://github.com/gittig11/Markdown-Pics/blob/master/Github%20Pages%20Setup/profile.png?raw=true" alt="profile"></p>
 <p><strong>4、SSH认证</strong></p>
 <blockquote>
-<p>$  ssh -T <a href="mailto:&#x67;&#105;&#x74;&#64;&#x67;&#105;&#116;&#104;&#x75;&#x62;&#x2e;&#x63;&#x6f;&#109;">&#x67;&#105;&#x74;&#64;&#x67;&#105;&#116;&#104;&#x75;&#x62;&#x2e;&#x63;&#x6f;&#109;</a></p>
+<p>$  ssh -T <a href="mailto:&#103;&#105;&#116;&#64;&#x67;&#105;&#116;&#x68;&#117;&#98;&#x2e;&#99;&#x6f;&#x6d;">&#103;&#105;&#116;&#64;&#x67;&#105;&#116;&#x68;&#117;&#98;&#x2e;&#99;&#x6f;&#x6d;</a></p>
 </blockquote>
 <p>提示：</p>
-<pre><code>Hi gittig11! You&#39;ve successfully authenticated, but GitHub does not provide shell access.
-</code></pre>
+<pre><code>Hi gittig11! You&#39;ve successfully authenticated, but GitHub does not provide shell access.</code></pre>
 <p>则表明成功了！</p>
 <p><strong>5、配置 Deployment</strong></p>
 <p>同样在_config.yml文件中，找到Deployment，然后按照如下修改：</p>
 <pre><code>deploy:
 type: git
 @github.com:yourname/yourname.github.io.git
-branch: master
-</code></pre>
+branch: master</code></pre>
 <p>参考配置如下:</p>
 <pre><code>deploy:
   type: git
   @github.com:gittig11/gittig11.github.io.git
-  branch: master
-</code></pre>
+  branch: master</code></pre>
 <h3 id="写博客、发布文章"><a href="#写博客、发布文章" class="headerlink" title="写博客、发布文章"></a>写博客、发布文章</h3><p>新建一篇博客，在“E:\Hexo”目录中，右键打开 Git bash,</p>
 <blockquote>
 <p>$ hexo new post “title”</p>
@@ -505,14 +500,12 @@ branch: master
 <blockquote>
 <p>npm install hexo-deployer-git –save</p>
 </blockquote>
-<p><strong>2、执行命令 $ ssh -T <a href="mailto:&#103;&#105;&#116;&#64;&#x67;&#105;&#116;&#104;&#117;&#98;&#46;&#x63;&#x6f;&#109;">&#103;&#105;&#116;&#64;&#x67;&#105;&#116;&#104;&#117;&#98;&#46;&#x63;&#x6f;&#109;</a> 时提示</strong></p>
+<p><strong>2、执行命令 $ ssh -T <a href="mailto:&#103;&#105;&#116;&#x40;&#x67;&#x69;&#116;&#104;&#x75;&#98;&#x2e;&#x63;&#x6f;&#x6d;">&#103;&#105;&#116;&#x40;&#x67;&#x69;&#116;&#104;&#x75;&#98;&#x2e;&#x63;&#x6f;&#x6d;</a> 时提示</strong></p>
 <pre><code>Warning: Permanently added the RSA host key for IP address &#39;192.30.253.113&#39; to the list of known hosts.
-Permission denied (publickey).
-</code></pre>
+Permission denied (publickey).</code></pre>
 <p>原因：没有在Github上粘贴公钥。</p>
 <h1 id="二、继续探索与完善"><a href="#二、继续探索与完善" class="headerlink" title="二、继续探索与完善"></a>二、继续探索与完善</h1><pre><code>……
-……
-</code></pre>
+……</code></pre>
 
       
     </div>
@@ -641,7 +634,7 @@ Permission denied (publickey).
         
     </div>
 
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/posts/778b2935/">leetcode233</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/4650e1fb/">leetcode11</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/e3e57d4d/">Python Spider_BaiduTieba_Pics</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/a1ffbfe0/">leetcode215_数组中的第K个最大元素</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/5dbffad1/">leetcode347_前K个高频元素</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/5de969be/">大整数乘法</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/bcc83ebd/">字符串加密</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/829d94d0/">数组移动所有的0到末尾</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/5e6c4a65/">计算阶乘 N! 末尾0的数量</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/7850ff03/">2016年中山大学无机化学考研经验分享</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/622ca411/">ThreeJS Learning</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/bd922f6f/">Netease Autoplay</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/6af0570c/">Github+Yelee搭建博客过程</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/posts/778b2935/">leetcode233</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/4650e1fb/">leetcode11</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/e3e57d4d/">Python Spider_BaiduTieba_Pics</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/a1ffbfe0/">leetcode215_数组中的第K个最大元素</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/5dbffad1/">leetcode347_前K个高频元素</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/bcc83ebd/">字符串加密</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/829d94d0/">数组移动所有的0到末尾</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/5de969be/">大整数乘法</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/5e6c4a65/">计算阶乘 N! 末尾0的数量</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/7850ff03/">2016年中山大学无机化学考研经验分享</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/622ca411/">ThreeJS Learning</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/bd922f6f/">Netease Autoplay</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/6af0570c/">Github+Yelee搭建博客过程</a></li></ul>
 
 
 
