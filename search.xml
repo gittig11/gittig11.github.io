@@ -68,10 +68,10 @@
         <category>FrontEnd</category>
       </categories>
       <tags>
-        <tag>FrontEnd</tag>
         <tag>GitHub</tag>
         <tag>Hexo</tag>
         <tag>Markdown</tag>
+        <tag>FrontEnd</tag>
       </tags>
   </entry>
   <entry>
@@ -136,28 +136,20 @@
       </tags>
   </entry>
   <entry>
-    <title>字符串加密</title>
-    <url>/posts/bcc83ebd/</url>
-    <content><![CDATA[<p>链接：<a href="https://www.codewars.com/kata/encrypt-this">字符串加密 Encrypt this!</a></p>
-<h3 id="Rules"><a href="#Rules" class="headerlink" title="Rules:"></a>Rules:</h3><ul>
-<li>The first letter needs to be converted to its ASCII code.</li>
-<li>The second letter needs to be switched with the last letter</li>
-</ul>
-<h3 id="Examples"><a href="#Examples" class="headerlink" title="Examples:"></a>Examples:</h3><p>encryptThis(“Hello”) === “72olle”<br>encryptThis(“good”) === “103doo”<br>encryptThis(“hello world”) === “104olle 119drlo”</p>
+    <title>大整数乘法</title>
+    <url>/posts/5de969be/</url>
+    <content><![CDATA[<p>链接：<br><a href="https://www.codewars.com/kata/55911ef14065454c75000062/solutions/javascript">Multiplying numbers as strings | Codewars</a></p>
 <a id="more"></a>
 
-<p>加密字符串：字符串的第一个字母转为ASCII码，第二个字母与最后一个字母交换。</p>
-<p>解法1：利用<code>Array.prototype.slice</code>截取字符串的字符。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var encryptThis &#x3D; function(text) &#123;</span><br><span class="line">    let arr &#x3D; text.split(&#39; &#39;).map(function(item)&#123;</span><br><span class="line">        if(item.length&#x3D;&#x3D;1)&#123;</span><br><span class="line">            return item.charCodeAt(0)</span><br><span class="line">        &#125;</span><br><span class="line">        else if(item.length&#x3D;&#x3D;2)&#123;</span><br><span class="line">            return item.charCodeAt(0)+item.slice(1)</span><br><span class="line">        &#125;</span><br><span class="line">        else if(item.length&gt;&#x3D;3)&#123;</span><br><span class="line">            return item.charCodeAt(0)+item.slice(-1)+item.slice(2,-1)+item[1]</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">    return arr.join(&quot; &quot;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>解法2：利用正则表达式。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">const encryptThis &#x3D; text &#x3D;&gt; text</span><br><span class="line">  .split(&#39; &#39;)</span><br><span class="line">  .map(word &#x3D;&gt; word</span><br><span class="line">      .replace(&#x2F;(^\w)(\w)(\w*)(\w$)&#x2F;, &#96;$1$4$3$2&#96;)</span><br><span class="line">      .replace(&#x2F;^\w&#x2F;, word.charCodeAt(0))</span><br><span class="line">  )</span><br><span class="line">  .join(&#39; &#39;);</span><br></pre></td></tr></table></figure>
+<p>代码如下：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">function multiply(a,b)&#123;</span><br><span class="line">    var str1,str2,len1,len2,maxlen,result &#x3D; [];</span><br><span class="line">    str1 &#x3D; a.split(&quot;&quot;).reverse();</span><br><span class="line">    str2 &#x3D; b.split(&quot;&quot;).reverse();</span><br><span class="line">    len1 &#x3D; str1.length;</span><br><span class="line">    len2 &#x3D; str2.length;</span><br><span class="line">   </span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F; 构造长度为 len1+len2（i+j从0到len1+len2-1）、数组元素都为0的数组result</span><br><span class="line">    &#x2F;&#x2F; 因为要在下一步做累加，如果不初始化为0，result[]中的值会变为NaN，因为未初始化的数组中的值为undefined</span><br><span class="line">    let len&#x3D;len1+len2</span><br><span class="line">    for(let i&#x3D;0; i&lt;len; i++)&#123;</span><br><span class="line">        result[i]&#x3D;0</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F; 乘法的计算过程</span><br><span class="line">    for(var i &#x3D; 0; i &lt; len1; i++)&#123;</span><br><span class="line">        for(var j &#x3D; 0; j &lt; len2; j++)&#123;</span><br><span class="line">            &#x2F;&#x2F;根据乘法的手动计算方式，在上下相同位上会有相加</span><br><span class="line">            result[i+j] +&#x3D; parseInt(str1[i]) * parseInt(str2[j]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F; 结果的每一位与10进行判断</span><br><span class="line">    var n &#x3D; result.length;</span><br><span class="line">    for(var k &#x3D; 0; k &lt; n; k++)&#123;</span><br><span class="line">        var temp &#x3D; result[k];</span><br><span class="line">        if(temp &gt;&#x3D; 10)&#123;</span><br><span class="line">            &#x2F;&#x2F; 大于10则取余数，并进一位</span><br><span class="line">            result[k] &#x3D; temp % 10;</span><br><span class="line">            result[k+1] +&#x3D;  Math.floor(temp &#x2F; 10);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F; 排除result为[0], [0,0,0]的情况</span><br><span class="line">    let res &#x3D; result.reverse().join(&quot;&quot;)</span><br><span class="line">    return res&#x3D;&#x3D;0 ? 0 : res.replace(&#x2F;\b(0*)&#x2F;gi,&quot;&quot;);</span><br><span class="line">&#125;</span><br><span class="line">var d &#x3D; multiply(&quot;900719925474099122&quot;, &quot;9007199254740991111222&quot;);</span><br><span class="line">console.log(d);</span><br><span class="line">&#x2F;&#x2F; len1 &#x3D; 18</span><br><span class="line">&#x2F;&#x2F; len2 &#x3D; 22</span><br><span class="line">&#x2F;&#x2F; result.length &#x3D; 40</span><br><span class="line">&#x2F;&#x2F; 8112963841460666666477304721590154547084</span><br><span class="line">&#x2F;&#x2F; console.log(d.length); &#x2F;&#x2F;40</span><br><span class="line"></span><br><span class="line">let aa1 &#x3D; multiply(&quot;98765&quot;, &quot;56894&quot;)</span><br><span class="line">console.log(aa1)</span><br><span class="line">&#x2F;&#x2F; 5619135910</span><br><span class="line">let aa2 &#x3D; multiply(&quot;0000001&quot;, &quot;3&quot;)</span><br><span class="line">console.log(aa2)</span><br><span class="line">&#x2F;&#x2F; 3</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
         <category>FrontEnd</category>
       </categories>
       <tags>
-        <tag>CodeWars</tag>
         <tag>FrontEnd</tag>
+        <tag>CodeWars</tag>
       </tags>
   </entry>
   <entry>
@@ -174,25 +166,8 @@
         <category>FrontEnd</category>
       </categories>
       <tags>
-        <tag>CodeWars</tag>
         <tag>FrontEnd</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>大整数乘法</title>
-    <url>/posts/5de969be/</url>
-    <content><![CDATA[<p>链接：<br><a href="https://www.codewars.com/kata/55911ef14065454c75000062/solutions/javascript">Multiplying numbers as strings | Codewars</a></p>
-<a id="more"></a>
-
-<p>代码如下：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">function multiply(a,b)&#123;</span><br><span class="line">    var str1,str2,len1,len2,maxlen,result &#x3D; [];</span><br><span class="line">    str1 &#x3D; a.split(&quot;&quot;).reverse();</span><br><span class="line">    str2 &#x3D; b.split(&quot;&quot;).reverse();</span><br><span class="line">    len1 &#x3D; str1.length;</span><br><span class="line">    len2 &#x3D; str2.length;</span><br><span class="line">   </span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F; 构造长度为 len1+len2（i+j从0到len1+len2-1）、数组元素都为0的数组result</span><br><span class="line">    &#x2F;&#x2F; 因为要在下一步做累加，如果不初始化为0，result[]中的值会变为NaN，因为未初始化的数组中的值为undefined</span><br><span class="line">    let len&#x3D;len1+len2</span><br><span class="line">    for(let i&#x3D;0; i&lt;len; i++)&#123;</span><br><span class="line">        result[i]&#x3D;0</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F; 乘法的计算过程</span><br><span class="line">    for(var i &#x3D; 0; i &lt; len1; i++)&#123;</span><br><span class="line">        for(var j &#x3D; 0; j &lt; len2; j++)&#123;</span><br><span class="line">            &#x2F;&#x2F;根据乘法的手动计算方式，在上下相同位上会有相加</span><br><span class="line">            result[i+j] +&#x3D; parseInt(str1[i]) * parseInt(str2[j]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F; 结果的每一位与10进行判断</span><br><span class="line">    var n &#x3D; result.length;</span><br><span class="line">    for(var k &#x3D; 0; k &lt; n; k++)&#123;</span><br><span class="line">        var temp &#x3D; result[k];</span><br><span class="line">        if(temp &gt;&#x3D; 10)&#123;</span><br><span class="line">            &#x2F;&#x2F; 大于10则取余数，并进一位</span><br><span class="line">            result[k] &#x3D; temp % 10;</span><br><span class="line">            result[k+1] +&#x3D;  Math.floor(temp &#x2F; 10);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F; 排除result为[0], [0,0,0]的情况</span><br><span class="line">    let res &#x3D; result.reverse().join(&quot;&quot;)</span><br><span class="line">    return res&#x3D;&#x3D;0 ? 0 : res.replace(&#x2F;\b(0*)&#x2F;gi,&quot;&quot;);</span><br><span class="line">&#125;</span><br><span class="line">var d &#x3D; multiply(&quot;900719925474099122&quot;, &quot;9007199254740991111222&quot;);</span><br><span class="line">console.log(d);</span><br><span class="line">&#x2F;&#x2F; len1 &#x3D; 18</span><br><span class="line">&#x2F;&#x2F; len2 &#x3D; 22</span><br><span class="line">&#x2F;&#x2F; result.length &#x3D; 40</span><br><span class="line">&#x2F;&#x2F; 8112963841460666666477304721590154547084</span><br><span class="line">&#x2F;&#x2F; console.log(d.length); &#x2F;&#x2F;40</span><br><span class="line"></span><br><span class="line">let aa1 &#x3D; multiply(&quot;98765&quot;, &quot;56894&quot;)</span><br><span class="line">console.log(aa1)</span><br><span class="line">&#x2F;&#x2F; 5619135910</span><br><span class="line">let aa2 &#x3D; multiply(&quot;0000001&quot;, &quot;3&quot;)</span><br><span class="line">console.log(aa2)</span><br><span class="line">&#x2F;&#x2F; 3</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>FrontEnd</category>
-      </categories>
-      <tags>
         <tag>CodeWars</tag>
-        <tag>FrontEnd</tag>
       </tags>
   </entry>
   <entry>
@@ -214,8 +189,33 @@
         <category>FrontEnd</category>
       </categories>
       <tags>
-        <tag>CodeWars</tag>
         <tag>FrontEnd</tag>
+        <tag>CodeWars</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>字符串加密</title>
+    <url>/posts/bcc83ebd/</url>
+    <content><![CDATA[<p>链接：<a href="https://www.codewars.com/kata/encrypt-this">字符串加密 Encrypt this!</a></p>
+<h3 id="Rules"><a href="#Rules" class="headerlink" title="Rules:"></a>Rules:</h3><ul>
+<li>The first letter needs to be converted to its ASCII code.</li>
+<li>The second letter needs to be switched with the last letter</li>
+</ul>
+<h3 id="Examples"><a href="#Examples" class="headerlink" title="Examples:"></a>Examples:</h3><p>encryptThis(“Hello”) === “72olle”<br>encryptThis(“good”) === “103doo”<br>encryptThis(“hello world”) === “104olle 119drlo”</p>
+<a id="more"></a>
+
+<p>加密字符串：字符串的第一个字母转为ASCII码，第二个字母与最后一个字母交换。</p>
+<p>解法1：利用<code>Array.prototype.slice</code>截取字符串的字符。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var encryptThis &#x3D; function(text) &#123;</span><br><span class="line">    let arr &#x3D; text.split(&#39; &#39;).map(function(item)&#123;</span><br><span class="line">        if(item.length&#x3D;&#x3D;1)&#123;</span><br><span class="line">            return item.charCodeAt(0)</span><br><span class="line">        &#125;</span><br><span class="line">        else if(item.length&#x3D;&#x3D;2)&#123;</span><br><span class="line">            return item.charCodeAt(0)+item.slice(1)</span><br><span class="line">        &#125;</span><br><span class="line">        else if(item.length&gt;&#x3D;3)&#123;</span><br><span class="line">            return item.charCodeAt(0)+item.slice(-1)+item.slice(2,-1)+item[1]</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">    return arr.join(&quot; &quot;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>解法2：利用正则表达式。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">const encryptThis &#x3D; text &#x3D;&gt; text</span><br><span class="line">  .split(&#39; &#39;)</span><br><span class="line">  .map(word &#x3D;&gt; word</span><br><span class="line">      .replace(&#x2F;(^\w)(\w)(\w*)(\w$)&#x2F;, &#96;$1$4$3$2&#96;)</span><br><span class="line">      .replace(&#x2F;^\w&#x2F;, word.charCodeAt(0))</span><br><span class="line">  )</span><br><span class="line">  .join(&#39; &#39;);</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>FrontEnd</category>
+      </categories>
+      <tags>
+        <tag>FrontEnd</tag>
+        <tag>CodeWars</tag>
       </tags>
   </entry>
   <entry>
@@ -614,11 +614,11 @@ openssl: 1.0.2g</code></pre>
 <h3 id="将-Hexo-与-Github-pages-联系起来"><a href="#将-Hexo-与-Github-pages-联系起来" class="headerlink" title="将 Hexo 与 Github pages 联系起来"></a>将 Hexo 与 Github pages 联系起来</h3><p><strong>1、配置Git个人信息</strong></p>
 <blockquote>
 <p>$ git config –global user.name “gittig11”</p>
-<p>$ git config –global user.email “<a href="mailto:&#103;&#105;&#116;&#116;&#105;&#x67;&#49;&#x31;&#64;&#49;&#x36;&#x33;&#x2e;&#x63;&#111;&#x6d;">&#103;&#105;&#116;&#116;&#105;&#x67;&#49;&#x31;&#64;&#49;&#x36;&#x33;&#x2e;&#x63;&#111;&#x6d;</a>“</p>
+<p>$ git config –global user.email “<a href="mailto:&#103;&#105;&#x74;&#116;&#x69;&#x67;&#49;&#49;&#64;&#x31;&#54;&#51;&#46;&#99;&#111;&#x6d;">&#103;&#105;&#x74;&#116;&#x69;&#x67;&#49;&#49;&#64;&#x31;&#54;&#51;&#46;&#99;&#111;&#x6d;</a>“</p>
 </blockquote>
 <p><strong>2、生成密钥</strong></p>
 <blockquote>
-<p>$ ssh-keygen -t rsa -C “<a href="mailto:&#x67;&#x69;&#x74;&#116;&#x69;&#103;&#x31;&#49;&#x40;&#x31;&#54;&#51;&#46;&#99;&#111;&#109;">&#x67;&#x69;&#x74;&#116;&#x69;&#103;&#x31;&#49;&#x40;&#x31;&#54;&#51;&#46;&#99;&#111;&#109;</a>“</p>
+<p>$ ssh-keygen -t rsa -C “<a href="mailto:&#103;&#105;&#116;&#116;&#105;&#103;&#49;&#49;&#64;&#49;&#x36;&#x33;&#x2e;&#99;&#111;&#109;">&#103;&#105;&#116;&#116;&#105;&#103;&#49;&#49;&#64;&#49;&#x36;&#x33;&#x2e;&#99;&#111;&#109;</a>“</p>
 </blockquote>
 <p><strong>3、粘贴密钥到 Github 上</strong></p>
 <p>第3步会在目录“C:\Users\Administrator.ssh”中生成两个文件：id_rsa 和 id_rsa.pub，</p>
@@ -626,7 +626,7 @@ openssl: 1.0.2g</code></pre>
 <p><img src="https://github.com/gittig11/Markdown-Pics/blob/master/Github%20Pages%20Setup/profile.png?raw=true" alt="profile"></p>
 <p><strong>4、SSH认证</strong></p>
 <blockquote>
-<p>$  ssh -T <a href="mailto:&#103;&#105;&#116;&#64;&#x67;&#105;&#116;&#x68;&#117;&#98;&#x2e;&#99;&#x6f;&#x6d;">&#103;&#105;&#116;&#64;&#x67;&#105;&#116;&#x68;&#117;&#98;&#x2e;&#99;&#x6f;&#x6d;</a></p>
+<p>$  ssh -T <a href="mailto:&#x67;&#105;&#x74;&#x40;&#103;&#105;&#116;&#x68;&#117;&#98;&#46;&#x63;&#x6f;&#109;">&#x67;&#105;&#x74;&#x40;&#103;&#105;&#116;&#x68;&#117;&#98;&#46;&#x63;&#x6f;&#109;</a></p>
 </blockquote>
 <p>提示：</p>
 <pre><code>Hi gittig11! You&#39;ve successfully authenticated, but GitHub does not provide shell access.</code></pre>
@@ -662,7 +662,7 @@ branch: master</code></pre>
 <blockquote>
 <p>npm install hexo-deployer-git –save</p>
 </blockquote>
-<p><strong>2、执行命令 $ ssh -T <a href="mailto:&#103;&#105;&#116;&#x40;&#x67;&#x69;&#116;&#104;&#x75;&#98;&#x2e;&#x63;&#x6f;&#x6d;">&#103;&#105;&#116;&#x40;&#x67;&#x69;&#116;&#104;&#x75;&#98;&#x2e;&#x63;&#x6f;&#x6d;</a> 时提示</strong></p>
+<p><strong>2、执行命令 $ ssh -T <a href="mailto:&#103;&#x69;&#116;&#64;&#103;&#x69;&#x74;&#x68;&#117;&#x62;&#x2e;&#99;&#x6f;&#109;">&#103;&#x69;&#116;&#64;&#103;&#x69;&#x74;&#x68;&#117;&#x62;&#x2e;&#99;&#x6f;&#109;</a> 时提示</strong></p>
 <pre><code>Warning: Permanently added the RSA host key for IP address &#39;192.30.253.113&#39; to the list of known hosts.
 Permission denied (publickey).</code></pre>
 <p>原因：没有在Github上粘贴公钥。</p>
@@ -673,10 +673,10 @@ Permission denied (publickey).</code></pre>
         <category>FrontEnd</category>
       </categories>
       <tags>
-        <tag>FrontEnd</tag>
         <tag>GitHub</tag>
         <tag>Hexo</tag>
         <tag>Markdown</tag>
+        <tag>FrontEnd</tag>
       </tags>
   </entry>
 </search>
