@@ -1,6 +1,508 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Netease Autoplay</title>
+    <url>/posts/bd922f6f/</url>
+    <content><![CDATA[<h1 id="Ballade-Pour-Adeline"><a href="#Ballade-Pour-Adeline" class="headerlink" title="Ballade Pour Adeline"></a>Ballade Pour Adeline</h1><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=34341358&auto=0&height=66"></iframe>
+
+]]></content>
+      <categories>
+        <category>FrontEnd</category>
+      </categories>
+      <tags>
+        <tag>网易云</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>计算阶乘 N! 末尾0的数量</title>
+    <url>/posts/5e6c4a65/</url>
+    <content><![CDATA[<p>链接：<a href="https://www.codewars.com/kata/52f787eb172a8b4ae1000a34/solutions/javascript">Number of trailing zeros of N! | Codewars</a></p>
+<a id="more"></a>
+
+<p>代码如下：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F;关键在于计算5的个数</span><br><span class="line">function zeros(n) &#123;</span><br><span class="line">    let count&#x3D;0;</span><br><span class="line">    let temp&#x3D;parseInt(n&#x2F;5);</span><br><span class="line">    while(temp!&#x3D;&#x3D;0)&#123;</span><br><span class="line">        count+&#x3D;temp;</span><br><span class="line">        temp&#x3D;parseInt(temp&#x2F;5);</span><br><span class="line">    &#125;</span><br><span class="line">    return count;</span><br><span class="line">&#125;</span><br><span class="line">console.log(zeros(25));</span><br><span class="line">&#x2F;&#x2F; 6</span><br><span class="line">console.log(zeros(101));</span><br><span class="line">&#x2F;&#x2F; 24</span><br></pre></td></tr></table></figure>
+<p>分析：</p>
+<p>两个正整数相乘，乘积的尾部含有<code>0</code>的情况如下：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1个0：2*5&#x3D;10，可以写成2^1*5^1&#x3D;10^1</span><br><span class="line">2个0：4*25&#x3D;100，可以写成2^2*5^2&#x3D;10^2</span><br><span class="line">3个0：8*125&#x3D;1000，可以写成2^3*5^3&#x3D;10^3</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+<p>计算尾部<code>0</code>的数量，等价于计算两个乘数中含有的质因数<code>2</code>和<code>5</code>的数量。</p>
+<p>回到阶乘<code>N!</code>的计算上，计算尾部0的数量：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">5! &#x3D; 5*4*3*2*1 &#x3D; 120，尾部有1个0，因为只有1个质因数5和3个质因数2；</span><br><span class="line">25! &#x3D; 15511210043330985984000000，尾部有6个0，因为含有6个质因数5；</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Algorithm</category>
+      </categories>
+      <tags>
+        <tag>Algorithm</tag>
+        <tag>CodeWars</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>大整数乘法</title>
+    <url>/posts/5de969be/</url>
+    <content><![CDATA[<p>链接：<br><a href="https://www.codewars.com/kata/55911ef14065454c75000062/solutions/javascript">Multiplying numbers as strings | Codewars</a></p>
+<a id="more"></a>
+
+<p>代码如下：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">function multiply(a,b)&#123;</span><br><span class="line">    var str1,str2,len1,len2,maxlen,result &#x3D; [];</span><br><span class="line">    str1 &#x3D; a.split(&quot;&quot;).reverse();</span><br><span class="line">    str2 &#x3D; b.split(&quot;&quot;).reverse();</span><br><span class="line">    len1 &#x3D; str1.length;</span><br><span class="line">    len2 &#x3D; str2.length;</span><br><span class="line">   </span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F; 构造长度为 len1+len2（i+j从0到len1+len2-1）、数组元素都为0的数组result</span><br><span class="line">    &#x2F;&#x2F; 因为要在下一步做累加，如果不初始化为0，result[]中的值会变为NaN，因为未初始化的数组中的值为undefined</span><br><span class="line">    let len&#x3D;len1+len2</span><br><span class="line">    for(let i&#x3D;0; i&lt;len; i++)&#123;</span><br><span class="line">        result[i]&#x3D;0</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F; 乘法的计算过程</span><br><span class="line">    for(var i &#x3D; 0; i &lt; len1; i++)&#123;</span><br><span class="line">        for(var j &#x3D; 0; j &lt; len2; j++)&#123;</span><br><span class="line">            &#x2F;&#x2F;根据乘法的手动计算方式，在上下相同位上会有相加</span><br><span class="line">            result[i+j] +&#x3D; parseInt(str1[i]) * parseInt(str2[j]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F; 结果的每一位与10进行判断</span><br><span class="line">    var n &#x3D; result.length;</span><br><span class="line">    for(var k &#x3D; 0; k &lt; n; k++)&#123;</span><br><span class="line">        var temp &#x3D; result[k];</span><br><span class="line">        if(temp &gt;&#x3D; 10)&#123;</span><br><span class="line">            &#x2F;&#x2F; 大于10则取余数，并进一位</span><br><span class="line">            result[k] &#x3D; temp % 10;</span><br><span class="line">            result[k+1] +&#x3D;  Math.floor(temp &#x2F; 10);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F; 排除result为[0], [0,0,0]的情况</span><br><span class="line">    let res &#x3D; result.reverse().join(&quot;&quot;)</span><br><span class="line">    return res&#x3D;&#x3D;0 ? 0 : res.replace(&#x2F;\b(0*)&#x2F;gi,&quot;&quot;);</span><br><span class="line">&#125;</span><br><span class="line">var d &#x3D; multiply(&quot;900719925474099122&quot;, &quot;9007199254740991111222&quot;);</span><br><span class="line">console.log(d);</span><br><span class="line">&#x2F;&#x2F; len1 &#x3D; 18</span><br><span class="line">&#x2F;&#x2F; len2 &#x3D; 22</span><br><span class="line">&#x2F;&#x2F; result.length &#x3D; 40</span><br><span class="line">&#x2F;&#x2F; 8112963841460666666477304721590154547084</span><br><span class="line">&#x2F;&#x2F; console.log(d.length); &#x2F;&#x2F;40</span><br><span class="line"></span><br><span class="line">let aa1 &#x3D; multiply(&quot;98765&quot;, &quot;56894&quot;)</span><br><span class="line">console.log(aa1)</span><br><span class="line">&#x2F;&#x2F; 5619135910</span><br><span class="line">let aa2 &#x3D; multiply(&quot;0000001&quot;, &quot;3&quot;)</span><br><span class="line">console.log(aa2)</span><br><span class="line">&#x2F;&#x2F; 3</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Algorithm</category>
+      </categories>
+      <tags>
+        <tag>Algorithm</tag>
+        <tag>CodeWars</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>字符串加密</title>
+    <url>/posts/bcc83ebd/</url>
+    <content><![CDATA[<p>链接：<a href="https://www.codewars.com/kata/encrypt-this">字符串加密 Encrypt this!</a></p>
+<h3 id="Rules"><a href="#Rules" class="headerlink" title="Rules:"></a>Rules:</h3><ul>
+<li>The first letter needs to be converted to its ASCII code.</li>
+<li>The second letter needs to be switched with the last letter</li>
+</ul>
+<h3 id="Examples"><a href="#Examples" class="headerlink" title="Examples:"></a>Examples:</h3><p>encryptThis(“Hello”) === “72olle”<br>encryptThis(“good”) === “103doo”<br>encryptThis(“hello world”) === “104olle 119drlo”</p>
+<a id="more"></a>
+
+<p>加密字符串：字符串的第一个字母转为ASCII码，第二个字母与最后一个字母交换。</p>
+<p>解法1：利用<code>Array.prototype.slice</code>截取字符串的字符。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var encryptThis &#x3D; function(text) &#123;</span><br><span class="line">    let arr &#x3D; text.split(&#39; &#39;).map(function(item)&#123;</span><br><span class="line">        if(item.length&#x3D;&#x3D;1)&#123;</span><br><span class="line">            return item.charCodeAt(0)</span><br><span class="line">        &#125;</span><br><span class="line">        else if(item.length&#x3D;&#x3D;2)&#123;</span><br><span class="line">            return item.charCodeAt(0)+item.slice(1)</span><br><span class="line">        &#125;</span><br><span class="line">        else if(item.length&gt;&#x3D;3)&#123;</span><br><span class="line">            return item.charCodeAt(0)+item.slice(-1)+item.slice(2,-1)+item[1]</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">    return arr.join(&quot; &quot;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>解法2：利用正则表达式。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">const encryptThis &#x3D; text &#x3D;&gt; text</span><br><span class="line">  .split(&#39; &#39;)</span><br><span class="line">  .map(word &#x3D;&gt; word</span><br><span class="line">      .replace(&#x2F;(^\w)(\w)(\w*)(\w$)&#x2F;, &#96;$1$4$3$2&#96;)</span><br><span class="line">      .replace(&#x2F;^\w&#x2F;, word.charCodeAt(0))</span><br><span class="line">  )</span><br><span class="line">  .join(&#39; &#39;);</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Algorithm</category>
+      </categories>
+      <tags>
+        <tag>Algorithm</tag>
+        <tag>CodeWars</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>数组移动所有的0到末尾</title>
+    <url>/posts/829d94d0/</url>
+    <content><![CDATA[<p>链接：<a href="https://www.codewars.com/kata/52597aa56021e91c93000cb0/">Moving Zeros To The End | Codewars</a></p>
+<p>例子：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">moveZeros([false,1,0,1,2,0,1,3,&quot;a&quot;]) </span><br><span class="line">&#x2F;&#x2F; returns[false,1,1,2,1,3,&quot;a&quot;,0,0]</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+
+<p>代码如下：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">function moveZeros(arr)&#123;</span><br><span class="line">    let arrA&#x3D;[]</span><br><span class="line">    let arrB&#x3D;[]</span><br><span class="line">    arr.forEach(function(value, index)&#123;</span><br><span class="line">        if(value&#x3D;&#x3D;&#x3D;0)&#123;</span><br><span class="line">            arrB.push(0)</span><br><span class="line">        &#125;</span><br><span class="line">        else&#123;</span><br><span class="line">            arrA.push(value)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">    let newArr &#x3D; arrA.concat(arrB)</span><br><span class="line">    return newArr</span><br><span class="line">&#125;</span><br><span class="line">console.log(moveZeros([&quot;a&quot;,0,&quot;b&quot;,&quot;c&quot;,&quot;d&quot;,1,1,3,1,9,0,0,9,0,0,0,0,0,0,0]))</span><br><span class="line">其他人的例子：</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 用concat连接两次筛选得到的数组</span><br><span class="line">var moveZeros &#x3D; function (arr) &#123;</span><br><span class="line">  return arr.filter(function(x) &#123;return x !&#x3D;&#x3D; 0&#125;).concat(arr.filter(function(x) &#123;return x &#x3D;&#x3D;&#x3D; 0;&#125;));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 用concat连接两次筛选得到的数组</span><br><span class="line">var moveZeros &#x3D; function (arr) &#123;</span><br><span class="line">  var filtedList &#x3D; arr.filter(function (num)&#123;return num !&#x3D;&#x3D; 0;&#125;);</span><br><span class="line">  var zeroList &#x3D; arr.filter(function (num)&#123;return num &#x3D;&#x3D;&#x3D; 0;&#125;);</span><br><span class="line">  return filtedList.concat(zeroList);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 用concat连接两次筛选得到的数组</span><br><span class="line">var moveZeros &#x3D; function (arr) &#123;</span><br><span class="line">  return arr</span><br><span class="line">    .filter((val) &#x3D;&gt; val !&#x3D;&#x3D; 0)</span><br><span class="line">    .concat(arr.filter((val) &#x3D;&gt; val &#x3D;&#x3D;&#x3D; 0));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 从数组的最后一个元素开始判断，这样就不会出错。不要从头开始。</span><br><span class="line">var moveZeros &#x3D; function (arr) &#123;</span><br><span class="line">  for(var i &#x3D; arr.length - 1; i &gt;&#x3D; 0; i--) &#123;</span><br><span class="line">    if(arr[i] &#x3D;&#x3D;&#x3D; 0) &#123;</span><br><span class="line">      arr.splice(i, 1);</span><br><span class="line">      arr.push(0);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  return arr;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; ES6的剩余参数 ...</span><br><span class="line">&#x2F;&#x2F; ... 可以把数组变为字符串</span><br><span class="line">var moveZeros &#x3D; function (arr) &#123;</span><br><span class="line">  return [</span><br><span class="line">    ...(arr.filter(n &#x3D;&gt; n !&#x3D;&#x3D; 0)),</span><br><span class="line">    ...(arr.filter(n &#x3D;&gt; n &#x3D;&#x3D;&#x3D; 0))</span><br><span class="line">  ];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 要先reverse()</span><br><span class="line">var moveZeros &#x3D; function (arr) &#123;</span><br><span class="line">  return arr.reverse().reduce(function(ret,v)&#123;</span><br><span class="line">    return v &#x3D;&#x3D;&#x3D; 0 ? ret.push(v) : ret.unshift(v), ret;</span><br><span class="line">  &#125;,[]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>Algorithm</category>
+      </categories>
+      <tags>
+        <tag>Algorithm</tag>
+        <tag>CodeWars</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Github+Yelee搭建博客过程</title>
+    <url>/posts/6af0570c/</url>
+    <content><![CDATA[<h2 id="intro">前言</h2>本篇文章记录了自己在学习用 <b>Github+Yelee</b> 搭建博客的过程中的各种尝试和思考。
+<a id="more"></a>
+
+<p>周一（20170213）早上开始在Github上搭建博客。前后花了将近一天的时间，充分了解了博客搭建的原理、步骤，最后动手进行实践。</p>
+<p>第二天继续探索新文章的书写和发布相关的内容，以及标签云、文章分类、文章添加标签、文章置顶显示等方法。</p>
+<p>一、博客的搭建过程</p>
+<blockquote>
+<p>搭建环境准备（包括Node.js和Git环境，GitHub账户的配置）</p>
+<p>安装Hexo</p>
+<p>配置Hexo</p>
+<p>将Hexo与github page 联系起来</p>
+<p><strong>一些坑与注意事项</strong></p>
+</blockquote>
+<p>二、继续探索与完善</p>
+<blockquote>
+<p>添加 404 公益页面</p>
+<p>主题的简单配置</p>
+<p>主题推荐</p>
+<p>添加插件</p>
+</blockquote>
+<h1 id="一、博客的搭建过程"><a href="#一、博客的搭建过程" class="headerlink" title="一、博客的搭建过程"></a>一、博客的搭建过程</h1><h2 id="搭建环境准备"><a href="#搭建环境准备" class="headerlink" title="搭建环境准备"></a>搭建环境准备</h2><h3 id="Node-js-环境"><a href="#Node-js-环境" class="headerlink" title="Node.js 环境"></a>Node.js 环境</h3><p>这里我安装的是 node-v5.10.1-x64.msi，要根据实际情况选择32位或64位版本。</p>
+<p><a href="https://nodejs.org/dist/">下载 Node.js安装文件</a></p>
+<p>可以将安装目录改到D盘，其余默认安装就行。</p>
+<p>安装完成后，同时按住键盘上的Win 和 R</p>
+<p><img src="https://raw.githubusercontent.com/gittig11/Markdown-Pics/master/Github%20Pages%20Setup/Win%2BR.jpg" alt="Win和R"></p>
+<p>打开运行窗口，输入：</p>
+<blockquote>
+<p>$ node -v</p>
+<p>$ npm -v</p>
+</blockquote>
+<p>能查到版本号则说明安装成功。</p>
+<h3 id="Git-环境"><a href="#Git-环境" class="headerlink" title="Git 环境"></a>Git 环境</h3><p><a href="https://git-scm.com/">下载 Git安装文件 官网地址</a></p>
+<p>Git的安装界面</p>
+<p><img src="https://raw.githubusercontent.com/gittig11/Markdown-Pics/master/Github%20Pages%20Setup/Git%E7%9A%84%E5%AE%89%E8%A3%85%E7%95%8C%E9%9D%A2.jpg" alt="Git的安装界面.jpg"></p>
+<p>Git PATH设置</p>
+<p><img src="https://raw.githubusercontent.com/gittig11/Markdown-Pics/master/Github%20Pages%20Setup/Git%20PATH%E8%AE%BE%E7%BD%AE.jpg" alt="Git PATH设置.jpg"></p>
+<p>可以将安装目录改到D盘，其余默认安装就行。<br>安装完成后，打开命令行，输入：</p>
+<blockquote>
+<p>git - -version</p>
+</blockquote>
+<p>查看安装的版本号。</p>
+<h3 id="Github账户的注册和配置"><a href="#Github账户的注册和配置" class="headerlink" title="Github账户的注册和配置"></a>Github账户的注册和配置</h3><p>打开 <a href="https://github.com/">https://github.com/</a>，在下图的框中，分别输入自己的用户名，邮箱，密码。<br>查看邮箱，对于收到的确认邮件<b>点击确认注册的链接</b>，即注册成功！</p>
+<p>接下来是Github配置。</p>
+<p>1、创建仓库</p>
+<p><img src="https://github.com/gittig11/Markdown-Pics/blob/master/Github%20Pages%20Setup/%E5%88%9B%E5%BB%BA%E4%BB%93%E5%BA%93.jpg?raw=true" alt="创建仓库.jpg"></p>
+<p>填写仓库名，仓库名与Owner名称保持一致，<br>比如我填写的是：<b>gittig11.github.io</b></p>
+<p><img src="https://github.com/gittig11/Markdown-Pics/blob/master/Github%20Pages%20Setup/%E5%88%9B%E5%BB%BA%E4%BB%93%E5%BA%93-%E4%BB%93%E5%BA%93%E5%90%8D.png?raw=true" alt="创建仓库-仓库名.png"><br>点击界面右侧的Settings，向下拖动，直到看见GitHub Pages。source 选择的是 <b>master branch</b><br><img src="https://github.com/gittig11/Markdown-Pics/blob/master/Github%20Pages%20Setup/GitHub%20Pages.png?raw=true" alt="GitHub Pages.png"><br>点击save保存。</p>
+<p>这样 Github 的配置就告一段落了。</p>
+<h2 id="安装和配置-Hexo"><a href="#安装和配置-Hexo" class="headerlink" title="安装和配置 Hexo"></a>安装和配置 Hexo</h2><h3 id="安装-Hexo"><a href="#安装-Hexo" class="headerlink" title="安装 Hexo"></a>安装 Hexo</h3><p>可以选择E盘，新建“Hexo”文件夹，<br>在该文件夹中，右键选择</p>
+<p><img src="https://github.com/gittig11/Markdown-Pics/blob/master/Github%20Pages%20Setup/git%E5%8F%B3%E9%94%AE%E9%80%89%E6%8B%A9.png?raw=true" alt="git右键选择"></p>
+<p>接着输入命令：</p>
+<pre><code>$ npm install hexo-cli -g
+$ npm install hexo --save
+$ hexo -v</code></pre>
+<p>查看到下列信息说明安装成功了。</p>
+<pre><code>hexo-cli: 1.0.2
+os: Windows_NT 6.1.7601 win32 x64
+http_parser: 2.6.2
+node: 5.10.1
+v8: 4.6.85.31
+uv: 1.8.0
+zlib: 1.2.8
+ares: 1.10.1-DEV
+icu: 56.1
+modules: 47
+openssl: 1.0.2g</code></pre>
+<h3 id="Hexo的相关配置"><a href="#Hexo的相关配置" class="headerlink" title="Hexo的相关配置"></a>Hexo的相关配置</h3><p>初始化Hexo</p>
+<blockquote>
+<p>$ hexo init</p>
+</blockquote>
+<p>然后输入：</p>
+<blockquote>
+<p>$ npm install</p>
+</blockquote>
+<p>之后 npm 会自动安装你需要的组件，等待npm操作完成即可。</p>
+<h3 id="首次体验-Hexo"><a href="#首次体验-Hexo" class="headerlink" title="首次体验 Hexo"></a>首次体验 Hexo</h3><p>继续之前的操作，同样是在命令行中，</p>
+<p><strong>生成静态页面</strong></p>
+<blockquote>
+<p>$ hexo g</p>
+</blockquote>
+<p><strong>运行本地服务器</strong></p>
+<blockquote>
+<p>$ hexo s</p>
+</blockquote>
+<p>然后会提示：INFO Hexo is running at <a href="http://localhost:4000/">http://localhost:4000/</a>. Press Ctrl+C to stop.</p>
+<p>在浏览器中打开 <a href="http://localhost:4000/">http://localhost:4000/</a>，你将会看到：</p>
+<p><img src="https://github.com/gittig11/Markdown-Pics/blob/master/Github%20Pages%20Setup/localhost.jpg?raw=true" alt="localhost"></p>
+<p>说明Hexo搭建成功了！</p>
+<h3 id="将-Hexo-与-Github-pages-联系起来"><a href="#将-Hexo-与-Github-pages-联系起来" class="headerlink" title="将 Hexo 与 Github pages 联系起来"></a>将 Hexo 与 Github pages 联系起来</h3><p><strong>1、配置Git个人信息</strong></p>
+<blockquote>
+<p>$ git config –global user.name “gittig11”</p>
+<p>$ git config –global user.email “<a href="mailto:&#103;&#x69;&#x74;&#116;&#105;&#x67;&#49;&#49;&#x40;&#49;&#54;&#51;&#x2e;&#x63;&#x6f;&#x6d;">&#103;&#x69;&#x74;&#116;&#105;&#x67;&#49;&#49;&#x40;&#49;&#54;&#51;&#x2e;&#x63;&#x6f;&#x6d;</a>“</p>
+</blockquote>
+<p><strong>2、生成密钥</strong></p>
+<blockquote>
+<p>$ ssh-keygen -t rsa -C “<a href="mailto:&#103;&#105;&#x74;&#116;&#105;&#x67;&#49;&#x31;&#64;&#49;&#54;&#51;&#46;&#x63;&#111;&#109;">&#103;&#105;&#x74;&#116;&#105;&#x67;&#49;&#x31;&#64;&#49;&#54;&#51;&#46;&#x63;&#111;&#109;</a>“</p>
+</blockquote>
+<p><strong>3、粘贴密钥到 Github 上</strong></p>
+<p>第3步会在目录“C:\Users\Administrator.ssh”中生成两个文件：id_rsa 和 id_rsa.pub，</p>
+<p>复制公钥信息并粘贴在 Github 的ssh密钥管理页面。</p>
+<p><img src="https://github.com/gittig11/Markdown-Pics/blob/master/Github%20Pages%20Setup/profile.png?raw=true" alt="profile"></p>
+<p><strong>4、SSH认证</strong></p>
+<blockquote>
+<p>$  ssh -T <a href="mailto:&#103;&#105;&#116;&#64;&#x67;&#x69;&#116;&#x68;&#x75;&#x62;&#x2e;&#99;&#111;&#109;">&#103;&#105;&#116;&#64;&#x67;&#x69;&#116;&#x68;&#x75;&#x62;&#x2e;&#99;&#111;&#109;</a></p>
+</blockquote>
+<p>提示：</p>
+<pre><code>Hi gittig11! You&#39;ve successfully authenticated, but GitHub does not provide shell access.</code></pre>
+<p>则表明成功了！</p>
+<p><strong>5、配置 Deployment</strong></p>
+<p>同样在_config.yml文件中，找到Deployment，然后按照如下修改：</p>
+<pre><code>deploy:
+type: git
+@github.com:yourname/yourname.github.io.git
+branch: master</code></pre>
+<p>参考配置如下:</p>
+<pre><code>deploy:
+  type: git
+  @github.com:gittig11/gittig11.github.io.git
+  branch: master</code></pre>
+<h3 id="写博客、发布文章"><a href="#写博客、发布文章" class="headerlink" title="写博客、发布文章"></a>写博客、发布文章</h3><p>新建一篇博客，在“E:\Hexo”目录中，右键打开 Git bash,</p>
+<blockquote>
+<p>$ hexo new post “title”</p>
+</blockquote>
+<p>这时候在我的 电脑的目录下 E:\hexo\source_posts 将会看到 title.md 文件<br>用MarDown编辑器打开就可以编辑文章了。</p>
+<p>文章编辑好之后，运行生成、部署命令：</p>
+<blockquote>
+<p>$ hexo g   // 生成</p>
+<p>$ hexo d   // 部署</p>
+</blockquote>
+<p> 当然你也可以执行下面的命令，相当于上面两条命令的效果</p>
+<blockquote>
+<p>$ hexo d -g<br>//在部署前先生成</p>
+</blockquote>
+<p>部署成功后，访问你的地址 yourName.github.io（这里我的地址： <a href="https://gittig11.github.io/">https://gittig11.github.io</a>)，将可以看到生成的文章。</p>
+<h2 id="一些坑与注意事项"><a href="#一些坑与注意事项" class="headerlink" title="一些坑与注意事项"></a>一些坑与注意事项</h2><p><strong>1、hexo d 碰到“Deployer not found”?</strong></p>
+<p>需要修改_config.yml 配置文件，将deploy下的“type”字段中的“github”改为“git”。<br>再执行 </p>
+<blockquote>
+<p>npm install hexo-deployer-git –save</p>
+</blockquote>
+<p><strong>2、执行命令 $ ssh -T <a href="mailto:&#x67;&#105;&#116;&#x40;&#x67;&#x69;&#x74;&#104;&#117;&#x62;&#46;&#x63;&#x6f;&#109;">&#x67;&#105;&#116;&#x40;&#x67;&#x69;&#x74;&#104;&#117;&#x62;&#46;&#x63;&#x6f;&#109;</a> 时提示</strong></p>
+<pre><code>Warning: Permanently added the RSA host key for IP address &#39;192.30.253.113&#39; to the list of known hosts.
+Permission denied (publickey).</code></pre>
+<p>原因：没有在Github上粘贴公钥。</p>
+<h1 id="二、继续探索与完善"><a href="#二、继续探索与完善" class="headerlink" title="二、继续探索与完善"></a>二、继续探索与完善</h1><pre><code>……
+……</code></pre>
+]]></content>
+      <categories>
+        <category>FrontEnd</category>
+      </categories>
+      <tags>
+        <tag>FrontEnd</tag>
+        <tag>GitHub</tag>
+        <tag>Hexo</tag>
+        <tag>Markdown</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>ThreeJS Learning</title>
+    <url>/posts/622ca411/</url>
+    <content><![CDATA[<p><strong>Three.js是一个3D JavaScript库。</strong></p>
+<p><strong>Three.js封装了底层的图形接口，使得程序员能够在无需掌握繁冗的图形学知识的情况下，也能用简单的代码实现三维场景的渲染。</strong></p>
+<a id="more"></a>
+
+<pre><code>优点：
+使用Three.js开发要比WebGL更快更高效。
+对于不熟悉图形学知识的程序员而言，使用Three.js能够降低学习成本，提高三维图形程序开发的效率。</code></pre>
+<h1 id="一、WebGL"><a href="#一、WebGL" class="headerlink" title="一、WebGL"></a>一、WebGL</h1><blockquote>
+<p>WebGL是基于OpenGL ES 2.0 的Web标准，可以通过 HTML5 Canvas元素作为 DOM接口访问。<br>WebGL可以看做是将 OpenGL ES（OpenGL for Embedded Systems，OpenGL嵌入式版本，针对手机、游戏机等设备相对较轻量级的版本）移植到了网页平台，像Chrome、Firefox 这些现代浏览器都实现了WebGL标准，使用JavaScript就可以用你熟悉的、类似OpenGL的代码编写了。</p>
+<p>你可以把 WebGL简单地认为是一种网络标准，定义了一些较底层的图形接口，至于究竟多底层，稍后我们和Three.js代码对比来看。<br>现在，我们知道了WebGL是一个底层的标准，在这些标准被定义之后，Chrome、Firefox之类的浏览器实现了这些标准。然后，程序员就能通过JavaScript代码，在网页上实现三维图形的渲染了。</p>
+</blockquote>
+<h1 id="二、ThreeJS程序"><a href="#二、ThreeJS程序" class="headerlink" title="二、ThreeJS程序"></a>二、ThreeJS程序</h1><blockquote>
+<p>一个典型的Three.js程序至少要包括：<br>渲染器（Renderer）、场景（Scene）、照相机（Camera），以及你在场景中创建的物体。</p>
+</blockquote>
+<h2 id="渲染器（Render）"><a href="#渲染器（Render）" class="headerlink" title="渲染器（Render）"></a>渲染器（Render）</h2><p>WebGL的渲染是需要 <strong>HTML5 Canvas元素</strong> 的，可以手动在HTML的 <body> 部分中定义 Canvas元素，或者用Three.js生成。</p>
+<p>手动在 HTML中定义：</p>
+<pre><code>&lt;body onload=&quot;init()&quot;&gt;
+   &lt;canvas id=&quot;mainCanvas&quot; width=&quot;400px&quot; height=&quot;300px&quot; &gt;&lt;/canvas&gt;
+&lt;/body&gt;</code></pre>
+<p>用Three.js生成 Canvas元素：</p>
+<pre><code>var renderer = new THREE.WebGLRenderer();
+renderer.setSize(400, 300);
+document.getElementsByTagName(&#39;body&#39;)[0].appendChild(renderer.domElement);</code></pre>
+<p>上面代码的第二行表示设置 Canvas的宽 400 像素，高 300 像素。第三行将渲染器对应的Canvas元素添加到<body>中。<br>我们可以使用下面的代码将背景色（用于清除画面的颜色）设置为黑色：</p>
+<pre><code>renderer.setClearColor(0x000000);</code></pre>
+<h2 id="场景（Scene）"><a href="#场景（Scene）" class="headerlink" title="场景（Scene）"></a>场景（Scene）</h2><p>在Three.js中添加的物体都是添加到场景中的，因此它相当于一个大容器。一般说，场景<br>来没有很复杂的操作，在程序最开始的时候进行实例化，然后将物体添加到场景中即可。</p>
+<pre><code>var scene = new THREE.Scene();</code></pre>
+<h2 id="照相机（Camera）"><a href="#照相机（Camera）" class="headerlink" title="照相机（Camera）"></a>照相机（Camera）</h2><p>在介绍照相机设置前，我们先来简单了解下坐标系。WebGL和 Three.js使用的坐标系是右手坐标系。<br>这里，我们定义了一直透视投影的照相机，具体原理将在下一章中展开。</p>
+<pre><code>var camera = new THREE.PerspectiveCamera(45, 4 / 3, 1, 1000);
+camera.position.set(0, 0, 5);
+scene.add(camera);</code></pre>
+<p>值得注意的是，照相机也需要被添加到场景中。</p>
+<blockquote>
+<p>我们使用Three.js创建的场景是三维的，而通常情况下显示屏是二维的，那么三维的场景如何显示到二维的显示屏上呢？<br>照相机就是这样一个抽象，它定义了三维空间到二维屏幕的投影方式，用“照相机”这样一个类比，可以使我们直观地理解这一投影方式。</p>
+</blockquote>
+<p><strong>针对投影方式的不同，照相机又分为正交投影照相机与透视投影照相机。</strong></p>
+<p>一般说来，对于制图、建模软件通常使用正交投影，这样不会因为投影而改变物体比例；而对于其他大多数应用，通常使用透视投影，因为这更接近人眼的观察效果。当然，照相机的选择并没有对错之分，你可以更具应用的特性，选择一个效果更佳的照相机。</p>
+<p><strong>1、正交投影照相机（Orthographic Camera）</strong></p>
+<p>设置起来较为直观，它的构造函数是：</p>
+<pre><code>THREE.OrthographicCamera(left, right, top, bottom, near, far)</code></pre>
+<p>这六个参数分别代表正交投影照相机拍摄到的空间的六个面的位置，这两个面围成一个长方体，我们称其为视景体（Frustum）。只有在视景体内部（下图中的灰色部分）的物体才可能显示在屏幕上，而视景体外的物体会在显示之前被裁减掉。<br>设置照相机：</p>
+<pre><code>var camera = new THREE.OrthographicCamera(-2, 2, 1.5, -1.5, 1, 10);
+camera.position.set(0, 0, 5);
+scene.add(camera);</code></pre>
+<p>在原点处创建一个边长为1的正方体，为了和透视效果做对比，这里我们使用wireframe而不是实心的材质，以便看到正方体后方的边：</p>
+<pre><code>var cube = new THREE.Mesh(new THREE.CubeGeometry(1, 1, 1),
+    new THREE.MeshBasicMaterial(&#123;
+        color: 0xff0000,
+        wireframe: true
+    &#125;) 
+);
+scene.add(cube);</code></pre>
+<p>现在，如果我们将照相机向右移动 1 个单位：</p>
+<pre><code>var camera = new THREE.OrthographicCamera(-2, 2, 1.5, -1.5, 1, 10);
+camera.position.set(1, 0, 5);</code></pre>
+<p>得到的效果是物体看上去向左移动了 。。。</p>
+<p><strong>换个角度看世界</strong></p>
+<p>到现在为止，我们使用照相机都是沿z轴负方向观察的，因此看到的都是一个正方形。现在，我们想尝试一下仰望这个正方体。我们已经学会设置照相机的位置，不妨将其设置在(4, -3, 5)处：</p>
+<pre><code>camera.position.set(4, -3, 5);</code></pre>
+<p>但是现在照相机沿z轴负方向观察的，因此观察不到正方体，只看到一片黑。我们可以通过 lookAt 函数指定它看着原点方向：</p>
+<pre><code>camera.lookAt(new THREE.Vector3(0, 0, 0));</code></pre>
+<p>这样我们就能过仰望正方体啦。</p>
+<p><strong>2、透视投影照相机（Perspective Camera）</strong></p>
+<p>构造函数是：</p>
+<pre><code>THREE.PerspectiveCamera(fov, aspect, near, far)</code></pre>
+<p>fov 是视景体竖直方向上的张角（是角度制而非弧度制）</p>
+<p>aspect 等于 width / height，是照相机水平方向和竖直方向长度的比值，通常设为Canvas的横纵比例。</p>
+<p>near 和 far 分别是照相机到视景体最近、最远的距离，均为正值，且 far 应大于near。</p>
+<p>设置透视投影照相机，这里 Canvas长 400px，宽 300px，所以 aspect设为 400 / 300：</p>
+<pre><code>var camera = new THREE.PerspectiveCamera(45, 400 / 300, 1, 10);
+camera.position.set(0, 0, 5);
+scene.add(camera);</code></pre>
+<p>和例2.3.1一样，设置一个在原点处的边长为 1的正方体：</p>
+<pre><code>// a cube in the scene
+var cube = new THREE.Mesh(new THREE.CubeGeometry(1, 1, 1),
+    new THREE.MeshBasicMaterial(&#123;
+        color: 0xff0000,
+        wireframe: true
+    &#125;)
+);
+scene.add(cube);</code></pre>
+<h2 id="长方体"><a href="#长方体" class="headerlink" title="长方体"></a>长方体</h2><p>我们要创建一个x、y、z方向长度分别为 1、2、 3 的长方体，并将其设置为红色。</p>
+<pre><code>var cube = new THREE.Mesh(new THREE.CubeGeometry(1, 2, 3),
+    new THREE.MeshBasicMaterial(&#123;
+        color: 0xff0000
+    &#125;)
+);
+scene.add(cube);</code></pre>
+<h2 id="立方体（CubeGeometry）"><a href="#立方体（CubeGeometry）" class="headerlink" title="立方体（CubeGeometry）"></a>立方体（CubeGeometry）</h2><p>虽然这一形状的名字叫立方体（CubeGeometry），但它其实是长方体，也就是长宽高可以设置为不同的值。其构造函数是：</p>
+<pre><code>THREE.CubeGeometry(width, height, depth, widthSegments, heightSegments, depthSegments)</code></pre>
+<p>这里，width 是x方向上的长度； height 是 y方向上的长度； depth 是z方向上的长度；后三个参数分别是在三个方向上的分段数，如 widthSegments 为 3 的话，代表 x方向上水平分为三份。一般情况下不需要分段的话，可以不设置后三个参数，后三个参数的缺省值为 1。其他几何形状中的分段也是类似的，下面不做说明。<br>长宽高</p>
+<p>创建立方体直观简单，如： </p>
+<pre><code>new THREE.CubeGeometry(1, 2, 3); </code></pre>
+<p>可以创建一个x方向长度为 1，y方向长度为 2，z方向长度为 3 的立方体。<br>物体的默认位置是原点，对于立方体而言，是其几何中心在原点的位置。</p>
+<p><strong>分段</strong></p>
+<p>而在设置了分段 </p>
+<pre><code>new THREE.CubeGeometry(1, 2, 3, 2, 2, 3)</code></pre>
+<p>注意这个分段是对六个面进行分段，而不是对立方体的体素分段，因此在立方体的中间是不分段的，只有六个侧面被分段。</p>
+<p><strong>平面</strong><br>这里的平面（PlaneGeometry）其实是一个长方形，而不是数学意义上无限大小的平面。其构造函数为：</p>
+<pre><code>THREE.PlaneGeometry(width, height, widthSegments, heightSegments)</code></pre>
+<p>其中，width 是x方向上的长度； height 是 y方向上的长度；后两个参数同样表示分段。</p>
+<pre><code>new THREE.PlaneGeometry(2, 4);</code></pre>
+<p>创建的平面在x轴和y轴所在平面内</p>
+<p><strong>球体</strong><br>球体（SphereGeometry）的构造函数是：</p>
+<pre><code>THREE.SphereGeometry(radius, segmentsWidth, segmentsHeight, phiStart, phiLength, the taStart, thetaLength)</code></pre>
+<p>其中，radius 是半径； segmentsWidth 表示经度上的切片数； segmentsHeight 表示纬度上的切片数；phiStart 表示经度开始的弧度；phiLength 表示经度跨过的弧度；<br>thetaStart 表示纬度开始的弧度； thetaLength 表示纬度跨过的弧度。</p>
+<p><strong>圆形</strong><br>圆形（CircleGeometry）可以创建圆形或者扇形，其构造函数是： </p>
+<pre><code>THREE.CircleGeometry(radius, segments, thetaStart, thetaLength)</code></pre>
+<p>这四个参数都是球体中介绍过的，这里不再赘述，直接来看个例子。</p>
+<pre><code>new THREE.CircleGeometry(3, 18, Math.PI / 3, Math.PI / 3 * 4)</code></pre>
+<p>可以创建一个在x轴和y轴所在平面的三分之二圆的扇形</p>
+<h2 id="文字形状"><a href="#文字形状" class="headerlink" title="文字形状"></a>文字形状</h2><p>文字形状（TextGeometry）可以用来创建三维的文字形状。<br>略……</p>
+<h1 id="实例剖析"><a href="#实例剖析" class="headerlink" title="实例剖析"></a>实例剖析</h1><h2 id="实例1："><a href="#实例1：" class="headerlink" title="实例1："></a>实例1：</h2><p>预览图：</p>
+<p><img src="http://wx1.sinaimg.cn/mw690/e42e0766gy1fddmkvvi2mj20b408c0sk.jpg"></p>
+<p>代码分析：</p>
+<pre><code>在页面中对应设置id为mainCanvas的canvas标签，设置宽高：width=&quot;400px&quot; height=&quot;300px&quot;
+
+在页面加载完成后调用：    &lt;body onload=&quot;init()&quot;&gt;
+
+
+引入three.js文件</code></pre>
+<p>​<br>​    在script标签中，定义init()函数：<br>​<br>    //渲染器WebGLRenderer<br>    var renderer= new THREE.WebGLRenderer({</p>
+<pre><code>//创建场景
+var scene= new THREE.Scene();
+
+//创建照相机，并添加到场景中
+var camera = new THREE.PerspectiveCamera(45, 4 / 3, 1, 1000); 
+
+//创建长方体，设置为红色，并添加到场景中
+var cube = new THREE.Mesh(new THREE.CubeGeometry(1, 2, 3), 
+
+//渲染
+renderer.render(scene, camera); </code></pre>
+<p>完整代码如下：</p>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+    &lt;head&gt;
+        &lt;meta charset=&quot;UTF-8&quot;&gt;
+        &lt;title&gt;&lt;/title&gt;
+        &lt;script src=&quot;three.js&quot;&gt;&lt;/script&gt;
+        &lt;script&gt;
+            function init()&#123;
+                //渲染器WebGLRenderer
+                var renderer= new THREE.WebGLRenderer(&#123;
+                    canvas: document.getElementById(&#39;mainCanvas&#39;)
+                    //指定id的canvas标签
+                &#125;)
+                renderer.setClearColor(0x000000); 
+
+                //创建场景
+                var scene= new THREE.Scene();
+
+                //创建照相机，并添加到场景中
+                var camera = new THREE.PerspectiveCamera(45, 4 / 3, 1, 1000); 
+                camera.position.set(0, 0, 5); 
+                scene.add(camera); 
+
+                //创建长方体，设置为红色
+                var cube = new THREE.Mesh(new THREE.CubeGeometry(1, 2, 3), 
+            new THREE.MeshBasicMaterial(&#123; 
+                color: 0xff0000 
+                &#125;) 
+                ); 
+                scene.add(cube); 
+
+                //渲染
+                renderer.render(scene, camera); 
+            &#125;
+        &lt;/script&gt;
+    &lt;/head&gt;
+    &lt;body onload=&quot;init()&quot;&gt;
+        &lt;!--页面加载后执行init函数--&gt;
+
+        &lt;canvas id=&quot;mainCanvas&quot; width=&quot;400px&quot; height=&quot;300px&quot;&gt;&lt;/canvas&gt;
+
+    &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+<h2 id="实例2："><a href="#实例2：" class="headerlink" title="实例2："></a>实例2：</h2><p>预览图：</p>
+<p><img src="http://wx3.sinaimg.cn/mw690/e42e0766gy1fddmkw1pvrj20b408c747.jpg"></p>
+<p>设置照相机的位置：</p>
+<pre><code>camera.position.set(4, 3, 5); //设置照相机的位置
+camera.lookAt(new THREE.Vector3(0, 0, 0)); </code></pre>
+<p>示意图：</p>
+<p><img src="http://wx1.sinaimg.cn/mw690/e42e0766gy1fddmxmbv4qj20qd0hzq35.jpg"></p>
+<p>完整代码如下：</p>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+    &lt;head&gt;
+        &lt;meta charset=&quot;UTF-8&quot;&gt;
+        &lt;title&gt;&lt;/title&gt;
+        &lt;script src=&quot;three.js&quot;&gt;&lt;/script&gt;
+        &lt;script&gt;
+            //正交投影照相机（Orthographic Camera）
+            //
+
+            function init()&#123;
+                //渲染器WebGLRenderer
+                var renderer= new THREE.WebGLRenderer(&#123;
+                    canvas: document.getElementById(&#39;mainCanvas&#39;)
+                    //指定id的canvas标签
+                &#125;)
+                renderer.setClearColor(0x000000); 
+
+                //创建场景
+                var scene= new THREE.Scene();
+
+                //创建照相机，并添加到场景中
+                var camera = new THREE.OrthographicCamera(-2, 2, 1.5, -1.5, 1, 10);
+                camera.position.set(4, 3, 5); //设置照相机的位置，在此位置上有新视角！
+                camera.lookAt(new THREE.Vector3(0, 0, 0)); //设置照相机向着原点而非z轴负方向。
+                scene.add(camera); 
+
+                //创建长方体，设置为红色
+                var cube = new THREE.Mesh(new THREE.CubeGeometry(1, 1, 3), 
+                    new THREE.MeshBasicMaterial(&#123; 
+                        color: 0xff0000,
+                        wireframe:true
+                    &#125;) 
+                ); 
+                scene.add(cube); 
+
+                //渲染
+                renderer.render(scene, camera); 
+            &#125;
+        &lt;/script&gt;
+    &lt;/head&gt;
+    &lt;body onload=&quot;init()&quot;&gt;
+        &lt;!--页面加载后执行init函数--&gt;
+
+        &lt;canvas id=&quot;mainCanvas&quot; width=&quot;400px&quot; height=&quot;300px&quot;&gt;&lt;/canvas&gt;
+
+    &lt;!--WebGL No.1 - Three.js 入门--&gt;
+    &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+<p>1</p>
+]]></content>
+      <categories>
+        <category>FrontEnd</category>
+      </categories>
+      <tags>
+        <tag>FrontEnd</tag>
+        <tag>ThreeJS</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>leetcode215_数组中的第K个最大元素</title>
     <url>/posts/a1ffbfe0/</url>
     <content><![CDATA[<p>题目描述：</p>
@@ -56,19 +558,6 @@
       <tags>
         <tag>Algorithm</tag>
         <tag>Leetcode</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Netease Autoplay</title>
-    <url>/posts/bd922f6f/</url>
-    <content><![CDATA[<h1 id="Ballade-Pour-Adeline"><a href="#Ballade-Pour-Adeline" class="headerlink" title="Ballade Pour Adeline"></a>Ballade Pour Adeline</h1><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=34341358&auto=0&height=66"></iframe>
-
-]]></content>
-      <categories>
-        <category>FrontEnd</category>
-      </categories>
-      <tags>
-        <tag>网易云</tag>
       </tags>
   </entry>
   <entry>
@@ -341,492 +830,50 @@
       </tags>
   </entry>
   <entry>
-    <title>计算阶乘 N! 末尾0的数量</title>
-    <url>/posts/5e6c4a65/</url>
-    <content><![CDATA[<p>链接：<a href="https://www.codewars.com/kata/52f787eb172a8b4ae1000a34/solutions/javascript">Number of trailing zeros of N! | Codewars</a></p>
+    <title>诗词_悼亡诗</title>
+    <url>/posts/9fd72d05/</url>
+    <content><![CDATA[<h1 id="1-悼亡诗"><a href="#1-悼亡诗" class="headerlink" title="1. 悼亡诗"></a>1. 悼亡诗</h1><p>悼亡诗，诗歌题材之一，一般是丈夫追悼亡妻之作，始于西晋潘岳的《悼亡诗三首》。</p>
+<h1 id="2-诗词赏析"><a href="#2-诗词赏析" class="headerlink" title="2. 诗词赏析"></a>2. 诗词赏析</h1><h2 id="陆游：《沈园二首》"><a href="#陆游：《沈园二首》" class="headerlink" title="陆游：《沈园二首》"></a>陆游：《沈园二首》</h2><p><a href="https://so.gushiwen.org/shiwenv_c69e5720e858.aspx">沈园二首·其一</a><br>陆游 〔宋代〕<br>城上斜阳画角哀，沈园非复旧池台，<br><strong>伤心桥下春波绿，曾是惊鸿照影来。</strong></p>
+<p><a href="https://so.gushiwen.org/shiwenv_f32e3a94a000.aspx">沈园二首·其二</a><br>陆游 〔宋代〕<br>梦断香消四十年，沈园柳老不吹绵。<br>此身行作稽山土，犹吊遗踪一泫然。</p>
+<h3 id="赏析"><a href="#赏析" class="headerlink" title="赏析"></a>赏析</h3><p>《沈园二首》乃陆游触景生情之作，此时距沈园邂逅唐氏已四十余年，但缱绻之情丝毫未减，反而随岁月之增而加深。陆游一生最大的个人不幸就是与结发妻唐琬的爱情悲剧。这组诗创作于宋宁宗庆元五年己未（1199年），是年陆游七十五岁。<br>《沈园二首·其一》是组诗中的第一首，回忆沈园相逢之事，悲伤之情充溢楮墨之间。</p>
+<h3 id="《沈园二首·其二》译文"><a href="#《沈园二首·其二》译文" class="headerlink" title="《沈园二首·其二》译文"></a>《沈园二首·其二》译文</h3><p>离她香消玉殒已过去四十多年，沈园柳树也老得不能吐絮吹绵。<br>我眼看着要化作会稽山中的一抔黄土，仍然来此凭吊遗踪而泪落潸然。</p>
+<h3 id="《沈园二首·其二》注释"><a href="#《沈园二首·其二》注释" class="headerlink" title="《沈园二首·其二》注释"></a>《沈园二首·其二》注释</h3><p>“梦断”句：作者在禹迹寺遇到唐琬是在高宗绍兴二十五年（1155年），其后不久，唐琬郁郁而死。作此诗时距那次会面四十四年，这里的“四十”是举其成数。香消，指唐琬亡故。<br>不吹绵：柳絮不飞。<br>行：即将。<br>稽（jī）山：即会稽山，在今浙江绍兴东南。<br>吊：凭吊。<br>泫（xuàn）然：流泪貌。</p>
+<h2 id="元稹：《离思五首》"><a href="#元稹：《离思五首》" class="headerlink" title="元稹：《离思五首》"></a>元稹：《离思五首》</h2><p><a href="https://baike.baidu.com/item/%E7%A6%BB%E6%80%9D%E4%BA%94%E9%A6%96/2819992"><strong>离思五首·其四</strong></a><br>唐代：元稹<br><strong>曾经沧海难为水，除却巫山不是云。</strong><br>取次花丛懒回顾，半缘修道半缘君。</p>
+<h3 id="创作背景"><a href="#创作背景" class="headerlink" title="创作背景"></a>创作背景</h3><p>本诗作于元和五年（810年）贬官江陵府士曹参军时。一说作者因怀念年少时的恋人崔莺莺而作此诗。另一说这首诗是作者为悼念妻子韦丛而作。</p>
+<h2 id="元稹：《遣悲怀三首》"><a href="#元稹：《遣悲怀三首》" class="headerlink" title="元稹：《遣悲怀三首》"></a>元稹：《遣悲怀三首》</h2><p><a href="https://so.gushiwen.org/shiwenv_fe89b7670e0a.aspx"><strong>遣悲怀三首·其三</strong></a><br>唐代：元稹<br>闲坐悲君亦自悲，百年都是几多时。<br>邓攸无子寻知命，潘岳悼亡犹费词。<br>同穴窅冥何所望，他生缘会更难期。<br><strong>惟将终夜常开眼，报答平生未展眉。</strong></p>
+<h3 id="赏析-1"><a href="#赏析-1" class="headerlink" title="赏析"></a>赏析</h3><p>这是元稹为怀念去世的原配妻子而作的。</p>
 <a id="more"></a>
 
-<p>代码如下：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F;关键在于计算5的个数</span><br><span class="line">function zeros(n) &#123;</span><br><span class="line">    let count&#x3D;0;</span><br><span class="line">    let temp&#x3D;parseInt(n&#x2F;5);</span><br><span class="line">    while(temp!&#x3D;&#x3D;0)&#123;</span><br><span class="line">        count+&#x3D;temp;</span><br><span class="line">        temp&#x3D;parseInt(temp&#x2F;5);</span><br><span class="line">    &#125;</span><br><span class="line">    return count;</span><br><span class="line">&#125;</span><br><span class="line">console.log(zeros(25));</span><br><span class="line">&#x2F;&#x2F; 6</span><br><span class="line">console.log(zeros(101));</span><br><span class="line">&#x2F;&#x2F; 24</span><br></pre></td></tr></table></figure>
-<p>分析：</p>
-<p>两个正整数相乘，乘积的尾部含有<code>0</code>的情况如下：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1个0：2*5&#x3D;10，可以写成2^1*5^1&#x3D;10^1</span><br><span class="line">2个0：4*25&#x3D;100，可以写成2^2*5^2&#x3D;10^2</span><br><span class="line">3个0：8*125&#x3D;1000，可以写成2^3*5^3&#x3D;10^3</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
-<p>计算尾部<code>0</code>的数量，等价于计算两个乘数中含有的质因数<code>2</code>和<code>5</code>的数量。</p>
-<p>回到阶乘<code>N!</code>的计算上，计算尾部0的数量：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">5! &#x3D; 5*4*3*2*1 &#x3D; 120，尾部有1个0，因为只有1个质因数5和3个质因数2；</span><br><span class="line">25! &#x3D; 15511210043330985984000000，尾部有6个0，因为含有6个质因数5；</span><br></pre></td></tr></table></figure>
+<h2 id="诗经·邶风·绿衣"><a href="#诗经·邶风·绿衣" class="headerlink" title="诗经·邶风·绿衣"></a>诗经·邶风·绿衣</h2><p>诗经·邶风·绿衣<br>绿兮衣兮，绿衣黄里。心之忧矣，曷维其已?<br>绿兮衣兮，绿衣黄裳。心之忧矣，曷维其亡?<br>绿兮丝兮，女所治兮。我思古人，俾无訧兮。<br>絺兮绤兮，凄其以风。我思古人，实获我心。</p>
+<h3 id="赏析-2"><a href="#赏析-2" class="headerlink" title="赏析"></a><a href="http://www.ruiwen.com/wenxue/shijing/348027.html">赏析</a></h3><p>《绿衣》这首诗共四段，每段都是从一件平凡普通的旧衣开始叹咏。这一件妻子留下的衣衫，成了诗人抱在怀中、撂不开手的至宝。《绿衣》由此奠定了一种怀念过去的方式，就是：寄今情于旧物。物是人非，便睹物思人。<br>今译文<br>绿色衣啊绿色衣，外面绿色黄夹里。见到此衣心忧伤，不知何时才能已!<br>绿色衣啊绿色衣，上穿绿衣下黄裳。穿上衣裳心忧伤，旧情深深怎能忘!<br>绿色丝啊绿色丝，丝丝是你亲手织。想起我的亡妻啊，遇事劝我无差失。<br>夏布粗啊夏布粗，穿上风凉又爽气。想起我的亡妻啊，样样都合我心意。<br>诗义思辨<br>《诗经》的历史太过久远，以致几乎其中的每一首诗，人们都存有释义上的不同意见。这首《绿衣》也是如此。古代学者多将其解释为“庄公惑于嬖妾，夫人庄姜贤而失位，故作此诗”，意思是卫庄公被姬妾媚惑，冷落了贤淑而高贵的正室夫人庄姜，庄姜便作此诗以表达悲怨。《毛诗序》、郑玄、朱熹等学者都持此观点。<br>而现当代学者却多认为，这是一首悼念前妻的诗歌，他在对着妻子旧时的绿衣睹物思人。这位妻子，或已离世，或已离异，总之已成为他生命里的故人。<br>旧物情深<br>《绿衣》这首诗共四段，每段都是从一件平凡普通的旧衣开始叹咏。这一件妻子留下的衣衫，成了诗人抱在怀中、撂不开手的至宝。《绿衣》由此奠定了一种怀念过去的方式，就是：寄今情于旧物。物是人非，便睹物思人。<br>悼亡诗，看似悼的是亡者的魂，实则为的是生者的心。《绿衣》用怀抱中的绿衣黄裳，青青的颜色，映照着现世满目灰暗的荒凉。故人不在明月在，在月下睹物思人、触景伤情，这样物是人非的对比是残酷的，然而还是要守着这些残酷又温暖的对比物不放，否则与故人唯一的联系也要失去了。正是《绿衣》中对于“旧物”的感情，开启了后世悼亡诗之先。<br>生死茫茫的悼念，荒凉了西风，惆怅了月光，月冷人不复，唯有旧衣亲。</p>
+<h2 id="潘安：《悼亡诗三首》"><a href="#潘安：《悼亡诗三首》" class="headerlink" title="潘安：《悼亡诗三首》"></a>潘安：《悼亡诗三首》</h2><p>悼亡诗三首<br>魏晋：潘安（潘岳）<br><strong>荏苒冬春谢，寒暑忽流易。</strong><br>之子归穷泉，重壤永幽隔。<br>私怀谁克从，淹留亦何益。<br>僶俛恭朝命，回心反初役。<br>望庐思其人，入室想所历。<br>帏屏无髣髴，翰墨有馀迹。<br>流芳未及歇，遗挂犹在壁。<br>怅恍如或存，回惶忡惊惕。<br>如彼翰林鸟，双栖一朝只。<br>如彼游川鱼，比目中路析。<br>春风缘隙来，晨霤承檐滴。<br>寝息何时忘，沈忧日盈积。<br>庶几有时衰，庄缶犹可击。<br>皎皎窗中月，照我室南端。<br>清商应秋至，溽暑随节阑。<br>凛凛凉风升，始觉夏衾单。<br>岂曰无重纩，谁与同岁寒。<br>岁寒无与同，朗月何胧胧。<br>展转盻枕席，长簟竟床空。<br>床空委清尘，室虚来悲风。<br>独无李氏灵，髣髴覩尔容。<br>抚衿长叹息，不觉涕沾胸。<br>沾胸安能已，悲怀从中起。<br>寝兴目存形，遗音犹在耳。<br>上惭东门吴，下愧蒙庄子。<br>赋诗欲言志，此志难具纪。<br>命也可奈何，长戚自令鄙。<br>曜灵运天机，四节代迁逝。<br>凄凄朝露凝，烈烈夕风厉。<br>奈何悼淑俪，仪容永潜翳。<br>念此如昨日，谁知已卒岁。<br>改服从朝政，哀心寄私制。<br>茵帱张故房，朔望临尔祭。<br>尔祭讵几时，朔望忽复尽。<br>衾裳一毁撤，千载不复引。<br>亹亹朞月周，戚戚弥相愍。<br>悲怀感物来，泣涕应情陨。<br>驾言陟东阜，望坟思纡轸。<br>徘徊墟墓间，欲去复不忍。<br>徘徊不忍去，徙倚步踟蹰。<br>落叶委埏侧，枯荄带坟隅。<br>孤魂独茕茕，安知灵与无。<br>投心遵朝命，挥涕强就车。<br>谁谓帝宫远，路极悲有余。</p>
+<h3 id="赏析-3"><a href="#赏析-3" class="headerlink" title="赏析"></a><a href="https://so.gushiwen.org/shiwenv_b04c1a7c4bf2.aspx">赏析</a></h3><p>潘安即西晋著名文学家潘岳，字安仁。<br>古代礼制，妻子死了，丈夫服丧一年。这首诗应作于其妻死后一周年。<br>潘岳《悼亡诗》是诗人悼念亡妻杨氏的诗作，共有三首。杨氏是西晋书法家戴侯杨肇的女儿。潘岳十二岁时与她订婚，结婚之后，大约共同生活了二十四个年头。杨氏卒于公元298年（晋惠帝元康八年）。潘岳夫妇感情很好，杨氏亡后，潘岳写了一些悼亡诗赋，除《悼亡诗》三首之外，还有《哀永逝文》《悼亡赋》等，表现了诗人与妻子的深厚感情。在这些悼亡诗赋中，《悼亡诗》三首都堪称杰作，而<strong>在三首《悼亡诗》中，第一首传诵千古，尤为有名。这里选析第一首</strong>。</p>
+<h2 id="沈约：《悼亡诗》"><a href="#沈约：《悼亡诗》" class="headerlink" title="沈约：《悼亡诗》"></a>沈约：《悼亡诗》</h2><p>《悼亡诗》<br>沈约<br>去秋三五月，今秋还照梁。<br>今春兰蕙草。来春复吐芳。<br>悲哉人道异，一谢永销亡。<br>帘屏既毁撤，帷席更施张。<br>游尘掩虚座，孤帐覆空床。<br><strong>万事无不尽，徒令存者伤。</strong></p>
+<h3 id="创作背景-1"><a href="#创作背景-1" class="headerlink" title="创作背景"></a>创作背景</h3><p>《悼亡诗》是南北朝诗人沈约创作的一首五言古诗，是悼念其亡妻的诗作。</p>
+<h2 id="白居易：《为薛台悼亡》"><a href="#白居易：《为薛台悼亡》" class="headerlink" title="白居易：《为薛台悼亡》"></a>白居易：《为薛台悼亡》</h2><p>为薛台悼亡<br>白居易<br><strong>半死梧桐老病身，重泉一念一伤神。</strong><br>手携稚子夜归院，月冷空房不见人。</p>
+<h3 id="译文"><a href="#译文" class="headerlink" title="译文"></a>译文</h3><p>一边是就要枯死的梧桐树一边是久病的身躯，每当想到人死后要去九泉之下心里感到悲伤。<br>夜晚手拉着年幼的儿子回到了自己的故园中，寒冷的月光下空空的房子里没有看见任何人。</p>
+<h2 id="苏轼：《江城子·记梦》"><a href="#苏轼：《江城子·记梦》" class="headerlink" title="苏轼：《江城子·记梦》"></a>苏轼：《江城子·记梦》</h2><p>江城子·记梦<br>宋代：苏轼<br><strong>十年生死两茫茫，不思量，自难忘。</strong>千里孤坟，无处话凄凉。纵使相逢应不识，尘满面，鬓如霜。<br>夜来幽梦忽还乡，小轩窗，正梳妆。相顾无言，惟有泪千行。料得年年肠断处，明月夜，短松冈。</p>
+<h3 id="赏析-4"><a href="#赏析-4" class="headerlink" title="赏析"></a><a href="https://so.gushiwen.org/mingju/juv_7c9202538459.aspx">赏析</a></h3><p>十年：指结发妻子王弗去世已十年。<br>中国文学史上，从《诗经》开始，就已经出现“悼亡诗”。从悼亡诗出现一直到北宋的苏轼这期间，悼亡诗写得最有名的有西晋的潘岳和中唐的元稹。晚唐的李商隐亦曾有悼亡之作。他们的作品悲切感人。而用词写悼亡，是苏轼的首创。苏轼的这首悼亡之作与前人相比，它的表现艺术却另具特色。这首词是“记梦”，而且明确写了做梦的日子。但虽说是“记梦”，其实只有下片五句是记梦境，其他都是抒胸臆。</p>
+<h2 id="贺铸：《鹧鸪天·重过阊门万事非》"><a href="#贺铸：《鹧鸪天·重过阊门万事非》" class="headerlink" title="贺铸：《鹧鸪天·重过阊门万事非》"></a>贺铸：《鹧鸪天·重过阊门万事非》</h2><p>鹧鸪天<br>宋代：贺铸<br>重过阊门万事非，同来何事不同归？梧桐半死清霜后，头白鸳鸯失伴飞。<br>原上草，露初晞。旧栖新垅两依依。<strong>空床卧听南窗雨，谁复挑灯夜补衣？</strong></p>
+<h3 id="创作背景-2"><a href="#创作背景-2" class="headerlink" title="创作背景"></a>创作背景</h3><p>这首词是宋徽宗建中靖国元年（1101年）作者从北方回到苏州时悼念亡妻所作。<br>贺铸一生辗转各地担任低级官职，抑郁不得志。年近五十闲居苏州三年，其间与他相濡以沫、甘苦与共的妻子亡故，今重游故地，想起亡妻，物是人非，作词以寄哀思。<br>贺铸妻赵氏，为宋宗室济国公赵克彰之女。赵氏，勤劳贤惠，贺铸曾有《问内》诗写赵氏冒酷暑为他缝补冬衣的情景，夫妻俩的感情很深。</p>
+<h3 id="赏析-5"><a href="#赏析-5" class="headerlink" title="赏析"></a>赏析</h3><p>《鹧鸪天·重过阊门万事非》是宋代词人贺铸为悼念亡妻赵氏而作。全词写得很沉痛，十分感人，是唐宋之后悼亡诗歌中不可多得的名篇。当时贺铸不久因事要离开夫妇共居的苏州时，痛感物是人非，满腹辛酸无处倾诉，只能发出“同来何事不同归”的哀叹。聆听着南窗的夜雨，遥想当年妻子在深夜里为自己补衣的情形，作者沉痛地表现出了对亡妻患难与共、相濡以沫之情的深切怀念。在表现手法上，此词将赋比兴三者参酌运用，丰富了情感表现手段，增强了艺术感人力量。</p>
+<h2 id="纳兰性德：《南乡子·为亡妇题照》"><a href="#纳兰性德：《南乡子·为亡妇题照》" class="headerlink" title="纳兰性德：《南乡子·为亡妇题照》"></a>纳兰性德：《南乡子·为亡妇题照》</h2><p><a href="https://so.gushiwen.org/shiwenv_48e151a87687.aspx">南乡子·为亡妇题照</a><br>纳兰性德 〔清代〕<br><strong>泪咽却无声，只向从前悔薄情。凭仗丹青重省识，盈盈，一片伤心画不成。</strong><br>别语忒[tuī]分明，午夜鹣鹣梦早醒。卿自早醒侬自梦，更更，泣尽风檐夜雨铃。</p>
+<h3 id="创作背景-3"><a href="#创作背景-3" class="headerlink" title="创作背景"></a>创作背景</h3><p><a href="https://so.gushiwen.org/authorv_01611cc80faf.aspx">纳兰性德</a>在爱妻亡故后，悲痛欲绝，便写了很多悼念亡妻的词。《南乡子·为亡妇题照》是其中比较典型的一首词，它大约写于卢氏去世不久。</p>
+<h2 id="纳兰性德：《金缕曲·亡妇忌日有感》"><a href="#纳兰性德：《金缕曲·亡妇忌日有感》" class="headerlink" title="纳兰性德：《金缕曲·亡妇忌日有感》"></a>纳兰性德：《金缕曲·亡妇忌日有感》</h2><p><strong>金缕曲·亡妇忌日有感</strong><br>清代：纳兰性德<br>此恨何时已。滴空阶、寒更雨歇，葬花天气。三载悠悠魂梦杳，是梦久应醒矣。料也觉、人间无味。不及夜台尘土隔，冷清清、一片埋愁地。钗钿约，竟抛弃。<br><strong>重泉若有双鱼寄。好知他、年来苦乐，与谁相倚</strong>。我自中宵成转侧，忍听湘弦重理。待结个、他生知已。还怕两人俱薄命，再缘悭、剩月零风里。清泪尽，纸灰起。</p>
+<h3 id="创作背景-4"><a href="#创作背景-4" class="headerlink" title="创作背景"></a>创作背景</h3><p>康熙十六年（1677年）卢氏因难产不幸去世，这首词即作于康熙十九年（1680年）农历五月三十日，为卢氏亡故三周年之时。</p>
+<h3 id="赏析-6"><a href="#赏析-6" class="headerlink" title="赏析"></a>赏析</h3><p>《金缕曲·亡妇忌日有感》是纳兰性德悼亡词中的代表作。其悼亡词有四十首之多，皆血泪交溢，语痴入骨。此词尤称绝唱。词从空阶滴雨，仲夏葬花写来，引起伤春之感和悼亡之思；又以夜台幽远，音讯不通，以至来生难期，感情层层递进，最后万念俱灰。此生已矣，来世为期？全词虚实相间，实景与虚拟，所见与所思，糅合为一，历历往事与冥冥玄想密合无间。纳兰词“哀感顽艳”、“令人不能卒读”，于此可见一斑。</p>
+<h2 id="归有光《项脊轩志》"><a href="#归有光《项脊轩志》" class="headerlink" title="归有光《项脊轩志》"></a>归有光《项脊轩志》</h2><p><strong><a href="https://so.gushiwen.org/shiwenv_a8fb4f01b418.aspx">项脊轩志</a></strong><br>明代：归有光<br>项脊轩，旧南阁子也。室仅方丈，可容一人居。百年老屋，尘泥渗漉，雨泽下注；每移案，顾视无可置者。又北向，不能得日，日过午已昏。余稍为修葺，使不上漏。前辟四窗，垣墙周庭，以当南日，日影反照，室始洞然。又杂植兰桂竹木于庭，旧时栏楯，亦遂增胜。借书满架，偃仰啸歌，冥然兀坐，万籁有声；而庭阶寂寂，小鸟时来啄食，人至不去。三五之夜，明月半墙，桂影斑驳，风移影动，珊珊可爱。(阶寂寂 一作：堦寂寂)<br>然余居于此，多可喜，亦多可悲。先是，庭中通南北为一。迨诸父异爨，内外多置小门墙，往往而是，东犬西吠，客逾庖而宴，鸡栖于厅。庭中始为篱，已为墙，凡再变矣。家有老妪，尝居于此。妪，先大母婢也，乳二世，先妣抚之甚厚。室西连于中闺，先妣尝一至。妪每谓余曰：“某所，而母立于兹。”妪又曰：“汝姊在吾怀，呱呱而泣；娘以指叩门扉曰：‘儿寒乎？欲食乎？’吾从板外相为应答。”语未毕，余泣，妪亦泣。余自束发读书轩中，一日，大母过余曰：“吾儿，久不见若影，何竟日默默在此，大类女郎也？”比去，以手阖门，自语曰：“吾家读书久不效，儿之成，则可待乎！”顷之，持一象笏至，曰：“此吾祖太常公宣德间执此以朝，他日汝当用之！”瞻顾遗迹，如在昨日，令人长号不自禁。<br>轩东故尝为厨，人往，从轩前过。余扃牖而居，久之，能以足音辨人。轩凡四遭火，得不焚，殆有神护者。项脊生曰：“蜀清守丹穴，利甲天下，其后秦皇帝筑女怀清台；刘玄德与曹操争天下，诸葛孔明起陇中。方二人之昧昧于一隅也，世何足以知之，余区区处败屋中，方扬眉、瞬目，谓有奇景。人知之者，其谓与坎井之蛙何异？”<br>余既为此志，后五年，吾妻来归，时至轩中，从余问古事，或凭几学书。吾妻归宁，述诸小妹语曰：“闻姊家有阁子，且何谓阁子也？”其后六年，吾妻死，室坏不修。其后二年，余久卧病无聊，乃使人复葺南阁子，其制稍异于前。然自后余多在外，不常居。<br><strong>庭有枇杷树，吾妻死之年所手植也，今已亭亭如盖矣。</strong></p>
+<h3 id="创作背景-5"><a href="#创作背景-5" class="headerlink" title="创作背景"></a>创作背景</h3><p>《项脊轩志》分两次写成。前四段写于明世宗嘉靖三年（公元1524年），当时归有光18岁，他通过所居项脊轩的变化和几件小事的描述，表达了对家人的怀念之情。在经历了结婚、妻死、不遇等人生变故后，作者于明世宗嘉靖十八年（1539年），又为这篇散文增添了补记。</p>
+<h3 id="赏析-7"><a href="#赏析-7" class="headerlink" title="赏析"></a>赏析</h3><p>全文以作者青年时代朝夕所居的书斋项脊轩为经，以归家几代人的人事变迁为纬，真切再现了祖母、母亲、妻子的音容笑貌，也表达了作者对于三位已故亲人的深沉怀念。作者借一轩以记三代之遗迹，睹物怀人，悼亡念存，叙事娓娓而谈，用笔清淡简洁，表达了深厚的感情。全文语言自然本色，不事雕饰，不用奇字险句，力求朴而有致，淡而有味，营造出一种清疏淡雅的感觉。<br>文章所记的一切，都紧扣项脊轩来写，而以“悲”“喜”作为贯串全文的意脉。</p>
+<h1 id="3-代表作品"><a href="#3-代表作品" class="headerlink" title="3. 代表作品"></a>3. 代表作品</h1><p>陆游：《沈园二首》<br>元稹：《离思五首》<br>元稹：《遣悲怀三首》</p>
+<p>《诗经·邶风·绿衣》<br>潘安：《悼亡诗三首》<br>沈约：《悼亡诗》<br>白居易：《为薛台悼亡》<br>苏轼：《江城子·记梦》<br>贺铸：《鹧鸪天·重过阊门万事非》<br>纳兰性德：《南乡子·为亡妇题照》<br>纳兰性德：《金缕曲·亡妇忌日有感》<br>俞樾：《百哀篇》<br>俞陛云：《绚华室诗忆》<br>俞平伯：《半帷呻吟》</p>
 ]]></content>
       <categories>
-        <category>Algorithm</category>
+        <category>Reading</category>
       </categories>
       <tags>
-        <tag>Algorithm</tag>
-        <tag>CodeWars</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>大整数乘法</title>
-    <url>/posts/5de969be/</url>
-    <content><![CDATA[<p>链接：<br><a href="https://www.codewars.com/kata/55911ef14065454c75000062/solutions/javascript">Multiplying numbers as strings | Codewars</a></p>
-<a id="more"></a>
-
-<p>代码如下：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">function multiply(a,b)&#123;</span><br><span class="line">    var str1,str2,len1,len2,maxlen,result &#x3D; [];</span><br><span class="line">    str1 &#x3D; a.split(&quot;&quot;).reverse();</span><br><span class="line">    str2 &#x3D; b.split(&quot;&quot;).reverse();</span><br><span class="line">    len1 &#x3D; str1.length;</span><br><span class="line">    len2 &#x3D; str2.length;</span><br><span class="line">   </span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F; 构造长度为 len1+len2（i+j从0到len1+len2-1）、数组元素都为0的数组result</span><br><span class="line">    &#x2F;&#x2F; 因为要在下一步做累加，如果不初始化为0，result[]中的值会变为NaN，因为未初始化的数组中的值为undefined</span><br><span class="line">    let len&#x3D;len1+len2</span><br><span class="line">    for(let i&#x3D;0; i&lt;len; i++)&#123;</span><br><span class="line">        result[i]&#x3D;0</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F; 乘法的计算过程</span><br><span class="line">    for(var i &#x3D; 0; i &lt; len1; i++)&#123;</span><br><span class="line">        for(var j &#x3D; 0; j &lt; len2; j++)&#123;</span><br><span class="line">            &#x2F;&#x2F;根据乘法的手动计算方式，在上下相同位上会有相加</span><br><span class="line">            result[i+j] +&#x3D; parseInt(str1[i]) * parseInt(str2[j]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F; 结果的每一位与10进行判断</span><br><span class="line">    var n &#x3D; result.length;</span><br><span class="line">    for(var k &#x3D; 0; k &lt; n; k++)&#123;</span><br><span class="line">        var temp &#x3D; result[k];</span><br><span class="line">        if(temp &gt;&#x3D; 10)&#123;</span><br><span class="line">            &#x2F;&#x2F; 大于10则取余数，并进一位</span><br><span class="line">            result[k] &#x3D; temp % 10;</span><br><span class="line">            result[k+1] +&#x3D;  Math.floor(temp &#x2F; 10);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F; 排除result为[0], [0,0,0]的情况</span><br><span class="line">    let res &#x3D; result.reverse().join(&quot;&quot;)</span><br><span class="line">    return res&#x3D;&#x3D;0 ? 0 : res.replace(&#x2F;\b(0*)&#x2F;gi,&quot;&quot;);</span><br><span class="line">&#125;</span><br><span class="line">var d &#x3D; multiply(&quot;900719925474099122&quot;, &quot;9007199254740991111222&quot;);</span><br><span class="line">console.log(d);</span><br><span class="line">&#x2F;&#x2F; len1 &#x3D; 18</span><br><span class="line">&#x2F;&#x2F; len2 &#x3D; 22</span><br><span class="line">&#x2F;&#x2F; result.length &#x3D; 40</span><br><span class="line">&#x2F;&#x2F; 8112963841460666666477304721590154547084</span><br><span class="line">&#x2F;&#x2F; console.log(d.length); &#x2F;&#x2F;40</span><br><span class="line"></span><br><span class="line">let aa1 &#x3D; multiply(&quot;98765&quot;, &quot;56894&quot;)</span><br><span class="line">console.log(aa1)</span><br><span class="line">&#x2F;&#x2F; 5619135910</span><br><span class="line">let aa2 &#x3D; multiply(&quot;0000001&quot;, &quot;3&quot;)</span><br><span class="line">console.log(aa2)</span><br><span class="line">&#x2F;&#x2F; 3</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Algorithm</category>
-      </categories>
-      <tags>
-        <tag>Algorithm</tag>
-        <tag>CodeWars</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>字符串加密</title>
-    <url>/posts/bcc83ebd/</url>
-    <content><![CDATA[<p>链接：<a href="https://www.codewars.com/kata/encrypt-this">字符串加密 Encrypt this!</a></p>
-<h3 id="Rules"><a href="#Rules" class="headerlink" title="Rules:"></a>Rules:</h3><ul>
-<li>The first letter needs to be converted to its ASCII code.</li>
-<li>The second letter needs to be switched with the last letter</li>
-</ul>
-<h3 id="Examples"><a href="#Examples" class="headerlink" title="Examples:"></a>Examples:</h3><p>encryptThis(“Hello”) === “72olle”<br>encryptThis(“good”) === “103doo”<br>encryptThis(“hello world”) === “104olle 119drlo”</p>
-<a id="more"></a>
-
-<p>加密字符串：字符串的第一个字母转为ASCII码，第二个字母与最后一个字母交换。</p>
-<p>解法1：利用<code>Array.prototype.slice</code>截取字符串的字符。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var encryptThis &#x3D; function(text) &#123;</span><br><span class="line">    let arr &#x3D; text.split(&#39; &#39;).map(function(item)&#123;</span><br><span class="line">        if(item.length&#x3D;&#x3D;1)&#123;</span><br><span class="line">            return item.charCodeAt(0)</span><br><span class="line">        &#125;</span><br><span class="line">        else if(item.length&#x3D;&#x3D;2)&#123;</span><br><span class="line">            return item.charCodeAt(0)+item.slice(1)</span><br><span class="line">        &#125;</span><br><span class="line">        else if(item.length&gt;&#x3D;3)&#123;</span><br><span class="line">            return item.charCodeAt(0)+item.slice(-1)+item.slice(2,-1)+item[1]</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">    return arr.join(&quot; &quot;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>解法2：利用正则表达式。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">const encryptThis &#x3D; text &#x3D;&gt; text</span><br><span class="line">  .split(&#39; &#39;)</span><br><span class="line">  .map(word &#x3D;&gt; word</span><br><span class="line">      .replace(&#x2F;(^\w)(\w)(\w*)(\w$)&#x2F;, &#96;$1$4$3$2&#96;)</span><br><span class="line">      .replace(&#x2F;^\w&#x2F;, word.charCodeAt(0))</span><br><span class="line">  )</span><br><span class="line">  .join(&#39; &#39;);</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Algorithm</category>
-      </categories>
-      <tags>
-        <tag>Algorithm</tag>
-        <tag>CodeWars</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>数组移动所有的0到末尾</title>
-    <url>/posts/829d94d0/</url>
-    <content><![CDATA[<p>链接：<a href="https://www.codewars.com/kata/52597aa56021e91c93000cb0/">Moving Zeros To The End | Codewars</a></p>
-<p>例子：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">moveZeros([false,1,0,1,2,0,1,3,&quot;a&quot;]) </span><br><span class="line">&#x2F;&#x2F; returns[false,1,1,2,1,3,&quot;a&quot;,0,0]</span><br></pre></td></tr></table></figure>
-<a id="more"></a>
-
-<p>代码如下：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">function moveZeros(arr)&#123;</span><br><span class="line">    let arrA&#x3D;[]</span><br><span class="line">    let arrB&#x3D;[]</span><br><span class="line">    arr.forEach(function(value, index)&#123;</span><br><span class="line">        if(value&#x3D;&#x3D;&#x3D;0)&#123;</span><br><span class="line">            arrB.push(0)</span><br><span class="line">        &#125;</span><br><span class="line">        else&#123;</span><br><span class="line">            arrA.push(value)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">    let newArr &#x3D; arrA.concat(arrB)</span><br><span class="line">    return newArr</span><br><span class="line">&#125;</span><br><span class="line">console.log(moveZeros([&quot;a&quot;,0,&quot;b&quot;,&quot;c&quot;,&quot;d&quot;,1,1,3,1,9,0,0,9,0,0,0,0,0,0,0]))</span><br><span class="line">其他人的例子：</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 用concat连接两次筛选得到的数组</span><br><span class="line">var moveZeros &#x3D; function (arr) &#123;</span><br><span class="line">  return arr.filter(function(x) &#123;return x !&#x3D;&#x3D; 0&#125;).concat(arr.filter(function(x) &#123;return x &#x3D;&#x3D;&#x3D; 0;&#125;));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 用concat连接两次筛选得到的数组</span><br><span class="line">var moveZeros &#x3D; function (arr) &#123;</span><br><span class="line">  var filtedList &#x3D; arr.filter(function (num)&#123;return num !&#x3D;&#x3D; 0;&#125;);</span><br><span class="line">  var zeroList &#x3D; arr.filter(function (num)&#123;return num &#x3D;&#x3D;&#x3D; 0;&#125;);</span><br><span class="line">  return filtedList.concat(zeroList);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 用concat连接两次筛选得到的数组</span><br><span class="line">var moveZeros &#x3D; function (arr) &#123;</span><br><span class="line">  return arr</span><br><span class="line">    .filter((val) &#x3D;&gt; val !&#x3D;&#x3D; 0)</span><br><span class="line">    .concat(arr.filter((val) &#x3D;&gt; val &#x3D;&#x3D;&#x3D; 0));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 从数组的最后一个元素开始判断，这样就不会出错。不要从头开始。</span><br><span class="line">var moveZeros &#x3D; function (arr) &#123;</span><br><span class="line">  for(var i &#x3D; arr.length - 1; i &gt;&#x3D; 0; i--) &#123;</span><br><span class="line">    if(arr[i] &#x3D;&#x3D;&#x3D; 0) &#123;</span><br><span class="line">      arr.splice(i, 1);</span><br><span class="line">      arr.push(0);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  return arr;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; ES6的剩余参数 ...</span><br><span class="line">&#x2F;&#x2F; ... 可以把数组变为字符串</span><br><span class="line">var moveZeros &#x3D; function (arr) &#123;</span><br><span class="line">  return [</span><br><span class="line">    ...(arr.filter(n &#x3D;&gt; n !&#x3D;&#x3D; 0)),</span><br><span class="line">    ...(arr.filter(n &#x3D;&gt; n &#x3D;&#x3D;&#x3D; 0))</span><br><span class="line">  ];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 要先reverse()</span><br><span class="line">var moveZeros &#x3D; function (arr) &#123;</span><br><span class="line">  return arr.reverse().reduce(function(ret,v)&#123;</span><br><span class="line">    return v &#x3D;&#x3D;&#x3D; 0 ? ret.push(v) : ret.unshift(v), ret;</span><br><span class="line">  &#125;,[]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>Algorithm</category>
-      </categories>
-      <tags>
-        <tag>Algorithm</tag>
-        <tag>CodeWars</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>ThreeJS Learning</title>
-    <url>/posts/622ca411/</url>
-    <content><![CDATA[<p><strong>Three.js是一个3D JavaScript库。</strong></p>
-<p><strong>Three.js封装了底层的图形接口，使得程序员能够在无需掌握繁冗的图形学知识的情况下，也能用简单的代码实现三维场景的渲染。</strong></p>
-<a id="more"></a>
-
-<pre><code>优点：
-使用Three.js开发要比WebGL更快更高效。
-对于不熟悉图形学知识的程序员而言，使用Three.js能够降低学习成本，提高三维图形程序开发的效率。</code></pre>
-<h1 id="一、WebGL"><a href="#一、WebGL" class="headerlink" title="一、WebGL"></a>一、WebGL</h1><blockquote>
-<p>WebGL是基于OpenGL ES 2.0 的Web标准，可以通过 HTML5 Canvas元素作为 DOM接口访问。<br>WebGL可以看做是将 OpenGL ES（OpenGL for Embedded Systems，OpenGL嵌入式版本，针对手机、游戏机等设备相对较轻量级的版本）移植到了网页平台，像Chrome、Firefox 这些现代浏览器都实现了WebGL标准，使用JavaScript就可以用你熟悉的、类似OpenGL的代码编写了。</p>
-<p>你可以把 WebGL简单地认为是一种网络标准，定义了一些较底层的图形接口，至于究竟多底层，稍后我们和Three.js代码对比来看。<br>现在，我们知道了WebGL是一个底层的标准，在这些标准被定义之后，Chrome、Firefox之类的浏览器实现了这些标准。然后，程序员就能通过JavaScript代码，在网页上实现三维图形的渲染了。</p>
-</blockquote>
-<h1 id="二、ThreeJS程序"><a href="#二、ThreeJS程序" class="headerlink" title="二、ThreeJS程序"></a>二、ThreeJS程序</h1><blockquote>
-<p>一个典型的Three.js程序至少要包括：<br>渲染器（Renderer）、场景（Scene）、照相机（Camera），以及你在场景中创建的物体。</p>
-</blockquote>
-<h2 id="渲染器（Render）"><a href="#渲染器（Render）" class="headerlink" title="渲染器（Render）"></a>渲染器（Render）</h2><p>WebGL的渲染是需要 <strong>HTML5 Canvas元素</strong> 的，可以手动在HTML的 <body> 部分中定义 Canvas元素，或者用Three.js生成。</p>
-<p>手动在 HTML中定义：</p>
-<pre><code>&lt;body onload=&quot;init()&quot;&gt;
-   &lt;canvas id=&quot;mainCanvas&quot; width=&quot;400px&quot; height=&quot;300px&quot; &gt;&lt;/canvas&gt;
-&lt;/body&gt;</code></pre>
-<p>用Three.js生成 Canvas元素：</p>
-<pre><code>var renderer = new THREE.WebGLRenderer();
-renderer.setSize(400, 300);
-document.getElementsByTagName(&#39;body&#39;)[0].appendChild(renderer.domElement);</code></pre>
-<p>上面代码的第二行表示设置 Canvas的宽 400 像素，高 300 像素。第三行将渲染器对应的Canvas元素添加到<body>中。<br>我们可以使用下面的代码将背景色（用于清除画面的颜色）设置为黑色：</p>
-<pre><code>renderer.setClearColor(0x000000);</code></pre>
-<h2 id="场景（Scene）"><a href="#场景（Scene）" class="headerlink" title="场景（Scene）"></a>场景（Scene）</h2><p>在Three.js中添加的物体都是添加到场景中的，因此它相当于一个大容器。一般说，场景<br>来没有很复杂的操作，在程序最开始的时候进行实例化，然后将物体添加到场景中即可。</p>
-<pre><code>var scene = new THREE.Scene();</code></pre>
-<h2 id="照相机（Camera）"><a href="#照相机（Camera）" class="headerlink" title="照相机（Camera）"></a>照相机（Camera）</h2><p>在介绍照相机设置前，我们先来简单了解下坐标系。WebGL和 Three.js使用的坐标系是右手坐标系。<br>这里，我们定义了一直透视投影的照相机，具体原理将在下一章中展开。</p>
-<pre><code>var camera = new THREE.PerspectiveCamera(45, 4 / 3, 1, 1000);
-camera.position.set(0, 0, 5);
-scene.add(camera);</code></pre>
-<p>值得注意的是，照相机也需要被添加到场景中。</p>
-<blockquote>
-<p>我们使用Three.js创建的场景是三维的，而通常情况下显示屏是二维的，那么三维的场景如何显示到二维的显示屏上呢？<br>照相机就是这样一个抽象，它定义了三维空间到二维屏幕的投影方式，用“照相机”这样一个类比，可以使我们直观地理解这一投影方式。</p>
-</blockquote>
-<p><strong>针对投影方式的不同，照相机又分为正交投影照相机与透视投影照相机。</strong></p>
-<p>一般说来，对于制图、建模软件通常使用正交投影，这样不会因为投影而改变物体比例；而对于其他大多数应用，通常使用透视投影，因为这更接近人眼的观察效果。当然，照相机的选择并没有对错之分，你可以更具应用的特性，选择一个效果更佳的照相机。</p>
-<p><strong>1、正交投影照相机（Orthographic Camera）</strong></p>
-<p>设置起来较为直观，它的构造函数是：</p>
-<pre><code>THREE.OrthographicCamera(left, right, top, bottom, near, far)</code></pre>
-<p>这六个参数分别代表正交投影照相机拍摄到的空间的六个面的位置，这两个面围成一个长方体，我们称其为视景体（Frustum）。只有在视景体内部（下图中的灰色部分）的物体才可能显示在屏幕上，而视景体外的物体会在显示之前被裁减掉。<br>设置照相机：</p>
-<pre><code>var camera = new THREE.OrthographicCamera(-2, 2, 1.5, -1.5, 1, 10);
-camera.position.set(0, 0, 5);
-scene.add(camera);</code></pre>
-<p>在原点处创建一个边长为1的正方体，为了和透视效果做对比，这里我们使用wireframe而不是实心的材质，以便看到正方体后方的边：</p>
-<pre><code>var cube = new THREE.Mesh(new THREE.CubeGeometry(1, 1, 1),
-    new THREE.MeshBasicMaterial(&#123;
-        color: 0xff0000,
-        wireframe: true
-    &#125;) 
-);
-scene.add(cube);</code></pre>
-<p>现在，如果我们将照相机向右移动 1 个单位：</p>
-<pre><code>var camera = new THREE.OrthographicCamera(-2, 2, 1.5, -1.5, 1, 10);
-camera.position.set(1, 0, 5);</code></pre>
-<p>得到的效果是物体看上去向左移动了 。。。</p>
-<p><strong>换个角度看世界</strong></p>
-<p>到现在为止，我们使用照相机都是沿z轴负方向观察的，因此看到的都是一个正方形。现在，我们想尝试一下仰望这个正方体。我们已经学会设置照相机的位置，不妨将其设置在(4, -3, 5)处：</p>
-<pre><code>camera.position.set(4, -3, 5);</code></pre>
-<p>但是现在照相机沿z轴负方向观察的，因此观察不到正方体，只看到一片黑。我们可以通过 lookAt 函数指定它看着原点方向：</p>
-<pre><code>camera.lookAt(new THREE.Vector3(0, 0, 0));</code></pre>
-<p>这样我们就能过仰望正方体啦。</p>
-<p><strong>2、透视投影照相机（Perspective Camera）</strong></p>
-<p>构造函数是：</p>
-<pre><code>THREE.PerspectiveCamera(fov, aspect, near, far)</code></pre>
-<p>fov 是视景体竖直方向上的张角（是角度制而非弧度制）</p>
-<p>aspect 等于 width / height，是照相机水平方向和竖直方向长度的比值，通常设为Canvas的横纵比例。</p>
-<p>near 和 far 分别是照相机到视景体最近、最远的距离，均为正值，且 far 应大于near。</p>
-<p>设置透视投影照相机，这里 Canvas长 400px，宽 300px，所以 aspect设为 400 / 300：</p>
-<pre><code>var camera = new THREE.PerspectiveCamera(45, 400 / 300, 1, 10);
-camera.position.set(0, 0, 5);
-scene.add(camera);</code></pre>
-<p>和例2.3.1一样，设置一个在原点处的边长为 1的正方体：</p>
-<pre><code>// a cube in the scene
-var cube = new THREE.Mesh(new THREE.CubeGeometry(1, 1, 1),
-    new THREE.MeshBasicMaterial(&#123;
-        color: 0xff0000,
-        wireframe: true
-    &#125;)
-);
-scene.add(cube);</code></pre>
-<h2 id="长方体"><a href="#长方体" class="headerlink" title="长方体"></a>长方体</h2><p>我们要创建一个x、y、z方向长度分别为 1、2、 3 的长方体，并将其设置为红色。</p>
-<pre><code>var cube = new THREE.Mesh(new THREE.CubeGeometry(1, 2, 3),
-    new THREE.MeshBasicMaterial(&#123;
-        color: 0xff0000
-    &#125;)
-);
-scene.add(cube);</code></pre>
-<h2 id="立方体（CubeGeometry）"><a href="#立方体（CubeGeometry）" class="headerlink" title="立方体（CubeGeometry）"></a>立方体（CubeGeometry）</h2><p>虽然这一形状的名字叫立方体（CubeGeometry），但它其实是长方体，也就是长宽高可以设置为不同的值。其构造函数是：</p>
-<pre><code>THREE.CubeGeometry(width, height, depth, widthSegments, heightSegments, depthSegments)</code></pre>
-<p>这里，width 是x方向上的长度； height 是 y方向上的长度； depth 是z方向上的长度；后三个参数分别是在三个方向上的分段数，如 widthSegments 为 3 的话，代表 x方向上水平分为三份。一般情况下不需要分段的话，可以不设置后三个参数，后三个参数的缺省值为 1。其他几何形状中的分段也是类似的，下面不做说明。<br>长宽高</p>
-<p>创建立方体直观简单，如： </p>
-<pre><code>new THREE.CubeGeometry(1, 2, 3); </code></pre>
-<p>可以创建一个x方向长度为 1，y方向长度为 2，z方向长度为 3 的立方体。<br>物体的默认位置是原点，对于立方体而言，是其几何中心在原点的位置。</p>
-<p><strong>分段</strong></p>
-<p>而在设置了分段 </p>
-<pre><code>new THREE.CubeGeometry(1, 2, 3, 2, 2, 3)</code></pre>
-<p>注意这个分段是对六个面进行分段，而不是对立方体的体素分段，因此在立方体的中间是不分段的，只有六个侧面被分段。</p>
-<p><strong>平面</strong><br>这里的平面（PlaneGeometry）其实是一个长方形，而不是数学意义上无限大小的平面。其构造函数为：</p>
-<pre><code>THREE.PlaneGeometry(width, height, widthSegments, heightSegments)</code></pre>
-<p>其中，width 是x方向上的长度； height 是 y方向上的长度；后两个参数同样表示分段。</p>
-<pre><code>new THREE.PlaneGeometry(2, 4);</code></pre>
-<p>创建的平面在x轴和y轴所在平面内</p>
-<p><strong>球体</strong><br>球体（SphereGeometry）的构造函数是：</p>
-<pre><code>THREE.SphereGeometry(radius, segmentsWidth, segmentsHeight, phiStart, phiLength, the taStart, thetaLength)</code></pre>
-<p>其中，radius 是半径； segmentsWidth 表示经度上的切片数； segmentsHeight 表示纬度上的切片数；phiStart 表示经度开始的弧度；phiLength 表示经度跨过的弧度；<br>thetaStart 表示纬度开始的弧度； thetaLength 表示纬度跨过的弧度。</p>
-<p><strong>圆形</strong><br>圆形（CircleGeometry）可以创建圆形或者扇形，其构造函数是： </p>
-<pre><code>THREE.CircleGeometry(radius, segments, thetaStart, thetaLength)</code></pre>
-<p>这四个参数都是球体中介绍过的，这里不再赘述，直接来看个例子。</p>
-<pre><code>new THREE.CircleGeometry(3, 18, Math.PI / 3, Math.PI / 3 * 4)</code></pre>
-<p>可以创建一个在x轴和y轴所在平面的三分之二圆的扇形</p>
-<h2 id="文字形状"><a href="#文字形状" class="headerlink" title="文字形状"></a>文字形状</h2><p>文字形状（TextGeometry）可以用来创建三维的文字形状。<br>略……</p>
-<h1 id="实例剖析"><a href="#实例剖析" class="headerlink" title="实例剖析"></a>实例剖析</h1><h2 id="实例1："><a href="#实例1：" class="headerlink" title="实例1："></a>实例1：</h2><p>预览图：</p>
-<p><img src="http://wx1.sinaimg.cn/mw690/e42e0766gy1fddmkvvi2mj20b408c0sk.jpg"></p>
-<p>代码分析：</p>
-<pre><code>在页面中对应设置id为mainCanvas的canvas标签，设置宽高：width=&quot;400px&quot; height=&quot;300px&quot;
-
-在页面加载完成后调用：    &lt;body onload=&quot;init()&quot;&gt;
-
-
-引入three.js文件</code></pre>
-<p>​<br>​    在script标签中，定义init()函数：<br>​<br>    //渲染器WebGLRenderer<br>    var renderer= new THREE.WebGLRenderer({</p>
-<pre><code>//创建场景
-var scene= new THREE.Scene();
-
-//创建照相机，并添加到场景中
-var camera = new THREE.PerspectiveCamera(45, 4 / 3, 1, 1000); 
-
-//创建长方体，设置为红色，并添加到场景中
-var cube = new THREE.Mesh(new THREE.CubeGeometry(1, 2, 3), 
-
-//渲染
-renderer.render(scene, camera); </code></pre>
-<p>完整代码如下：</p>
-<pre><code>&lt;!DOCTYPE html&gt;
-&lt;html&gt;
-    &lt;head&gt;
-        &lt;meta charset=&quot;UTF-8&quot;&gt;
-        &lt;title&gt;&lt;/title&gt;
-        &lt;script src=&quot;three.js&quot;&gt;&lt;/script&gt;
-        &lt;script&gt;
-            function init()&#123;
-                //渲染器WebGLRenderer
-                var renderer= new THREE.WebGLRenderer(&#123;
-                    canvas: document.getElementById(&#39;mainCanvas&#39;)
-                    //指定id的canvas标签
-                &#125;)
-                renderer.setClearColor(0x000000); 
-
-                //创建场景
-                var scene= new THREE.Scene();
-
-                //创建照相机，并添加到场景中
-                var camera = new THREE.PerspectiveCamera(45, 4 / 3, 1, 1000); 
-                camera.position.set(0, 0, 5); 
-                scene.add(camera); 
-
-                //创建长方体，设置为红色
-                var cube = new THREE.Mesh(new THREE.CubeGeometry(1, 2, 3), 
-            new THREE.MeshBasicMaterial(&#123; 
-                color: 0xff0000 
-                &#125;) 
-                ); 
-                scene.add(cube); 
-
-                //渲染
-                renderer.render(scene, camera); 
-            &#125;
-        &lt;/script&gt;
-    &lt;/head&gt;
-    &lt;body onload=&quot;init()&quot;&gt;
-        &lt;!--页面加载后执行init函数--&gt;
-
-        &lt;canvas id=&quot;mainCanvas&quot; width=&quot;400px&quot; height=&quot;300px&quot;&gt;&lt;/canvas&gt;
-
-    &lt;/body&gt;
-&lt;/html&gt;</code></pre>
-<h2 id="实例2："><a href="#实例2：" class="headerlink" title="实例2："></a>实例2：</h2><p>预览图：</p>
-<p><img src="http://wx3.sinaimg.cn/mw690/e42e0766gy1fddmkw1pvrj20b408c747.jpg"></p>
-<p>设置照相机的位置：</p>
-<pre><code>camera.position.set(4, 3, 5); //设置照相机的位置
-camera.lookAt(new THREE.Vector3(0, 0, 0)); </code></pre>
-<p>示意图：</p>
-<p><img src="http://wx1.sinaimg.cn/mw690/e42e0766gy1fddmxmbv4qj20qd0hzq35.jpg"></p>
-<p>完整代码如下：</p>
-<pre><code>&lt;!DOCTYPE html&gt;
-&lt;html&gt;
-    &lt;head&gt;
-        &lt;meta charset=&quot;UTF-8&quot;&gt;
-        &lt;title&gt;&lt;/title&gt;
-        &lt;script src=&quot;three.js&quot;&gt;&lt;/script&gt;
-        &lt;script&gt;
-            //正交投影照相机（Orthographic Camera）
-            //
-
-            function init()&#123;
-                //渲染器WebGLRenderer
-                var renderer= new THREE.WebGLRenderer(&#123;
-                    canvas: document.getElementById(&#39;mainCanvas&#39;)
-                    //指定id的canvas标签
-                &#125;)
-                renderer.setClearColor(0x000000); 
-
-                //创建场景
-                var scene= new THREE.Scene();
-
-                //创建照相机，并添加到场景中
-                var camera = new THREE.OrthographicCamera(-2, 2, 1.5, -1.5, 1, 10);
-                camera.position.set(4, 3, 5); //设置照相机的位置，在此位置上有新视角！
-                camera.lookAt(new THREE.Vector3(0, 0, 0)); //设置照相机向着原点而非z轴负方向。
-                scene.add(camera); 
-
-                //创建长方体，设置为红色
-                var cube = new THREE.Mesh(new THREE.CubeGeometry(1, 1, 3), 
-                    new THREE.MeshBasicMaterial(&#123; 
-                        color: 0xff0000,
-                        wireframe:true
-                    &#125;) 
-                ); 
-                scene.add(cube); 
-
-                //渲染
-                renderer.render(scene, camera); 
-            &#125;
-        &lt;/script&gt;
-    &lt;/head&gt;
-    &lt;body onload=&quot;init()&quot;&gt;
-        &lt;!--页面加载后执行init函数--&gt;
-
-        &lt;canvas id=&quot;mainCanvas&quot; width=&quot;400px&quot; height=&quot;300px&quot;&gt;&lt;/canvas&gt;
-
-    &lt;!--WebGL No.1 - Three.js 入门--&gt;
-    &lt;/body&gt;
-&lt;/html&gt;</code></pre>
-<p>1</p>
-]]></content>
-      <categories>
-        <category>FrontEnd</category>
-      </categories>
-      <tags>
-        <tag>FrontEnd</tag>
-        <tag>ThreeJS</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Github+Yelee搭建博客过程</title>
-    <url>/posts/6af0570c/</url>
-    <content><![CDATA[<h2 id="intro">前言</h2>本篇文章记录了自己在学习用 <b>Github+Yelee</b> 搭建博客的过程中的各种尝试和思考。
-<a id="more"></a>
-
-<p>周一（20170213）早上开始在Github上搭建博客。前后花了将近一天的时间，充分了解了博客搭建的原理、步骤，最后动手进行实践。</p>
-<p>第二天继续探索新文章的书写和发布相关的内容，以及标签云、文章分类、文章添加标签、文章置顶显示等方法。</p>
-<p>一、博客的搭建过程</p>
-<blockquote>
-<p>搭建环境准备（包括Node.js和Git环境，GitHub账户的配置）</p>
-<p>安装Hexo</p>
-<p>配置Hexo</p>
-<p>将Hexo与github page 联系起来</p>
-<p><strong>一些坑与注意事项</strong></p>
-</blockquote>
-<p>二、继续探索与完善</p>
-<blockquote>
-<p>添加 404 公益页面</p>
-<p>主题的简单配置</p>
-<p>主题推荐</p>
-<p>添加插件</p>
-</blockquote>
-<h1 id="一、博客的搭建过程"><a href="#一、博客的搭建过程" class="headerlink" title="一、博客的搭建过程"></a>一、博客的搭建过程</h1><h2 id="搭建环境准备"><a href="#搭建环境准备" class="headerlink" title="搭建环境准备"></a>搭建环境准备</h2><h3 id="Node-js-环境"><a href="#Node-js-环境" class="headerlink" title="Node.js 环境"></a>Node.js 环境</h3><p>这里我安装的是 node-v5.10.1-x64.msi，要根据实际情况选择32位或64位版本。</p>
-<p><a href="https://nodejs.org/dist/">下载 Node.js安装文件</a></p>
-<p>可以将安装目录改到D盘，其余默认安装就行。</p>
-<p>安装完成后，同时按住键盘上的Win 和 R</p>
-<p><img src="https://raw.githubusercontent.com/gittig11/Markdown-Pics/master/Github%20Pages%20Setup/Win%2BR.jpg" alt="Win和R"></p>
-<p>打开运行窗口，输入：</p>
-<blockquote>
-<p>$ node -v</p>
-<p>$ npm -v</p>
-</blockquote>
-<p>能查到版本号则说明安装成功。</p>
-<h3 id="Git-环境"><a href="#Git-环境" class="headerlink" title="Git 环境"></a>Git 环境</h3><p><a href="https://git-scm.com/">下载 Git安装文件 官网地址</a></p>
-<p>Git的安装界面</p>
-<p><img src="https://raw.githubusercontent.com/gittig11/Markdown-Pics/master/Github%20Pages%20Setup/Git%E7%9A%84%E5%AE%89%E8%A3%85%E7%95%8C%E9%9D%A2.jpg" alt="Git的安装界面.jpg"></p>
-<p>Git PATH设置</p>
-<p><img src="https://raw.githubusercontent.com/gittig11/Markdown-Pics/master/Github%20Pages%20Setup/Git%20PATH%E8%AE%BE%E7%BD%AE.jpg" alt="Git PATH设置.jpg"></p>
-<p>可以将安装目录改到D盘，其余默认安装就行。<br>安装完成后，打开命令行，输入：</p>
-<blockquote>
-<p>git - -version</p>
-</blockquote>
-<p>查看安装的版本号。</p>
-<h3 id="Github账户的注册和配置"><a href="#Github账户的注册和配置" class="headerlink" title="Github账户的注册和配置"></a>Github账户的注册和配置</h3><p>打开 <a href="https://github.com/">https://github.com/</a>，在下图的框中，分别输入自己的用户名，邮箱，密码。<br>查看邮箱，对于收到的确认邮件<b>点击确认注册的链接</b>，即注册成功！</p>
-<p>接下来是Github配置。</p>
-<p>1、创建仓库</p>
-<p><img src="https://github.com/gittig11/Markdown-Pics/blob/master/Github%20Pages%20Setup/%E5%88%9B%E5%BB%BA%E4%BB%93%E5%BA%93.jpg?raw=true" alt="创建仓库.jpg"></p>
-<p>填写仓库名，仓库名与Owner名称保持一致，<br>比如我填写的是：<b>gittig11.github.io</b></p>
-<p><img src="https://github.com/gittig11/Markdown-Pics/blob/master/Github%20Pages%20Setup/%E5%88%9B%E5%BB%BA%E4%BB%93%E5%BA%93-%E4%BB%93%E5%BA%93%E5%90%8D.png?raw=true" alt="创建仓库-仓库名.png"><br>点击界面右侧的Settings，向下拖动，直到看见GitHub Pages。source 选择的是 <b>master branch</b><br><img src="https://github.com/gittig11/Markdown-Pics/blob/master/Github%20Pages%20Setup/GitHub%20Pages.png?raw=true" alt="GitHub Pages.png"><br>点击save保存。</p>
-<p>这样 Github 的配置就告一段落了。</p>
-<h2 id="安装和配置-Hexo"><a href="#安装和配置-Hexo" class="headerlink" title="安装和配置 Hexo"></a>安装和配置 Hexo</h2><h3 id="安装-Hexo"><a href="#安装-Hexo" class="headerlink" title="安装 Hexo"></a>安装 Hexo</h3><p>可以选择E盘，新建“Hexo”文件夹，<br>在该文件夹中，右键选择</p>
-<p><img src="https://github.com/gittig11/Markdown-Pics/blob/master/Github%20Pages%20Setup/git%E5%8F%B3%E9%94%AE%E9%80%89%E6%8B%A9.png?raw=true" alt="git右键选择"></p>
-<p>接着输入命令：</p>
-<pre><code>$ npm install hexo-cli -g
-$ npm install hexo --save
-$ hexo -v</code></pre>
-<p>查看到下列信息说明安装成功了。</p>
-<pre><code>hexo-cli: 1.0.2
-os: Windows_NT 6.1.7601 win32 x64
-http_parser: 2.6.2
-node: 5.10.1
-v8: 4.6.85.31
-uv: 1.8.0
-zlib: 1.2.8
-ares: 1.10.1-DEV
-icu: 56.1
-modules: 47
-openssl: 1.0.2g</code></pre>
-<h3 id="Hexo的相关配置"><a href="#Hexo的相关配置" class="headerlink" title="Hexo的相关配置"></a>Hexo的相关配置</h3><p>初始化Hexo</p>
-<blockquote>
-<p>$ hexo init</p>
-</blockquote>
-<p>然后输入：</p>
-<blockquote>
-<p>$ npm install</p>
-</blockquote>
-<p>之后 npm 会自动安装你需要的组件，等待npm操作完成即可。</p>
-<h3 id="首次体验-Hexo"><a href="#首次体验-Hexo" class="headerlink" title="首次体验 Hexo"></a>首次体验 Hexo</h3><p>继续之前的操作，同样是在命令行中，</p>
-<p><strong>生成静态页面</strong></p>
-<blockquote>
-<p>$ hexo g</p>
-</blockquote>
-<p><strong>运行本地服务器</strong></p>
-<blockquote>
-<p>$ hexo s</p>
-</blockquote>
-<p>然后会提示：INFO Hexo is running at <a href="http://localhost:4000/">http://localhost:4000/</a>. Press Ctrl+C to stop.</p>
-<p>在浏览器中打开 <a href="http://localhost:4000/">http://localhost:4000/</a>，你将会看到：</p>
-<p><img src="https://github.com/gittig11/Markdown-Pics/blob/master/Github%20Pages%20Setup/localhost.jpg?raw=true" alt="localhost"></p>
-<p>说明Hexo搭建成功了！</p>
-<h3 id="将-Hexo-与-Github-pages-联系起来"><a href="#将-Hexo-与-Github-pages-联系起来" class="headerlink" title="将 Hexo 与 Github pages 联系起来"></a>将 Hexo 与 Github pages 联系起来</h3><p><strong>1、配置Git个人信息</strong></p>
-<blockquote>
-<p>$ git config –global user.name “gittig11”</p>
-<p>$ git config –global user.email “<a href="mailto:&#103;&#x69;&#x74;&#116;&#105;&#x67;&#49;&#49;&#x40;&#49;&#54;&#51;&#x2e;&#x63;&#x6f;&#x6d;">&#103;&#x69;&#x74;&#116;&#105;&#x67;&#49;&#49;&#x40;&#49;&#54;&#51;&#x2e;&#x63;&#x6f;&#x6d;</a>“</p>
-</blockquote>
-<p><strong>2、生成密钥</strong></p>
-<blockquote>
-<p>$ ssh-keygen -t rsa -C “<a href="mailto:&#103;&#105;&#x74;&#116;&#105;&#x67;&#49;&#x31;&#64;&#49;&#54;&#51;&#46;&#x63;&#111;&#109;">&#103;&#105;&#x74;&#116;&#105;&#x67;&#49;&#x31;&#64;&#49;&#54;&#51;&#46;&#x63;&#111;&#109;</a>“</p>
-</blockquote>
-<p><strong>3、粘贴密钥到 Github 上</strong></p>
-<p>第3步会在目录“C:\Users\Administrator.ssh”中生成两个文件：id_rsa 和 id_rsa.pub，</p>
-<p>复制公钥信息并粘贴在 Github 的ssh密钥管理页面。</p>
-<p><img src="https://github.com/gittig11/Markdown-Pics/blob/master/Github%20Pages%20Setup/profile.png?raw=true" alt="profile"></p>
-<p><strong>4、SSH认证</strong></p>
-<blockquote>
-<p>$  ssh -T <a href="mailto:&#103;&#105;&#116;&#64;&#x67;&#x69;&#116;&#x68;&#x75;&#x62;&#x2e;&#99;&#111;&#109;">&#103;&#105;&#116;&#64;&#x67;&#x69;&#116;&#x68;&#x75;&#x62;&#x2e;&#99;&#111;&#109;</a></p>
-</blockquote>
-<p>提示：</p>
-<pre><code>Hi gittig11! You&#39;ve successfully authenticated, but GitHub does not provide shell access.</code></pre>
-<p>则表明成功了！</p>
-<p><strong>5、配置 Deployment</strong></p>
-<p>同样在_config.yml文件中，找到Deployment，然后按照如下修改：</p>
-<pre><code>deploy:
-type: git
-@github.com:yourname/yourname.github.io.git
-branch: master</code></pre>
-<p>参考配置如下:</p>
-<pre><code>deploy:
-  type: git
-  @github.com:gittig11/gittig11.github.io.git
-  branch: master</code></pre>
-<h3 id="写博客、发布文章"><a href="#写博客、发布文章" class="headerlink" title="写博客、发布文章"></a>写博客、发布文章</h3><p>新建一篇博客，在“E:\Hexo”目录中，右键打开 Git bash,</p>
-<blockquote>
-<p>$ hexo new post “title”</p>
-</blockquote>
-<p>这时候在我的 电脑的目录下 E:\hexo\source_posts 将会看到 title.md 文件<br>用MarDown编辑器打开就可以编辑文章了。</p>
-<p>文章编辑好之后，运行生成、部署命令：</p>
-<blockquote>
-<p>$ hexo g   // 生成</p>
-<p>$ hexo d   // 部署</p>
-</blockquote>
-<p> 当然你也可以执行下面的命令，相当于上面两条命令的效果</p>
-<blockquote>
-<p>$ hexo d -g<br>//在部署前先生成</p>
-</blockquote>
-<p>部署成功后，访问你的地址 yourName.github.io（这里我的地址： <a href="https://gittig11.github.io/">https://gittig11.github.io</a>)，将可以看到生成的文章。</p>
-<h2 id="一些坑与注意事项"><a href="#一些坑与注意事项" class="headerlink" title="一些坑与注意事项"></a>一些坑与注意事项</h2><p><strong>1、hexo d 碰到“Deployer not found”?</strong></p>
-<p>需要修改_config.yml 配置文件，将deploy下的“type”字段中的“github”改为“git”。<br>再执行 </p>
-<blockquote>
-<p>npm install hexo-deployer-git –save</p>
-</blockquote>
-<p><strong>2、执行命令 $ ssh -T <a href="mailto:&#x67;&#105;&#116;&#x40;&#x67;&#x69;&#x74;&#104;&#117;&#x62;&#46;&#x63;&#x6f;&#109;">&#x67;&#105;&#116;&#x40;&#x67;&#x69;&#x74;&#104;&#117;&#x62;&#46;&#x63;&#x6f;&#109;</a> 时提示</strong></p>
-<pre><code>Warning: Permanently added the RSA host key for IP address &#39;192.30.253.113&#39; to the list of known hosts.
-Permission denied (publickey).</code></pre>
-<p>原因：没有在Github上粘贴公钥。</p>
-<h1 id="二、继续探索与完善"><a href="#二、继续探索与完善" class="headerlink" title="二、继续探索与完善"></a>二、继续探索与完善</h1><pre><code>……
-……</code></pre>
-]]></content>
-      <categories>
-        <category>FrontEnd</category>
-      </categories>
-      <tags>
-        <tag>FrontEnd</tag>
-        <tag>GitHub</tag>
-        <tag>Hexo</tag>
-        <tag>Markdown</tag>
+        <tag>Reading</tag>
+        <tag>诗词</tag>
       </tags>
   </entry>
 </search>
