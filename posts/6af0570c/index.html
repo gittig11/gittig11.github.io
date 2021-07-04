@@ -44,7 +44,7 @@
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
 <!-- Font-Awesome -->
-<link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.css">
+<link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 
     <link rel="alternate" href="/atom.xml" title="Gittig11&#39;s Blog" type="application/atom+xml">
@@ -55,16 +55,16 @@
 
 
 
-    <link href="//cdn.bootcss.com/animate.css/3.5.1/animate.min.css" rel="stylesheet">
+    <link href="https://cdn.bootcdn.net/ajax/libs/animate.css/3.5.1/animate.min.css" rel="stylesheet">
 
 
 
-    <link href="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet">
+    <link href="https://cdn.bootcdn.net/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet">
 
 
 
-    <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
-    <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-minimal.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/pace.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/themes/blue/pace-theme-minimal.css" rel="stylesheet">
 
 
 
@@ -73,13 +73,13 @@
 
 
 
-<link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet">
+<link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 
 
 <title>Github+Yelee搭建博客过程 | Gittig11&#39;s Blog</title>
 
-<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
-<script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/clipboard.js/1.5.10/clipboard.min.js"></script>
 
 <script>
     var yiliaConfig = {
@@ -90,15 +90,15 @@
         isArchive: false,
         isTag: false,
         isCategory: false,
-        fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
-        scrollreveal: "//cdn.bootcss.com/scrollReveal.js/3.1.4/scrollreveal.min.js",
+        fancybox_js: "https://cdn.bootcdn.net/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js",
+        scrollreveal: "https://cdn.bootcdn.net/ajax/libs/scrollReveal.js/3.1.4/scrollreveal.min.js",
         search: true
     }
 </script>
 
 
     <script>
-        yiliaConfig.jquery_ui = [true, "//cdn.bootcss.com/jqueryui/1.10.4/jquery-ui.min.js", "//cdn.bootcss.com/jqueryui/1.10.4/css/jquery-ui.min.css"];
+        yiliaConfig.jquery_ui = [true, "https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js", "https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css"];
     </script>
 
 
@@ -448,11 +448,11 @@ openssl: 1.0.2g</code></pre>
 <h3 id="将-Hexo-与-Github-pages-联系起来"><a href="#将-Hexo-与-Github-pages-联系起来" class="headerlink" title="将 Hexo 与 Github pages 联系起来"></a>将 Hexo 与 Github pages 联系起来</h3><p><strong>1、配置Git个人信息</strong></p>
 <blockquote>
 <p>$ git config –global user.name “gittig11”</p>
-<p>$ git config –global user.email “<a href="mailto:&#103;&#x69;&#x74;&#116;&#105;&#x67;&#49;&#49;&#x40;&#49;&#54;&#51;&#x2e;&#x63;&#x6f;&#x6d;">&#103;&#x69;&#x74;&#116;&#105;&#x67;&#49;&#49;&#x40;&#49;&#54;&#51;&#x2e;&#x63;&#x6f;&#x6d;</a>“</p>
+<p>$ git config –global user.email “<a href="mailto:&#103;&#x69;&#x74;&#116;&#x69;&#x67;&#x31;&#x31;&#x40;&#x31;&#x36;&#51;&#x2e;&#99;&#x6f;&#x6d;">&#103;&#x69;&#x74;&#116;&#x69;&#x67;&#x31;&#x31;&#x40;&#x31;&#x36;&#51;&#x2e;&#99;&#x6f;&#x6d;</a>“</p>
 </blockquote>
 <p><strong>2、生成密钥</strong></p>
 <blockquote>
-<p>$ ssh-keygen -t rsa -C “<a href="mailto:&#103;&#105;&#x74;&#116;&#105;&#x67;&#49;&#x31;&#64;&#49;&#54;&#51;&#46;&#x63;&#111;&#109;">&#103;&#105;&#x74;&#116;&#105;&#x67;&#49;&#x31;&#64;&#49;&#54;&#51;&#46;&#x63;&#111;&#109;</a>“</p>
+<p>$ ssh-keygen -t rsa -C “<a href="mailto:&#x67;&#105;&#116;&#116;&#105;&#103;&#49;&#x31;&#x40;&#49;&#54;&#x33;&#x2e;&#x63;&#111;&#109;">&#x67;&#105;&#116;&#116;&#105;&#103;&#49;&#x31;&#x40;&#49;&#54;&#x33;&#x2e;&#x63;&#111;&#109;</a>“</p>
 </blockquote>
 <p><strong>3、粘贴密钥到 Github 上</strong></p>
 <p>第3步会在目录“C:\Users\Administrator.ssh”中生成两个文件：id_rsa 和 id_rsa.pub，</p>
@@ -460,7 +460,7 @@ openssl: 1.0.2g</code></pre>
 <p><img src="https://github.com/gittig11/Markdown-Pics/blob/master/Github%20Pages%20Setup/profile.png?raw=true" alt="profile"></p>
 <p><strong>4、SSH认证</strong></p>
 <blockquote>
-<p>$  ssh -T <a href="mailto:&#103;&#105;&#116;&#64;&#x67;&#x69;&#116;&#x68;&#x75;&#x62;&#x2e;&#99;&#111;&#109;">&#103;&#105;&#116;&#64;&#x67;&#x69;&#116;&#x68;&#x75;&#x62;&#x2e;&#99;&#111;&#109;</a></p>
+<p>$  ssh -T <a href="mailto:&#103;&#105;&#116;&#x40;&#x67;&#105;&#116;&#x68;&#x75;&#98;&#x2e;&#x63;&#111;&#109;">&#103;&#105;&#116;&#x40;&#x67;&#105;&#116;&#x68;&#x75;&#98;&#x2e;&#x63;&#111;&#109;</a></p>
 </blockquote>
 <p>提示：</p>
 <pre><code>Hi gittig11! You&#39;ve successfully authenticated, but GitHub does not provide shell access.</code></pre>
@@ -496,7 +496,7 @@ branch: master</code></pre>
 <blockquote>
 <p>npm install hexo-deployer-git –save</p>
 </blockquote>
-<p><strong>2、执行命令 $ ssh -T <a href="mailto:&#x67;&#105;&#116;&#x40;&#x67;&#x69;&#x74;&#104;&#117;&#x62;&#46;&#x63;&#x6f;&#109;">&#x67;&#105;&#116;&#x40;&#x67;&#x69;&#x74;&#104;&#117;&#x62;&#46;&#x63;&#x6f;&#109;</a> 时提示</strong></p>
+<p><strong>2、执行命令 $ ssh -T <a href="mailto:&#103;&#x69;&#x74;&#64;&#x67;&#x69;&#116;&#x68;&#x75;&#x62;&#x2e;&#x63;&#x6f;&#109;">&#103;&#x69;&#x74;&#64;&#x67;&#x69;&#116;&#x68;&#x75;&#x62;&#x2e;&#x63;&#x6f;&#109;</a> 时提示</strong></p>
 <pre><code>Warning: Permanently added the RSA host key for IP address &#39;192.30.253.113&#39; to the list of known hosts.
 Permission denied (publickey).</code></pre>
 <p>原因：没有在Github上粘贴公钥。</p>
@@ -630,7 +630,7 @@ Permission denied (publickey).</code></pre>
         
     </div>
 
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/posts/9fd72d05/">诗词_悼亡诗</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/3c28f200/">毛泽东选集_抗日游击战争的战略问题</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/862e60aa/">毛泽东选集_论持久战</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/a1ffbfe0/">leetcode215_数组中的第K个最大元素</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/5dbffad1/">leetcode347_前K个高频元素</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/5e6c4a65/">计算阶乘 N! 末尾0的数量</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/5de969be/">大整数乘法</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/bcc83ebd/">字符串加密</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/829d94d0/">数组移动所有的0到末尾</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/622ca411/">ThreeJS Learning</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/bd922f6f/">Netease Autoplay</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/6af0570c/">Github+Yelee搭建博客过程</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/posts/9fd72d05/">诗词_悼亡诗</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/3c28f200/">毛泽东选集_抗日游击战争的战略问题</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/862e60aa/">毛泽东选集_论持久战</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/a1ffbfe0/">leetcode215_数组中的第K个最大元素</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/5dbffad1/">leetcode347_前K个高频元素</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/5de969be/">大整数乘法</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/bcc83ebd/">字符串加密</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/5e6c4a65/">计算阶乘 N! 末尾0的数量</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/829d94d0/">数组移动所有的0到末尾</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/622ca411/">ThreeJS Learning</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/bd922f6f/">Netease Autoplay</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/6af0570c/">Github+Yelee搭建博客过程</a></li></ul>
 
 
 
@@ -673,7 +673,7 @@ Permission denied (publickey).</code></pre>
 </footer>
     </div>
     
-<script data-main="/js/main.js" src="//cdn.bootcss.com/require.js/2.2.0/require.min.js"></script>
+<script data-main="/js/main.js" src="https://cdn.bootcdn.net/ajax/libs/require.js/2.2.0/require.min.js"></script>
 
     <script>
         $(document).ready(function() {
@@ -712,7 +712,7 @@ MathJax.Hub.Queue(function() {
 });
 </script>
 
-<script src="//cdn.bootcss.com/mathjax/2.6.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+<script src="https://cdn.bootcdn.net/ajax/libs/mathjax/2.6.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
 </script>
 
 

@@ -10,6 +10,15 @@
     
     
     <url>
+        <loc>https://gittig11.github.io/about/</loc>
+        <lastmod>2021-07-04T08:05:18.403Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    
+    
+    <url>
         <loc>https://gittig11.github.io/404.html</loc>
         <lastmod>2021-04-09T14:55:15.824Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -30,15 +39,6 @@
     <url>
         <loc>https://gittig11.github.io/shuoshuo/</loc>
         <lastmod>2021-03-04T09:43:00.878Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    
-    
-    
-    <url>
-        <loc>https://gittig11.github.io/about/</loc>
-        <lastmod>2021-03-04T09:43:00.876Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
