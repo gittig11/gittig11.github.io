@@ -72,6 +72,23 @@
       </tags>
   </entry>
   <entry>
+    <title>诗词_死水</title>
+    <url>/posts/7fa372eb/</url>
+    <content><![CDATA[<h1 id="原文"><a href="#原文" class="headerlink" title="原文"></a>原文</h1><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">死水</span><br><span class="line"></span><br><span class="line">闻一多</span><br><span class="line"></span><br><span class="line">这是一沟绝望的死水，</span><br><span class="line"></span><br><span class="line">清风吹不起半点漪沦。</span><br><span class="line"></span><br><span class="line">不如多扔些破铜烂铁，</span><br><span class="line"></span><br><span class="line">爽性泼你的剩菜残羹。</span><br><span class="line"></span><br><span class="line">也许铜的要绿成翡翠，</span><br><span class="line"></span><br><span class="line">铁罐上锈出几瓣桃花；</span><br><span class="line"></span><br><span class="line">再让油腻织一层罗绮，</span><br><span class="line"></span><br><span class="line">霉菌给他蒸出些云霞。</span><br><span class="line"></span><br><span class="line">让死水酵成一沟绿酒，</span><br><span class="line"></span><br><span class="line">漂满了珍珠似的白沫；</span><br><span class="line"></span><br><span class="line">小珠们笑声变成大珠，</span><br><span class="line"></span><br><span class="line">又被偷酒的花蚊咬破。</span><br><span class="line"></span><br><span class="line">那么一沟绝望的死水，</span><br><span class="line"></span><br><span class="line">也就夸得上几分鲜明。</span><br><span class="line"></span><br><span class="line">如果青蛙耐不住寂寞，</span><br><span class="line"></span><br><span class="line">又算死水叫出了歌声。</span><br><span class="line"></span><br><span class="line">这是一沟绝望的死水，</span><br><span class="line"></span><br><span class="line">这里断不是美的所在，</span><br><span class="line"></span><br><span class="line">不如让给丑恶来开垦，</span><br><span class="line"></span><br><span class="line">看它造出个什么世界。</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+
+<h1 id="创作背景"><a href="#创作背景" class="headerlink" title="创作背景"></a>创作背景</h1><p>1922年，诗人怀着报效祖国的志向去美国留学。在异国的土地上，诗人尝到了华人被凌辱、歧视的辛酸。1925年，诗人怀着一腔强烈爱国之情和殷切的期望提前回国。然而，回国后呈现在他面前的祖国却是一幅令人极度失望的景象——军阀混战、帝国主义横行，以至于诗人的感情由失望、痛苦转至极度的愤怒。《死水》一诗就是在这种情况下创作的。</p>
+<h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>通过对“半封建半殖民地旧中国”多角度、多层面的谱写，揭露和讽刺了腐败不堪的旧社会，表达对当时统治环境的愤懑之情和深沉的爱国主义感情。</p>
+]]></content>
+      <categories>
+        <category>Reading</category>
+      </categories>
+      <tags>
+        <tag>Reading</tag>
+        <tag>诗词</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>毛泽东选集_抗日游击战争的战略问题</title>
     <url>/posts/3c28f200/</url>
     <content><![CDATA[<p>（一九三八年五月）</p>
@@ -358,6 +375,24 @@
       </tags>
   </entry>
   <entry>
+    <title>数组移动所有的0到末尾</title>
+    <url>/posts/829d94d0/</url>
+    <content><![CDATA[<p>链接：<a href="https://www.codewars.com/kata/52597aa56021e91c93000cb0/">Moving Zeros To The End | Codewars</a></p>
+<p>例子：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">moveZeros([false,1,0,1,2,0,1,3,&quot;a&quot;]) </span><br><span class="line">&#x2F;&#x2F; returns[false,1,1,2,1,3,&quot;a&quot;,0,0]</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+
+<p>代码如下：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">function moveZeros(arr)&#123;</span><br><span class="line">    let arrA&#x3D;[]</span><br><span class="line">    let arrB&#x3D;[]</span><br><span class="line">    arr.forEach(function(value, index)&#123;</span><br><span class="line">        if(value&#x3D;&#x3D;&#x3D;0)&#123;</span><br><span class="line">            arrB.push(0)</span><br><span class="line">        &#125;</span><br><span class="line">        else&#123;</span><br><span class="line">            arrA.push(value)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">    let newArr &#x3D; arrA.concat(arrB)</span><br><span class="line">    return newArr</span><br><span class="line">&#125;</span><br><span class="line">console.log(moveZeros([&quot;a&quot;,0,&quot;b&quot;,&quot;c&quot;,&quot;d&quot;,1,1,3,1,9,0,0,9,0,0,0,0,0,0,0]))</span><br><span class="line">其他人的例子：</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 用concat连接两次筛选得到的数组</span><br><span class="line">var moveZeros &#x3D; function (arr) &#123;</span><br><span class="line">  return arr.filter(function(x) &#123;return x !&#x3D;&#x3D; 0&#125;).concat(arr.filter(function(x) &#123;return x &#x3D;&#x3D;&#x3D; 0;&#125;));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 用concat连接两次筛选得到的数组</span><br><span class="line">var moveZeros &#x3D; function (arr) &#123;</span><br><span class="line">  var filtedList &#x3D; arr.filter(function (num)&#123;return num !&#x3D;&#x3D; 0;&#125;);</span><br><span class="line">  var zeroList &#x3D; arr.filter(function (num)&#123;return num &#x3D;&#x3D;&#x3D; 0;&#125;);</span><br><span class="line">  return filtedList.concat(zeroList);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 用concat连接两次筛选得到的数组</span><br><span class="line">var moveZeros &#x3D; function (arr) &#123;</span><br><span class="line">  return arr</span><br><span class="line">    .filter((val) &#x3D;&gt; val !&#x3D;&#x3D; 0)</span><br><span class="line">    .concat(arr.filter((val) &#x3D;&gt; val &#x3D;&#x3D;&#x3D; 0));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 从数组的最后一个元素开始判断，这样就不会出错。不要从头开始。</span><br><span class="line">var moveZeros &#x3D; function (arr) &#123;</span><br><span class="line">  for(var i &#x3D; arr.length - 1; i &gt;&#x3D; 0; i--) &#123;</span><br><span class="line">    if(arr[i] &#x3D;&#x3D;&#x3D; 0) &#123;</span><br><span class="line">      arr.splice(i, 1);</span><br><span class="line">      arr.push(0);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  return arr;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; ES6的剩余参数 ...</span><br><span class="line">&#x2F;&#x2F; ... 可以把数组变为字符串</span><br><span class="line">var moveZeros &#x3D; function (arr) &#123;</span><br><span class="line">  return [</span><br><span class="line">    ...(arr.filter(n &#x3D;&gt; n !&#x3D;&#x3D; 0)),</span><br><span class="line">    ...(arr.filter(n &#x3D;&gt; n &#x3D;&#x3D;&#x3D; 0))</span><br><span class="line">  ];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 要先reverse()</span><br><span class="line">var moveZeros &#x3D; function (arr) &#123;</span><br><span class="line">  return arr.reverse().reduce(function(ret,v)&#123;</span><br><span class="line">    return v &#x3D;&#x3D;&#x3D; 0 ? ret.push(v) : ret.unshift(v), ret;</span><br><span class="line">  &#125;,[]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>Algorithm</category>
+      </categories>
+      <tags>
+        <tag>Algorithm</tag>
+        <tag>CodeWars</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>字符串加密</title>
     <url>/posts/bcc83ebd/</url>
     <content><![CDATA[<p>链接：<a href="https://www.codewars.com/kata/encrypt-this">字符串加密 Encrypt this!</a></p>
@@ -397,24 +432,6 @@
 <p>回到阶乘<code>N!</code>的计算上，计算尾部0的数量：</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">5! &#x3D; 5*4*3*2*1 &#x3D; 120，尾部有1个0，因为只有1个质因数5和3个质因数2；</span><br><span class="line">25! &#x3D; 15511210043330985984000000，尾部有6个0，因为含有6个质因数5；</span><br></pre></td></tr></table></figure>
 ]]></content>
-      <categories>
-        <category>Algorithm</category>
-      </categories>
-      <tags>
-        <tag>Algorithm</tag>
-        <tag>CodeWars</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>数组移动所有的0到末尾</title>
-    <url>/posts/829d94d0/</url>
-    <content><![CDATA[<p>链接：<a href="https://www.codewars.com/kata/52597aa56021e91c93000cb0/">Moving Zeros To The End | Codewars</a></p>
-<p>例子：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">moveZeros([false,1,0,1,2,0,1,3,&quot;a&quot;]) </span><br><span class="line">&#x2F;&#x2F; returns[false,1,1,2,1,3,&quot;a&quot;,0,0]</span><br></pre></td></tr></table></figure>
-<a id="more"></a>
-
-<p>代码如下：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">function moveZeros(arr)&#123;</span><br><span class="line">    let arrA&#x3D;[]</span><br><span class="line">    let arrB&#x3D;[]</span><br><span class="line">    arr.forEach(function(value, index)&#123;</span><br><span class="line">        if(value&#x3D;&#x3D;&#x3D;0)&#123;</span><br><span class="line">            arrB.push(0)</span><br><span class="line">        &#125;</span><br><span class="line">        else&#123;</span><br><span class="line">            arrA.push(value)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">    let newArr &#x3D; arrA.concat(arrB)</span><br><span class="line">    return newArr</span><br><span class="line">&#125;</span><br><span class="line">console.log(moveZeros([&quot;a&quot;,0,&quot;b&quot;,&quot;c&quot;,&quot;d&quot;,1,1,3,1,9,0,0,9,0,0,0,0,0,0,0]))</span><br><span class="line">其他人的例子：</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 用concat连接两次筛选得到的数组</span><br><span class="line">var moveZeros &#x3D; function (arr) &#123;</span><br><span class="line">  return arr.filter(function(x) &#123;return x !&#x3D;&#x3D; 0&#125;).concat(arr.filter(function(x) &#123;return x &#x3D;&#x3D;&#x3D; 0;&#125;));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 用concat连接两次筛选得到的数组</span><br><span class="line">var moveZeros &#x3D; function (arr) &#123;</span><br><span class="line">  var filtedList &#x3D; arr.filter(function (num)&#123;return num !&#x3D;&#x3D; 0;&#125;);</span><br><span class="line">  var zeroList &#x3D; arr.filter(function (num)&#123;return num &#x3D;&#x3D;&#x3D; 0;&#125;);</span><br><span class="line">  return filtedList.concat(zeroList);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 用concat连接两次筛选得到的数组</span><br><span class="line">var moveZeros &#x3D; function (arr) &#123;</span><br><span class="line">  return arr</span><br><span class="line">    .filter((val) &#x3D;&gt; val !&#x3D;&#x3D; 0)</span><br><span class="line">    .concat(arr.filter((val) &#x3D;&gt; val &#x3D;&#x3D;&#x3D; 0));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 从数组的最后一个元素开始判断，这样就不会出错。不要从头开始。</span><br><span class="line">var moveZeros &#x3D; function (arr) &#123;</span><br><span class="line">  for(var i &#x3D; arr.length - 1; i &gt;&#x3D; 0; i--) &#123;</span><br><span class="line">    if(arr[i] &#x3D;&#x3D;&#x3D; 0) &#123;</span><br><span class="line">      arr.splice(i, 1);</span><br><span class="line">      arr.push(0);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  return arr;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; ES6的剩余参数 ...</span><br><span class="line">&#x2F;&#x2F; ... 可以把数组变为字符串</span><br><span class="line">var moveZeros &#x3D; function (arr) &#123;</span><br><span class="line">  return [</span><br><span class="line">    ...(arr.filter(n &#x3D;&gt; n !&#x3D;&#x3D; 0)),</span><br><span class="line">    ...(arr.filter(n &#x3D;&gt; n &#x3D;&#x3D;&#x3D; 0))</span><br><span class="line">  ];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 要先reverse()</span><br><span class="line">var moveZeros &#x3D; function (arr) &#123;</span><br><span class="line">  return arr.reverse().reduce(function(ret,v)&#123;</span><br><span class="line">    return v &#x3D;&#x3D;&#x3D; 0 ? ret.push(v) : ret.unshift(v), ret;</span><br><span class="line">  &#125;,[]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
       <categories>
         <category>Algorithm</category>
       </categories>
@@ -764,11 +781,11 @@ openssl: 1.0.2g</code></pre>
 <h3 id="将-Hexo-与-Github-pages-联系起来"><a href="#将-Hexo-与-Github-pages-联系起来" class="headerlink" title="将 Hexo 与 Github pages 联系起来"></a>将 Hexo 与 Github pages 联系起来</h3><p><strong>1、配置Git个人信息</strong></p>
 <blockquote>
 <p>$ git config –global user.name “gittig11”</p>
-<p>$ git config –global user.email “<a href="mailto:&#103;&#x69;&#x74;&#116;&#x69;&#x67;&#x31;&#x31;&#x40;&#x31;&#x36;&#51;&#x2e;&#99;&#x6f;&#x6d;">&#103;&#x69;&#x74;&#116;&#x69;&#x67;&#x31;&#x31;&#x40;&#x31;&#x36;&#51;&#x2e;&#99;&#x6f;&#x6d;</a>“</p>
+<p>$ git config –global user.email “<a href="mailto:&#103;&#x69;&#116;&#116;&#105;&#103;&#x31;&#x31;&#64;&#x31;&#x36;&#51;&#x2e;&#99;&#x6f;&#109;">&#103;&#x69;&#116;&#116;&#105;&#103;&#x31;&#x31;&#64;&#x31;&#x36;&#51;&#x2e;&#99;&#x6f;&#109;</a>“</p>
 </blockquote>
 <p><strong>2、生成密钥</strong></p>
 <blockquote>
-<p>$ ssh-keygen -t rsa -C “<a href="mailto:&#x67;&#105;&#116;&#116;&#105;&#103;&#49;&#x31;&#x40;&#49;&#54;&#x33;&#x2e;&#x63;&#111;&#109;">&#x67;&#105;&#116;&#116;&#105;&#103;&#49;&#x31;&#x40;&#49;&#54;&#x33;&#x2e;&#x63;&#111;&#109;</a>“</p>
+<p>$ ssh-keygen -t rsa -C “<a href="mailto:&#103;&#x69;&#116;&#x74;&#x69;&#103;&#49;&#49;&#x40;&#x31;&#54;&#x33;&#x2e;&#99;&#111;&#109;">&#103;&#x69;&#116;&#x74;&#x69;&#103;&#49;&#49;&#x40;&#x31;&#54;&#x33;&#x2e;&#99;&#111;&#109;</a>“</p>
 </blockquote>
 <p><strong>3、粘贴密钥到 Github 上</strong></p>
 <p>第3步会在目录“C:\Users\Administrator.ssh”中生成两个文件：id_rsa 和 id_rsa.pub，</p>
@@ -776,7 +793,7 @@ openssl: 1.0.2g</code></pre>
 <p><img src="https://github.com/gittig11/Markdown-Pics/blob/master/Github%20Pages%20Setup/profile.png?raw=true" alt="profile"></p>
 <p><strong>4、SSH认证</strong></p>
 <blockquote>
-<p>$  ssh -T <a href="mailto:&#103;&#105;&#116;&#x40;&#x67;&#105;&#116;&#x68;&#x75;&#98;&#x2e;&#x63;&#111;&#109;">&#103;&#105;&#116;&#x40;&#x67;&#105;&#116;&#x68;&#x75;&#98;&#x2e;&#x63;&#111;&#109;</a></p>
+<p>$  ssh -T <a href="mailto:&#103;&#105;&#116;&#x40;&#x67;&#x69;&#116;&#104;&#117;&#x62;&#46;&#x63;&#111;&#x6d;">&#103;&#105;&#116;&#x40;&#x67;&#x69;&#116;&#104;&#117;&#x62;&#46;&#x63;&#111;&#x6d;</a></p>
 </blockquote>
 <p>提示：</p>
 <pre><code>Hi gittig11! You&#39;ve successfully authenticated, but GitHub does not provide shell access.</code></pre>
@@ -812,7 +829,7 @@ branch: master</code></pre>
 <blockquote>
 <p>npm install hexo-deployer-git –save</p>
 </blockquote>
-<p><strong>2、执行命令 $ ssh -T <a href="mailto:&#103;&#x69;&#x74;&#64;&#x67;&#x69;&#116;&#x68;&#x75;&#x62;&#x2e;&#x63;&#x6f;&#109;">&#103;&#x69;&#x74;&#64;&#x67;&#x69;&#116;&#x68;&#x75;&#x62;&#x2e;&#x63;&#x6f;&#109;</a> 时提示</strong></p>
+<p><strong>2、执行命令 $ ssh -T <a href="mailto:&#103;&#105;&#x74;&#64;&#103;&#x69;&#x74;&#x68;&#117;&#x62;&#x2e;&#x63;&#x6f;&#109;">&#103;&#105;&#x74;&#64;&#103;&#x69;&#x74;&#x68;&#117;&#x62;&#x2e;&#x63;&#x6f;&#109;</a> 时提示</strong></p>
 <pre><code>Warning: Permanently added the RSA host key for IP address &#39;192.30.253.113&#39; to the list of known hosts.
 Permission denied (publickey).</code></pre>
 <p>原因：没有在Github上粘贴公钥。</p>
