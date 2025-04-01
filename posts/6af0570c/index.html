@@ -1,21 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-
-    <!--[if lt IE 9]>
-        <style>body {display: none; background: none !important} </style>
-        <meta http-equiv="Refresh" Content="0; url=//outdatedbrowser.com/" />
-    <![endif]-->
-
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<meta name="format-detection" content="telephone=no" />
-<meta name="author" content="Gittig11" />
-
-
-
-<meta name="description" content="前言本篇文章记录了自己在学习用 Github+Yelee 搭建博客的过程中的各种尝试和思考。">
+  <meta charset="utf-8">
+  
+  
+  <title>Github+Yelee搭建博客过程 | Gittig11&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="前言本篇文章记录了自己在学习用 Github+Yelee 搭建博客的过程中的各种尝试和思考。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Github+Yelee搭建博客过程">
 <meta property="og:url" content="https://gittig11.github.io/posts/6af0570c/index.html">
@@ -34,331 +25,100 @@
 <meta property="article:published_time" content="2017-02-14T16:25:07.000Z">
 <meta property="article:modified_time" content="2024-06-24T09:43:05.283Z">
 <meta property="article:author" content="Gittig11">
-<meta property="article:tag" content="FrontEnd">
 <meta property="article:tag" content="GitHub">
 <meta property="article:tag" content="Hexo">
 <meta property="article:tag" content="Markdown">
+<meta property="article:tag" content="FrontEnd">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://raw.githubusercontent.com/gittig11/Markdown-Pics/master/Github%20Pages%20Setup/Win%2BR.jpg">
+  
+    <link rel="alternate" href="/atom.xml" title="Gittig11's Blog" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
 
-<link rel="apple-touch-icon" href= "/apple-touch-icon.png">
-
-<!-- Font-Awesome -->
-<link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
-
-    <link rel="alternate" href="/atom.xml" title="Gittig11&#39;s Blog" type="application/atom+xml">
-
-
-
-    <link rel="shortcut icon" href="/img/favicon.png">
-
-
-
-    <link href="https://cdn.bootcdn.net/ajax/libs/animate.css/3.5.1/animate.min.css" rel="stylesheet">
-
-
-
-    <link href="https://cdn.bootcdn.net/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet">
-
-
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/pace.min.js"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/themes/blue/pace-theme-minimal.css" rel="stylesheet">
-
-
-
+  
+  
 <link rel="stylesheet" href="/css/style.css">
 
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
 
+  
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.2.0/css/fork-awesome.min.css">
 
+<meta name="generator" content="Hexo 7.3.0"></head>
 
-<link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-
-
-<title>Github+Yelee搭建博客过程 | Gittig11&#39;s Blog</title>
-
-<script src="https://cdn.bootcdn.net/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-<script src="https://cdn.bootcdn.net/ajax/libs/clipboard.js/1.5.10/clipboard.min.js"></script>
-
-<script>
-    var yiliaConfig = {
-        fancybox: true,
-        animate: true,
-        isHome: false,
-        isPost: true,
-        isArchive: false,
-        isTag: false,
-        isCategory: false,
-        fancybox_js: "https://cdn.bootcdn.net/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js",
-        scrollreveal: "https://cdn.bootcdn.net/ajax/libs/scrollReveal.js/3.1.4/scrollreveal.min.js",
-        search: true
-    }
-</script>
-
-
-    <script>
-        yiliaConfig.jquery_ui = [true, "https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js", "https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css"];
-    </script>
-
-
-
-    <script> yiliaConfig.rootUrl = "\/";</script>
-
-
-
-
-
-
-<meta name="generator" content="Hexo 5.3.0"></head>
 <body>
   <div id="container">
-    <div class="left-col">
-    <div class="overlay"></div>
-<div class="intrude-less">
-    <header id="header" class="inner">
-        <a href="/" class="profilepic">
-            <img src="/img/avatar.png" class="animated zoomIn">
-        </a>
-        <hgroup>
-          <h1 class="header-author"><a href="/"></a></h1>
-        </hgroup>
-
-        
-
-        
-            <form id="search-form">
-            <input type="text" id="local-search-input" name="q" placeholder="search..." class="search form-control" autocomplete="off" autocorrect="off" searchonload="false" />
-            <i class="fa fa-times" onclick="resetSearch()"></i>
-            </form>
-            <div id="local-search-result"></div>
-            <p class='no-result'>No results found <i class='fa fa-spinner fa-pulse'></i></p>
-        
-
-
-        
-            <div id="switch-btn" class="switch-btn">
-                <div class="icon">
-                    <div class="icon-ctn">
-                        <div class="icon-wrap icon-house" data-idx="0">
-                            <div class="birdhouse"></div>
-                            <div class="birdhouse_holes"></div>
-                        </div>
-                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
-                            <div class="ribbon"></div>
-                        </div>
-                        
-                        <div class="icon-wrap icon-link hide" data-idx="2">
-                            <div class="loopback_l"></div>
-                            <div class="loopback_r"></div>
-                        </div>
-                        
-                        
-                        <div class="icon-wrap icon-me hide" data-idx="3">
-                            <div class="user"></div>
-                            <div class="shoulder"></div>
-                        </div>
-                        
-                    </div>
-                    
-                </div>
-                <div class="tips-box hide">
-                    <div class="tips-arrow"></div>
-                    <ul class="tips-inner">
-                        <li>Menu</li>
-                        <li>Tags</li>
-                        
-                        <li>Friends</li>
-                        
-                        
-                        <li>About Me</li>
-                        
-                    </ul>
-                </div>
-            </div>
-        
-
-        <div id="switch-area" class="switch-area">
-            <div class="switch-wrap">
-                <section class="switch-part switch-part1">
-                    <nav class="header-menu">
-                        <ul>
-                        
-                            <li><a href="/">Home</a></li>
-                        
-                            <li><a href="/archives/">All</a></li>
-                        
-                            <li><a href="/categories/Algorithm/">Algorithm</a></li>
-                        
-                            <li><a href="/categories/FrontEnd/">Front-End</a></li>
-                        
-                            <li><a href="/categories/Reading/">Reading</a></li>
-                        
-                            <li><a href="/tags/">Tags</a></li>
-                        
-                            <li><a href="/about/">About</a></li>
-                        
-                        </ul>
-                    </nav>
-                    <nav class="header-nav">
-                        <ul class="social">
-                            
-                                <a class="fa fa-github" href="http://gittig11.github.io" title="github"></a>
-                            
-                                <a class="fa fa-rss" href="/atom.xml" title="rss"></a>
-                            
-                                <a class="fa fa-sitemap" href="/sitemap.xml" title="sitemap"></a>
-                            
-                        </ul>
-                    </nav>
-                </section>
-                
-                
-                <section class="switch-part switch-part2">
-                    <div class="widget tagcloud" id="js-tagcloud">
-                        <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Algorithm/" rel="tag">Algorithm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CodeWars/" rel="tag">CodeWars</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/FrontEnd/" rel="tag">FrontEnd</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/GitHub/" rel="tag">GitHub</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Leetcode/" rel="tag">Leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Markdown/" rel="tag">Markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Reading/" rel="tag">Reading</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ThreeJS/" rel="tag">ThreeJS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%AF%9B%E6%B3%BD%E4%B8%9C%E9%80%89%E9%9B%86/" rel="tag">毛泽东选集</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BD%91%E6%98%93%E4%BA%91/" rel="tag">网易云</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AF%97%E8%AF%8D/" rel="tag">诗词</a></li></ul>
-                    </div>
-                </section>
-                
-                
-                
-                <section class="switch-part switch-part3">
-                    <div id="js-friends">
-                    
-                      <a class="main-nav-link switch-friends-link" target="_blank" rel="noopener" href="https://github.com">Github</a>
-                    
-                      <a class="main-nav-link switch-friends-link" target="_blank" rel="noopener" href="http://www.oschina.net">Oschina</a>
-                    
-                      <a class="main-nav-link switch-friends-link" target="_blank" rel="noopener" href="https://segmentfault.com">Segmentfault</a>
-                    
-                      <a class="main-nav-link switch-friends-link" target="_blank" rel="noopener" href="https://www.v2ex.com">V2EX</a>
-                    
-                      <a class="main-nav-link switch-friends-link" target="_blank" rel="noopener" href="http://www.cnblogs.com">Cnblogs</a>
-                    
-                      <a class="main-nav-link switch-friends-link" target="_blank" rel="noopener" href="http://ce.sysu.edu.cn/hope/">厚朴工作室</a>
-                    
-                      <a class="main-nav-link switch-friends-link" target="_blank" rel="noopener" href="http://www.jianshu.com">简书</a>
-                    
-                      <a class="main-nav-link switch-friends-link" target="_blank" rel="noopener" href="http://www.zhihu.com">知乎</a>
-                    
-                      <a class="main-nav-link switch-friends-link" target="_blank" rel="noopener" href="http://huaban.com">花瓣</a>
-                    
-                      <a class="main-nav-link switch-friends-link" target="_blank" rel="noopener" href="https://hexo.io">Hexo</a>
-                    
-                      <a class="main-nav-link switch-friends-link" target="_blank" rel="noopener" href="http://moxfive.xyz/">MOxFIVE</a>
-                    
-                    </div>
-                </section>
-                
-
-                
-                
-                <section class="switch-part switch-part4">
-                
-                    <div id="js-aboutme">Interested in Front-End, Chemistry and new trends of IT.</div>
-                </section>
-                
-            </div>
-        </div>
-    </header>                
-</div>
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Gittig11&#39;s Blog</a>
+      </h1>
+      
     </div>
-    <div class="mid-col">
-      <nav id="mobile-nav">
-      <div class="overlay">
-          <div class="slider-trigger"></div>
-          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页"></a></h1>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://gittig11.github.io"></form>
       </div>
-    <div class="intrude-less">
-        <header id="header" class="inner">
-            <a href="/" class="profilepic">
-                <img src="/img/avatar.png" class="animated zoomIn">
-            </a>
-            <hgroup>
-              <h1 class="header-author"><a href="/" title="回到主页"></a></h1>
-            </hgroup>
-            
-            <nav class="header-menu">
-                <ul>
-                
-                    <li><a href="/">Home</a></li>
-                
-                    <li><a href="/archives/">All</a></li>
-                
-                    <li><a href="/categories/Algorithm/">Algorithm</a></li>
-                
-                    <li><a href="/categories/FrontEnd/">Front-End</a></li>
-                
-                    <li><a href="/categories/Reading/">Reading</a></li>
-                
-                    <li><a href="/tags/">Tags</a></li>
-                
-                    <li><a href="/about/">About</a></li>
-                
-                <div class="clearfix"></div>
-                </ul>
-            </nav>
-            <nav class="header-nav">
-                        <ul class="social">
-                            
-                                <a class="fa fa-github" target="_blank" href="http://gittig11.github.io" title="github"></a>
-                            
-                                <a class="fa fa-rss" target="_blank" href="/atom.xml" title="rss"></a>
-                            
-                                <a class="fa fa-sitemap" target="_blank" href="/sitemap.xml" title="sitemap"></a>
-                            
-                        </ul>
-            </nav>
-        </header>                
     </div>
-    <link class="menu-list" tags="Tags" friends="Friends" about="About Me"/>
-</nav>
-      <div class="body-wrap"><article id="post-Github+Yelee搭建博客过程" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/posts/6af0570c/" class="article-date">
-      <time datetime="2017-02-14T16:25:07.000Z" itemprop="datePublished">2017-02-15</time>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-Github+Yelee搭建博客过程" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/posts/6af0570c/" class="article-date">
+  <time class="dt-published" datetime="2017-02-14T16:25:07.000Z" itemprop="datePublished">2017-02-15</time>
 </a>
-
-
-    </div>
-  
-  <div class="article-inner">
     
-      <input type="hidden" class="isFancy" />
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/FrontEnd/">FrontEnd</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
     
     
       <header class="article-header">
         
   
-    <h1 class="article-title" itemprop="name">
+    <h1 class="p-name article-title" itemprop="headline name">
       Github+Yelee搭建博客过程
     </h1>
   
 
       </header>
-      
-      <div class="article-info article-info-post">
-        
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/FrontEnd/">FrontEnd</a>
-    </div>
-
-
-        
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/FrontEnd/" rel="tag">FrontEnd</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/GitHub/" rel="tag">GitHub</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Markdown/" rel="tag">Markdown</a></li></ul>
-    </div>
-
-        <div class="clearfix"></div>
-      </div>
-      
     
-    <div class="article-entry" itemprop="articleBody">
+    <div class="e-content article-entry" itemprop="articleBody">
       
-          
         <h2 id="intro">前言</h2>本篇文章记录了自己在学习用 <b>Github+Yelee</b> 搭建博客的过程中的各种尝试和思考。
-<a id="more"></a>
+<span id="more"></span>
 
 <p>周一（20170213）早上开始在Github上搭建博客。前后花了将近一天的时间，充分了解了博客搭建的原理、步骤，最后动手进行实践。</p>
 <p>第二天继续探索新文章的书写和发布相关的内容，以及标签云、文章分类、文章添加标签、文章置顶显示等方法。</p>
@@ -410,7 +170,8 @@
 <p>接着输入命令：</p>
 <pre><code>$ npm install hexo-cli -g
 $ npm install hexo --save
-$ hexo -v</code></pre>
+$ hexo -v
+</code></pre>
 <p>查看到下列信息说明安装成功了。</p>
 <pre><code>hexo-cli: 1.0.2
 os: Windows_NT 6.1.7601 win32 x64
@@ -422,7 +183,8 @@ zlib: 1.2.8
 ares: 1.10.1-DEV
 icu: 56.1
 modules: 47
-openssl: 1.0.2g</code></pre>
+openssl: 1.0.2g
+</code></pre>
 <h3 id="Hexo的相关配置"><a href="#Hexo的相关配置" class="headerlink" title="Hexo的相关配置"></a>Hexo的相关配置</h3><p>初始化Hexo</p>
 <blockquote>
 <p>$ hexo init</p>
@@ -448,11 +210,11 @@ openssl: 1.0.2g</code></pre>
 <h3 id="将-Hexo-与-Github-pages-联系起来"><a href="#将-Hexo-与-Github-pages-联系起来" class="headerlink" title="将 Hexo 与 Github pages 联系起来"></a>将 Hexo 与 Github pages 联系起来</h3><p><strong>1、配置Git个人信息</strong></p>
 <blockquote>
 <p>$ git config –global user.name “gittig11”</p>
-<p>$ git config –global user.email “<a href="mailto:&#103;&#x69;&#x74;&#x74;&#x69;&#x67;&#x31;&#49;&#x40;&#49;&#54;&#51;&#46;&#99;&#x6f;&#109;">&#103;&#x69;&#x74;&#x74;&#x69;&#x67;&#x31;&#49;&#x40;&#49;&#54;&#51;&#46;&#99;&#x6f;&#109;</a>“</p>
+<p>$ git config –global user.email “<a href="mailto:&#x67;&#105;&#x74;&#116;&#105;&#x67;&#x31;&#x31;&#x40;&#x31;&#54;&#51;&#x2e;&#x63;&#x6f;&#x6d;">gittig11@163.com</a>“</p>
 </blockquote>
 <p><strong>2、生成密钥</strong></p>
 <blockquote>
-<p>$ ssh-keygen -t rsa -C “<a href="mailto:&#x67;&#105;&#x74;&#x74;&#x69;&#103;&#x31;&#x31;&#64;&#49;&#54;&#x33;&#x2e;&#99;&#x6f;&#x6d;">&#x67;&#105;&#x74;&#x74;&#x69;&#103;&#x31;&#x31;&#64;&#49;&#54;&#x33;&#x2e;&#99;&#x6f;&#x6d;</a>“</p>
+<p>$ ssh-keygen -t rsa -C “<a href="mailto:&#x67;&#x69;&#116;&#116;&#x69;&#103;&#x31;&#x31;&#64;&#x31;&#54;&#51;&#46;&#99;&#x6f;&#109;">gittig11@163.com</a>“</p>
 </blockquote>
 <p><strong>3、粘贴密钥到 Github 上</strong></p>
 <p>第3步会在目录“C:\Users\Administrator.ssh”中生成两个文件：id_rsa 和 id_rsa.pub，</p>
@@ -460,22 +222,25 @@ openssl: 1.0.2g</code></pre>
 <p><img src="https://github.com/gittig11/Markdown-Pics/blob/master/Github%20Pages%20Setup/profile.png?raw=true" alt="profile"></p>
 <p><strong>4、SSH认证</strong></p>
 <blockquote>
-<p>$  ssh -T <a href="mailto:&#103;&#x69;&#116;&#64;&#x67;&#x69;&#x74;&#x68;&#x75;&#98;&#46;&#99;&#x6f;&#109;">&#103;&#x69;&#116;&#64;&#x67;&#x69;&#x74;&#x68;&#x75;&#98;&#46;&#99;&#x6f;&#109;</a></p>
+<p>$  ssh -T <a href="mailto:&#x67;&#105;&#x74;&#x40;&#103;&#105;&#116;&#x68;&#x75;&#98;&#x2e;&#99;&#x6f;&#x6d;">git@github.com</a></p>
 </blockquote>
 <p>提示：</p>
-<pre><code>Hi gittig11! You&#39;ve successfully authenticated, but GitHub does not provide shell access.</code></pre>
+<pre><code>Hi gittig11! You&#39;ve successfully authenticated, but GitHub does not provide shell access.
+</code></pre>
 <p>则表明成功了！</p>
 <p><strong>5、配置 Deployment</strong></p>
 <p>同样在_config.yml文件中，找到Deployment，然后按照如下修改：</p>
 <pre><code>deploy:
 type: git
 @github.com:yourname/yourname.github.io.git
-branch: master</code></pre>
+branch: master
+</code></pre>
 <p>参考配置如下:</p>
 <pre><code>deploy:
   type: git
   @github.com:gittig11/gittig11.github.io.git
-  branch: master</code></pre>
+  branch: master
+</code></pre>
 <h3 id="写博客、发布文章"><a href="#写博客、发布文章" class="headerlink" title="写博客、发布文章"></a>写博客、发布文章</h3><p>新建一篇博客，在“E:\Hexo”目录中，右键打开 Git bash,</p>
 <blockquote>
 <p>$ hexo new post “title”</p>
@@ -483,12 +248,12 @@ branch: master</code></pre>
 <p>这时候在我的 电脑的目录下 E:\hexo\source_posts 将会看到 title.md 文件<br>用MarDown编辑器打开就可以编辑文章了。</p>
 <p>文章编辑好之后，运行生成、部署命令：</p>
 <blockquote>
-<p>$ hexo g   // 生成</p>
-<p>$ hexo d   // 部署</p>
+<p>$ hexo g   &#x2F;&#x2F; 生成</p>
+<p>$ hexo d   &#x2F;&#x2F; 部署</p>
 </blockquote>
 <p> 当然你也可以执行下面的命令，相当于上面两条命令的效果</p>
 <blockquote>
-<p>$ hexo d -g<br>//在部署前先生成</p>
+<p>$ hexo d -g<br>&#x2F;&#x2F;在部署前先生成</p>
 </blockquote>
 <p>部署成功后，访问你的地址 yourName.github.io（这里我的地址： <a href="https://gittig11.github.io/">https://gittig11.github.io</a>)，将可以看到生成的文章。</p>
 <h2 id="一些坑与注意事项"><a href="#一些坑与注意事项" class="headerlink" title="一些坑与注意事项"></a>一些坑与注意事项</h2><p><strong>1、hexo d 碰到“Deployer not found”?</strong></p>
@@ -496,255 +261,161 @@ branch: master</code></pre>
 <blockquote>
 <p>npm install hexo-deployer-git –save</p>
 </blockquote>
-<p><strong>2、执行命令 $ ssh -T <a href="mailto:&#103;&#105;&#x74;&#64;&#x67;&#105;&#116;&#x68;&#117;&#x62;&#x2e;&#99;&#x6f;&#109;">&#103;&#105;&#x74;&#64;&#x67;&#105;&#116;&#x68;&#117;&#x62;&#x2e;&#99;&#x6f;&#109;</a> 时提示</strong></p>
+<p><strong>2、执行命令 $ ssh -T <a href="mailto:&#x67;&#x69;&#116;&#x40;&#103;&#105;&#116;&#104;&#x75;&#x62;&#46;&#x63;&#111;&#109;">git@github.com</a> 时提示</strong></p>
 <pre><code>Warning: Permanently added the RSA host key for IP address &#39;192.30.253.113&#39; to the list of known hosts.
-Permission denied (publickey).</code></pre>
+Permission denied (publickey).
+</code></pre>
 <p>原因：没有在Github上粘贴公钥。</p>
 <h1 id="二、继续探索与完善"><a href="#二、继续探索与完善" class="headerlink" title="二、继续探索与完善"></a>二、继续探索与完善</h1><pre><code>……
-……</code></pre>
+……
+</code></pre>
 
       
     </div>
-    
+    <footer class="article-footer">
+      <a data-url="https://gittig11.github.io/posts/6af0570c/" data-id="cm8xvzjcy000jdccm6e3w302v" data-title="Github+Yelee搭建博客过程" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/FrontEnd/" rel="tag">FrontEnd</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/GitHub/" rel="tag">GitHub</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Markdown/" rel="tag">Markdown</a></li></ul>
+
+    </footer>
   </div>
   
     
-    <div class="copyright">
-        <p><span>Title:</span><a href="/posts/6af0570c/">Github+Yelee搭建博客过程</a></p>
-        <p><span>Author:</span><a href="/" title="Back to Homepage"></a></p>
-        <p><span>Created:</span>2017-02-15, 00:25:07</p>
-        <p><span>Updated:</span>2024-06-24, 17:43:05</p>
-        <p>
-            <span>Full URL:</span><a class="post-url" href="/posts/6af0570c/" title="Github+Yelee搭建博客过程">https://gittig11.github.io/posts/6af0570c/</a>
-            <span class="copy-path" data-clipboard-text="From https://gittig11.github.io/posts/6af0570c/　　By " title="Copy Article&#39;s Link &amp; Author"><i class="fa fa-clipboard"></i></span>
-            <script> var clipboard = new Clipboard('.copy-path'); </script>
-        </p>
-        <p>
-            <span>License:</span><i class="fa fa-creative-commons"></i> <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"CC BY-NC-SA 4.0"</a> Keep Link &amp; Author if Distribute.
-        </p>
-    </div>
-
-
-
-    <nav id="article-nav">
+<nav id="article-nav">
+  
+    <a href="/posts/bd922f6f/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/posts/bd922f6f/">
-                    Netease Autoplay
-                </a>
-            </div>
+          Netease Autoplay
         
-        
-    </nav>
+      </div>
+    </a>
+  
+  
+</nav>
 
   
 </article>
 
-    <div id="toc" class="toc-article">
-        <strong class="toc-title">Contents</strong>
+
+</section>
         
-            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#intro"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E5%8D%9A%E5%AE%A2%E7%9A%84%E6%90%AD%E5%BB%BA%E8%BF%87%E7%A8%8B"><span class="toc-number"></span> <span class="toc-text">一、博客的搭建过程</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%90%AD%E5%BB%BA%E7%8E%AF%E5%A2%83%E5%87%86%E5%A4%87"><span class="toc-number">1.</span> <span class="toc-text">搭建环境准备</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Node-js-%E7%8E%AF%E5%A2%83"><span class="toc-number">1.1.</span> <span class="toc-text">Node.js 环境</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Git-%E7%8E%AF%E5%A2%83"><span class="toc-number">1.2.</span> <span class="toc-text">Git 环境</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Github%E8%B4%A6%E6%88%B7%E7%9A%84%E6%B3%A8%E5%86%8C%E5%92%8C%E9%85%8D%E7%BD%AE"><span class="toc-number">1.3.</span> <span class="toc-text">Github账户的注册和配置</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85%E5%92%8C%E9%85%8D%E7%BD%AE-Hexo"><span class="toc-number">2.</span> <span class="toc-text">安装和配置 Hexo</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85-Hexo"><span class="toc-number">2.1.</span> <span class="toc-text">安装 Hexo</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Hexo%E7%9A%84%E7%9B%B8%E5%85%B3%E9%85%8D%E7%BD%AE"><span class="toc-number">2.2.</span> <span class="toc-text">Hexo的相关配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A6%96%E6%AC%A1%E4%BD%93%E9%AA%8C-Hexo"><span class="toc-number">2.3.</span> <span class="toc-text">首次体验 Hexo</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B0%86-Hexo-%E4%B8%8E-Github-pages-%E8%81%94%E7%B3%BB%E8%B5%B7%E6%9D%A5"><span class="toc-number">2.4.</span> <span class="toc-text">将 Hexo 与 Github pages 联系起来</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%86%99%E5%8D%9A%E5%AE%A2%E3%80%81%E5%8F%91%E5%B8%83%E6%96%87%E7%AB%A0"><span class="toc-number">2.5.</span> <span class="toc-text">写博客、发布文章</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E4%BA%9B%E5%9D%91%E4%B8%8E%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9"><span class="toc-number">3.</span> <span class="toc-text">一些坑与注意事项</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E7%BB%A7%E7%BB%AD%E6%8E%A2%E7%B4%A2%E4%B8%8E%E5%AE%8C%E5%96%84"><span class="toc-number"></span> <span class="toc-text">二、继续探索与完善</span></a>
-        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Algorithm/">Algorithm</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/FrontEnd/">FrontEnd</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Reading/">Reading</a></li></ul>
     </div>
-    <style>
-        .left-col .switch-btn,
-        .left-col .switch-area {
-            display: none;
-        }
-        .toc-level-3 i,
-        .toc-level-3 ol {
-            display: none !important;
-        }
-    </style>
-
-    <input type="button" id="tocButton" value="Hide"  title="Show or Hide Table of Contents">
-
-    <script>
-        yiliaConfig.toc = ["Hide", "Show", !!"false"];
-    </script>
-
-
-
-    
-<div class="share">
-    
-        <div class="bdsharebuttonbox">
-            <a href="#" class="fa fa-twitter bds_twi" data-cmd="twi" title="分享到推特"></a>
-            <a href="#" class="fa fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
-            <a href="#" class="fa fa-qq bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
-            <a href="#" class="fa fa-files-o bds_copy" data-cmd="copy" title="复制网址"></a>
-            <a href="#" class="fa fa fa-envelope-o bds_mail" data-cmd="mail" title="通过邮件分享"></a>
-            <a href="#" class="fa fa-weixin bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
-            <a href="#" class="fa fa-share-alt bds_more" data-cmd="more"></i></a>
-        </div>
-        <script>
-            window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"Github+Yelee搭建博客过程　| Gittig11's Blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
-        </script>
-    
-
-    
-</div>
-
-
-
-
-
-    
-
+  </div>
 
 
   
-    <div id="gitalk-container"></div>
-    <link rel="stylesheet" href="/static/gitalk.min-1.7.0.css" />
-<script src="/static/gitalk.min-1.7.0.js"></script>
-<script type="text/javascript">
-  var gitalk = new Gitalk({
-    clientID: '89fc62973cb09729c056',
-    clientSecret: '0d24bf116566cc3a9a2c036d43f6cee30ff3e5ef',
-    repo: 'gittig11.github.io',
-    owner: 'gittig11',
-    admin: ['gittig11'],
-    id: '8356db3cda587d9735b722aa8c1a8a18',
-    language: 'en',
-    distractionFreeMode: 'true'
-  })
-  gitalk.render('gitalk-container')
-</script>
-  
-
-
-
-
-    <div class="scroll" id="post-nav-button">
-        
-            <a href="/posts/bd922f6f/" title="Pre: Netease Autoplay">
-                <i class="fa fa-angle-left"></i>
-            </a>
-        
-
-        <a title="Mini Archives"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
-
-        
-            <a href="/" title="Back to Homepage"><i class="fa fa-home"></i></a>
-        
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Algorithm/" rel="tag">Algorithm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CodeWars/" rel="tag">CodeWars</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/FrontEnd/" rel="tag">FrontEnd</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/GitHub/" rel="tag">GitHub</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Leetcode/" rel="tag">Leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Markdown/" rel="tag">Markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Reading/" rel="tag">Reading</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ThreeJS/" rel="tag">ThreeJS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%AF%9B%E6%B3%BD%E4%B8%9C%E9%80%89%E9%9B%86/" rel="tag">毛泽东选集</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BD%91%E6%98%93%E4%BA%91/" rel="tag">网易云</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AF%97%E8%AF%8D/" rel="tag">诗词</a></li></ul>
     </div>
-
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/posts/7fa372eb/">诗词_死水</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/9fd72d05/">诗词_悼亡诗</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/3c28f200/">毛泽东选集_抗日游击战争的战略问题</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/862e60aa/">毛泽东选集_论持久战</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/a1ffbfe0/">leetcode215_数组中的第K个最大元素</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/5dbffad1/">leetcode347_前K个高频元素</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/5de969be/">大整数乘法</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/bcc83ebd/">字符串加密</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/5e6c4a65/">计算阶乘 N! 末尾0的数量</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/829d94d0/">数组移动所有的0到末尾</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/622ca411/">ThreeJS Learning</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/bd922f6f/">Netease Autoplay</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/6af0570c/">Github+Yelee搭建博客过程</a></li></ul>
-
+  </div>
 
 
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Algorithm/" style="font-size: 20px;">Algorithm</a> <a href="/tags/CodeWars/" style="font-size: 16.67px;">CodeWars</a> <a href="/tags/FrontEnd/" style="font-size: 13.33px;">FrontEnd</a> <a href="/tags/GitHub/" style="font-size: 10px;">GitHub</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Leetcode/" style="font-size: 13.33px;">Leetcode</a> <a href="/tags/Markdown/" style="font-size: 10px;">Markdown</a> <a href="/tags/Reading/" style="font-size: 16.67px;">Reading</a> <a href="/tags/ThreeJS/" style="font-size: 10px;">ThreeJS</a> <a href="/tags/%E6%AF%9B%E6%B3%BD%E4%B8%9C%E9%80%89%E9%9B%86/" style="font-size: 13.33px;">毛泽东选集</a> <a href="/tags/%E7%BD%91%E6%98%93%E4%BA%91/" style="font-size: 10px;">网易云</a> <a href="/tags/%E8%AF%97%E8%AF%8D/" style="font-size: 13.33px;">诗词</a>
+    </div>
+  </div>
 
-    <script>
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/08/">August 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/04/">April 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
         
-    </script>
-</div>
+          <li>
+            <a href="/posts/7fa372eb/">诗词_死水</a>
+          </li>
+        
+          <li>
+            <a href="/posts/9fd72d05/">诗词_悼亡诗</a>
+          </li>
+        
+          <li>
+            <a href="/posts/3c28f200/">毛泽东选集_抗日游击战争的战略问题</a>
+          </li>
+        
+          <li>
+            <a href="/posts/862e60aa/">毛泽东选集_论持久战</a>
+          </li>
+        
+          <li>
+            <a href="/posts/a1ffbfe0/">leetcode215_数组中的第K个最大元素</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
       <footer id="footer">
-    <div class="outer">
-        <div id="footer-info">
-            <div class="footer-left">
-                <i class="fa fa-copyright"></i> 
-                2017-2024 Gittig11
-            </div>
-            <div class="footer-right">
-                <a href="http://hexo.io/" target="_blank" title="A fast, simple &amp; powerful blog framework">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="Another simple and elegant theme for Hexo  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
-            </div>
-        </div>
-        
-            <div class="visit">
-                
-                    <span id="busuanzi_container_site_pv" style='display:none'>
-                        <span id="site-visit" title="Site Visitors"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
-                        </span>
-                    </span>
-                
-                
-                    <span>| </span>
-                
-                
-                    <span id="busuanzi_container_page_pv" style='display:none'>
-                        <span id="page-visit"  title="Page Hits"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
-                        </span>
-                    </span>
-                
-            </div>
-        
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2025 Gittig11<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
     </div>
+  </div>
 </footer>
+
     </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
     
-<script data-main="/js/main.js" src="https://cdn.bootcdn.net/ajax/libs/require.js/2.2.0/require.min.js"></script>
 
-    <script>
-        $(document).ready(function() {
-            var iPad = window.navigator.userAgent.indexOf('iPad');
-            if (iPad > -1 || $(".left-col").css("display") === "none") {
-                var bgColorList = ["#9db3f4", "#414141", "#e5a859", "#f5dfc6", "#c084a0", "#847e72", "#cd8390", "#996731"];
-                var bgColor = Math.ceil(Math.random() * (bgColorList.length - 1));
-                $("body").css({"background-color": bgColorList[bgColor], "background-size": "cover"});
-            }
-            else {
-                var backgroundnum = 5;
-                var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
-                $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
-            }
-        })
-    </script>
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
 
 
 
 
 
-    <script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-    tex2jax: {
-        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-        processEscapes: true,
-        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-    }
-});
-
-MathJax.Hub.Queue(function() {
-    var all = MathJax.Hub.getAllJax(), i;
-    for(i=0; i < all.length; i += 1) {
-        all[i].SourceElement().parentNode.className += ' has-jax';                 
-    }       
-});
-</script>
-
-<script src="https://cdn.bootcdn.net/ajax/libs/mathjax/2.6.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-</script>
-
-
-<div class="scroll" id="scroll">
-    <a href="#" title="Back to Top"><i class="fa fa-arrow-up"></i></a>
-    <a href="#comments" onclick="load$hide();" title="Comments"><i class="fa fa-comments-o"></i></a>
-    <a href="#footer" title="Go to Bottom"><i class="fa fa-arrow-down"></i></a>
-</div>
-<script>
-    // Open in New Window
-    
-        var oOpenInNew = {
-            
-            
-            
-            
-            
-            
-             archives: ".archive-article-title", 
-             miniArchives: "a.post-list-link", 
-            
-             friends: "#js-friends a", 
-             socail: ".social a" 
-        }
-        for (var x in oOpenInNew) {
-            $(oOpenInNew[x]).attr("target", "_blank");
-        }
-    
-</script>
-
-<script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
-</script>
   </div>
 </body>
 </html>
